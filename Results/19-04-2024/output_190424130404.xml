@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 7.0 (Python 3.8.10 on linux)" generated="2024-04-19T13:04:04.852745" rpa="false" schemaversion="5">
+<suite id="s1" name="lumate1Test" source="/home/ridham/PycharmProjects/LUMATE-AUTOMATION_POC/TestCases/lumate1Test.robot">
+<test id="s1-t1" name="Verify that the user is able to Log in to the Portal with correct credentials" line="10">
+<kw name="Open PMS url on browser" owner="lumate1Resource">
+<kw name="Open Browser" owner="SeleniumLibrary">
+<msg time="2024-04-19T13:04:05.055571" level="INFO">Opening browser 'chrome' to base url 'https://qa-pms.lumatehealth.com/'.</msg>
+<arg>url=${PMS_URL}</arg>
+<arg>browser=${Browser}</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2024-04-19T13:04:05.055220" elapsed="7.603686"/>
+</kw>
+<kw name="Maximize Browser Window" owner="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" start="2024-04-19T13:04:12.659916" elapsed="0.003344"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${LOGIN_PAGE_PMS}</arg>
+<arg>15s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2024-04-19T13:04:12.663689" elapsed="5.350085"/>
+</kw>
+<status status="PASS" start="2024-04-19T13:04:05.054315" elapsed="12.959669"/>
+</kw>
+<kw name="Fill the credentials and login" owner="lumate1Resource">
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2024-04-19T13:04:18.015095" level="INFO">Typing text 'kalpesh' into text field 'xpath://*[@id="mat-input-0"]'.</msg>
+<arg>${USERNAME_PATH_PMS}</arg>
+<arg>${USERNAME_PMS}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2024-04-19T13:04:18.014875" elapsed="0.118309"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2024-04-19T13:04:18.133922" level="INFO">Typing text 'Test1234!' into text field 'xpath://*[@id="mat-input-1"]'.</msg>
+<arg>${PASSWORD_PATH_PMS}</arg>
+<arg>${PASSWORD_PMS}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2024-04-19T13:04:18.133523" elapsed="0.091274"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2024-04-19T13:04:18.225358" level="INFO">Clicking element 'xpath://*[@class="check remember-check"]'.</msg>
+<arg>${REMEMBER_ME}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2024-04-19T13:04:18.225092" elapsed="0.064961"/>
+</kw>
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2024-04-19T13:04:18.290752" level="INFO">Clicking button 'xpath://*[@class="mat-focus-indicator auth-form-btn mat-raised-button mat-button-base mat-primary"]'.</msg>
+<arg>${LOGIN_BTN}</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2024-04-19T13:04:18.290417" elapsed="0.076681"/>
+</kw>
+<kw name="Wait for OTP email" owner="lumate1Resource">
+<kw name="Open Mailbox" owner="ImapLibrary2">
+<arg>host=${EMAIL_SERVER}</arg>
+<arg>user=${EMAIL_USERNAME}</arg>
+<arg>password=${EMAIL_PASSWORD}</arg>
+<doc>Open IMAP email client session to given ``host`` with given ``user`` and ``password``.</doc>
+<status status="PASS" start="2024-04-19T13:04:18.368216" elapsed="1.500351"/>
+</kw>
+<kw name="Wait For Email" owner="ImapLibrary2">
+<msg time="2024-04-19T13:04:20.400283" level="INFO">${email_index} = 1233</msg>
+<var>${email_index}</var>
+<arg>sender=${SENDER_USERNAME}</arg>
+<arg>status=UNSEEN</arg>
+<arg>timeout=300</arg>
+<doc>Wait for email message to arrived base on any given filter criteria.
+Returns email index of the latest email message received.</doc>
+<status status="PASS" start="2024-04-19T13:04:19.869365" elapsed="0.531116"/>
+</kw>
+<kw name="Get Email Body" owner="ImapLibrary2">
+<msg time="2024-04-19T13:04:20.813396" level="INFO">${email_body} = &lt;html xmlns="http://www.w3.org/1999/xhtml" xmlns:o="urn:schemas-microsoft-com:office:office" xmlns:v="urn:schemas-microsoft-com:vml" lang="en"&gt;&lt;head&gt;
+&lt;meta http-equiv="Content-Type" content="text/htm...</msg>
+<var>${email_body}</var>
+<arg>${email_index}</arg>
+<doc>Returns the decoded email body on multipart email message,
+otherwise returns the body text.</doc>
+<status status="PASS" start="2024-04-19T13:04:20.401363" elapsed="0.412103"/>
+</kw>
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2024-04-19T13:04:20.814217" level="INFO">${email_body} = &lt;html xmlns="http://www.w3.org/1999/xhtml" xmlns:o="urn:schemas-microsoft-com:office:office" xmlns:v="urn:schemas-microsoft-com:vml" lang="en"&gt;&lt;head&gt;
+&lt;meta http-equiv="Content-Type" content="text/htm...</msg>
+<var>${email_body}</var>
+<arg>${email_body}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2024-04-19T13:04:20.813757" elapsed="0.000517"/>
+</kw>
+<kw name="Get Regexp Matches" owner="String">
+<msg time="2024-04-19T13:04:20.816240" level="INFO">${otp} = ['353454', '000000', '353454', '916435', '353454', '353454', '000000', '353454', '353454', '353454', '353454', '353454', '353454', '353454', '353454', '353454', '353454']</msg>
+<var>${otp}</var>
+<arg>${email_body}</arg>
+<arg>\\b\\d{6}\\b</arg>
+<doc>Returns a list of all non-overlapping matches in the given string.</doc>
+<status status="PASS" start="2024-04-19T13:04:20.814512" elapsed="0.001777"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2024-04-19T13:04:20.816892" level="INFO">OTP received: 3</msg>
+<arg>OTP received: ${otp}[0][0]</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2024-04-19T13:04:20.816512" elapsed="0.000463"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2024-04-19T13:04:20.817441" level="INFO">OTP received: 5</msg>
+<arg>OTP received: ${otp}[0][1]</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2024-04-19T13:04:20.817198" elapsed="0.000314"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2024-04-19T13:04:20.817921" level="INFO">OTP received: 3</msg>
+<arg>OTP received: ${otp}[0][2]</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2024-04-19T13:04:20.817710" elapsed="0.000294"/>
+</kw>
+<return>
+<value>${otp}[0]</value>
+<status status="PASS" start="2024-04-19T13:04:20.818115" elapsed="0.000097"/>
+</return>
+<msg time="2024-04-19T13:04:20.818442" level="INFO">${OTP} = 353454</msg>
+<var>${OTP}</var>
+<status status="PASS" start="2024-04-19T13:04:18.367734" elapsed="2.450749"/>
+</kw>
+<kw name="Wait Until Element Is Enabled" owner="SeleniumLibrary">
+<arg>${OTP0}</arg>
+<arg>15s</arg>
+<doc>Waits until the element ``locator`` is enabled.</doc>
+<status status="PASS" start="2024-04-19T13:04:20.818689" elapsed="8.551178"/>
+</kw>
+<status status="PASS" start="2024-04-19T13:04:18.014446" elapsed="11.355765"/>
+</kw>
+<status status="PASS" start="2024-04-19T13:04:05.053578" elapsed="24.317417"/>
+</test>
+<status status="PASS" start="2024-04-19T13:04:04.853801" elapsed="24.519198"/>
+</suite>
+<statistics>
+<total>
+<stat pass="1" fail="0" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat pass="1" fail="0" skip="0" id="s1" name="lumate1Test">lumate1Test</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>

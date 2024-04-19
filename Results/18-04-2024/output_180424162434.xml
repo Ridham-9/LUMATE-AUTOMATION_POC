@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 7.0 (Python 3.8.10 on linux)" generated="2024-04-18T16:24:35.082506" rpa="false" schemaversion="5">
+<suite id="s1" name="lumate1Test" source="/home/ridham/PycharmProjects/LUMATE-AUTOMATION_POC/TestCases/lumate1Test.robot">
+<test id="s1-t1" name="Verify that the user is able to Log in to the Portal with correct credentials" line="10">
+<kw name="Open PMS url on browser" owner="lumate1Resource">
+<kw name="Open Browser" owner="SeleniumLibrary">
+<msg time="2024-04-18T16:24:35.408838" level="INFO">Opening browser 'chrome' to base url 'https://qa-pms.lumatehealth.com/'.</msg>
+<arg>url=${PMS_URL}</arg>
+<arg>browser=${Browser}</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2024-04-18T16:24:35.408252" elapsed="11.088049"/>
+</kw>
+<kw name="Maximize Browser Window" owner="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" start="2024-04-18T16:24:46.498202" elapsed="0.008103"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${LOGIN_PAGE_PMS}</arg>
+<arg>15s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2024-04-18T16:24:46.507344" elapsed="8.755721"/>
+</kw>
+<status status="PASS" start="2024-04-18T16:24:35.406677" elapsed="19.856622"/>
+</kw>
+<kw name="Fill the credentials and login" owner="lumate1Resource">
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2024-04-18T16:24:55.264653" level="INFO">Typing text 'kalpesh' into text field 'xpath://*[@id="mat-input-0"]'.</msg>
+<arg>${USERNAME_PATH_PMS}</arg>
+<arg>${USERNAME_PMS}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2024-04-18T16:24:55.264338" elapsed="0.133771"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2024-04-18T16:24:55.398583" level="INFO">Typing text 'Test1234!' into text field 'xpath://*[@id="mat-input-1"]'.</msg>
+<arg>${PASSWORD_PATH_PMS}</arg>
+<arg>${PASSWORD_PMS}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2024-04-18T16:24:55.398332" elapsed="0.093415"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2024-04-18T16:24:55.493083" level="INFO">Clicking element 'xpath://*[@class="check remember-check"]'.</msg>
+<arg>${REMEMBER_ME}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2024-04-18T16:24:55.492363" elapsed="0.076026"/>
+</kw>
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2024-04-18T16:24:55.569376" level="INFO">Clicking button 'xpath://*[@class="mat-focus-indicator auth-form-btn mat-raised-button mat-button-base mat-primary"]'.</msg>
+<arg>${LOGIN_BTN}</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2024-04-18T16:24:55.568924" elapsed="0.080726"/>
+</kw>
+<kw name="Wait for OTP email" owner="lumate1Resource">
+<kw name="Open Mailbox">
+<msg time="2024-04-18T16:24:55.652603" level="FAIL">No keyword with name 'Open Mailbox' found.</msg>
+<arg>host=${EMAIL_SERVER}</arg>
+<arg>user=${EMAIL_USERNAME}</arg>
+<arg>password=${EMAIL_PASSWORD}</arg>
+<status status="FAIL" start="2024-04-18T16:24:55.652532" elapsed="0.000139">No keyword with name 'Open Mailbox' found.</status>
+</kw>
+<kw name="Wait For Email">
+<var>${email_index}</var>
+<arg>sender=${SENDER_USERNAME}</arg>
+<arg>status=UNSEEN</arg>
+<arg>timeout=300</arg>
+<status status="NOT RUN" start="2024-04-18T16:24:55.654219" elapsed="0.000038"/>
+</kw>
+<kw name="Get Email Body">
+<var>${email_body}</var>
+<arg>${email_index}</arg>
+<status status="NOT RUN" start="2024-04-18T16:24:55.655662" elapsed="0.000033"/>
+</kw>
+<kw name="Get Regexp Matches">
+<var>${otp}</var>
+<arg>${email_body}</arg>
+<arg>\\b\\d{6}\\b</arg>
+<status status="NOT RUN" start="2024-04-18T16:24:55.657435" elapsed="0.000064"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<arg>OTP received: ${otp}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="NOT RUN" start="2024-04-18T16:24:55.657767" elapsed="0.000047"/>
+</kw>
+<return>
+<value>${otp}[1]</value>
+<status status="NOT RUN" start="2024-04-18T16:24:55.657911" elapsed="0.000047"/>
+</return>
+<var>${OTP}</var>
+<status status="FAIL" start="2024-04-18T16:24:55.650053" elapsed="0.008075">No keyword with name 'Open Mailbox' found.</status>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<arg>${OTP_PMS}</arg>
+<arg>${OTP}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="NOT RUN" start="2024-04-18T16:24:55.658319" elapsed="0.000042"/>
+</kw>
+<kw name="Click Button" owner="SeleniumLibrary">
+<arg>${VALIDATE_OTP}</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="NOT RUN" start="2024-04-18T16:24:55.658530" elapsed="0.000040"/>
+</kw>
+<status status="FAIL" start="2024-04-18T16:24:55.263841" elapsed="0.394858">No keyword with name 'Open Mailbox' found.</status>
+</kw>
+<status status="FAIL" start="2024-04-18T16:24:35.405628" elapsed="20.253387">No keyword with name 'Open Mailbox' found.</status>
+</test>
+<status status="FAIL" start="2024-04-18T16:24:35.083392" elapsed="20.576281"/>
+</suite>
+<statistics>
+<total>
+<stat pass="0" fail="1" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat pass="0" fail="1" skip="0" id="s1" name="lumate1Test">lumate1Test</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>
