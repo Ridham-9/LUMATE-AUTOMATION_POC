@@ -1,6 +1,10 @@
 *** Settings ***
 Library    ImapLibrary2
 Library    String
+#Library    OperatingSystem
+Library    pyperclip
+Library    Collections
+Library    ../PythonLib/copy-paste.py    WITH NAME    CustomKeywords
 Resource   ../Locators/lumate1Locator.robot
 
 *** Keywords ***
@@ -18,20 +22,12 @@ Fill the credentials and login
 
 Enetr OTP and Submit it
     ${otp}=  Wait for OTP email
-    sleep    ${TIMEOUT}
+    CustomKeywords.Copy To Clipboard    ${otp}
+#    Execute JavaScript    document.body.click()
     wait until element is enabled    ${OTP_PMS}    ${TIMEOUT}
-    Input Text        ${OTP_PMS}    ${otp}[0]
-    wait until element is enabled    ${OTP_PMS}    ${TIMEOUT}
-    Input Text        ${OTP_PMS}    ${otp}[1]
-    wait until element is enabled    ${OTP_PMS}    ${TIMEOUT}
-    Input Text        ${OTP_PMS}    ${otp}[2]
-    wait until element is enabled    ${OTP_PMS}    ${TIMEOUT}
-    Input Text        ${OTP_PMS}    ${otp}[3]
-    wait until element is enabled    ${OTP_PMS}    ${TIMEOUT}
-    Input Text        ${OTP_PMS}    ${otp}[4]
-    wait until element is enabled    ${OTP_PMS}    ${TIMEOUT}
-    Input Text        ${OTP_PMS}    ${otp}[5]
+    Press Keys    ${OTP_PMS}    CTRL+V
     Click Button      ${VALIDATE_OTP}
+    sleep    10s
 
 
 Wait for OTP Email
@@ -58,3 +54,63 @@ Creat Appointment and check elements
     sleep    5s
     Element Should Be Visible    ${APPOINTMENT_TYPE}
     Element Should Be Visible    ${BACK_BUTTON}
+
+Patient View Details Screen
+    Click Element    ${PATIENT_SEC}
+    Sleep    5s
+    Click Element    ${VIEW_PATIENT1}
+    Sleep    5s
+    Element Should Be Visible    ${PATIENT_DETAIL}
+
+Patient Edit Details Screen
+    Click Element    ${PATIENT_SEC}
+    Sleep    5s
+    Click Element    ${EDIT_PATIENT1}
+    Sleep    5s
+
+Changing status of billing to ready to bill
+    Click Element    ${UNBILLED_STATUS}
+    Click Element    ${BILLING_STATUS} 
+    Click Element    ${READY_TO_BILL}
+    Click Element    ${YES_FOR_STATUS_CHANGE}
+#    Click Element    ${UNBILLED_STATUS}
+    Sleep    5s
+    Element Should Not Be Visible   ${DETAILED_STATUS}
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    #    Input Text        ${OTP_PMS}    ${otp}[0]
+#    wait until element is enabled    ${OTP_PMS}    ${TIMEOUT}
+#    Input Text        ${OTP_PMS}    ${otp}[1]
+#    wait until element is enabled    ${OTP_PMS}    ${TIMEOUT}
+#    Input Text        ${OTP_PMS}    ${otp}[2]
+#    wait until element is enabled    ${OTP_PMS}    ${TIMEOUT}
+#    Input Text        ${OTP_PMS}    ${otp}[3]
+#    wait until element is enabled    ${OTP_PMS}    ${TIMEOUT}
+#    Input Text        ${OTP_PMS}    ${otp}[4]
+#    wait until element is enabled    ${OTP_PMS}    ${TIMEOUT}
+#    Input Text        ${OTP_PMS}    ${otp}[5]
