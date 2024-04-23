@@ -65,10 +65,12 @@ Verify billing tab
     Patient Edit Details Screen
     Click Element    ${BILLING_SEC}
     Element Should Be Visible    ${BILLING_VIEW}
+    sleep    5s
+
 
 Change billing status
     [Tags]    TC-PCV-005
-    [Setup]    Click Element    ${HOME_SEC}
+    [Setup]    Click Element    ${HOME_SEC_ICON}
     Patient Edit Details Screen
     Click Element    ${BILLING_SEC}
     Sleep    5s

@@ -39,6 +39,11 @@ Wait for OTP Email
     RETURN          ${otp}[3]
 
 
+Wait Until the Update Icon Disappear
+    sleep  100ms
+    Wait Until Element Is Not Visible  ${UpdateIcon}    ${Timeout}
+
+
 verify elements of TC-APP-002 visisble or not
     Element Should Be Visible   //*[@class="appointment-calendar h-100"]    Today
     Element Should Be Visible    ${CREATE_APPOINTMENT}
@@ -70,6 +75,7 @@ Patient Edit Details Screen
 
 Changing status of billing to ready to bill
     Click Element    ${UNBILLED_STATUS}
+    Sleep    3s
     Click Element    ${BILLING_STATUS} 
     Click Element    ${READY_TO_BILL}
     Click Element    ${YES_FOR_STATUS_CHANGE}
