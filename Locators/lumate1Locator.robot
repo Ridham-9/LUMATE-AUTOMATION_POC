@@ -11,6 +11,8 @@ ${EMAIL_SERVER}             imap.gmail.com
 ${EMAIL_USERNAME}           kalpesh.patel@acldigital.com
 ${EMAIL_PASSWORD}           owqrypyaxsypeadf
 ${SENDER_USERNAME}          it.notifications@lumatehealth.com
+${EMAIL_SUBJECT}            Lumate Health Authentication OTP:
+
 
 
 
@@ -50,7 +52,7 @@ ${BASIC_DETAILS}                     xpath://*[@class="mat-ripple mat-tab-label 
 ${BASIC_DETAILS_VIEW}                xpath://*[@class="mat-tab-body-wrapper"]
 ${BILLING_SEC}                       xpath://*[@class="p-a-15"]/li[8]
 ${BILLING_VIEW}                      xpath://*[@class="d-flex billing-cards-overview m-b-30 ng-star-inserted"]
-${BILLING_STATUS}                    xpath:/html/body/app-root/app-main-layout/div/app-clinical-dashboard/section/div/div/div[2]/app-billing/div[2]/mat-tab-group/div/mat-tab-body[1]/div/app-billing-list/mat-drawer-container/mat-drawer-content/div/div/table/tbody/tr/td[4]/mat-form-field
+${BILLING_STATUS}                    xpath://*[@class="mat-cell cdk-cell cdk-column-Status mat-column-Status ng-star-inserted"]/mat-form-field
 ${READY_TO_BILL}                     xpath://*[@role="option"][2]
 ${YES_FOR_STATUS_CHANGE}             xpath://*[@class="wi-183 he-38 b-r-10 bg-primary d-flex align-items-center justify-content-center"]
 ${UNBILLED_STATUS}                   xpath://*[@aria-label="Unbilled"]

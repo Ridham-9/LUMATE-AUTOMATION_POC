@@ -1,0 +1,305 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 7.0 (Python 3.8.10 on linux)" generated="2024-04-24T19:01:20.580425" rpa="false" schemaversion="5">
+<suite id="s1" name="lumate1Test" source="/home/ridham/PycharmProjects/LUMATE-AUTOMATION_POC/TestCases/lumate1Test.robot">
+<kw name="Run Keywords" owner="BuiltIn" type="SETUP">
+<kw name="Open PMS url on browser" owner="lumate1Resource">
+<kw name="Open Browser" owner="SeleniumLibrary">
+<msg time="2024-04-24T19:01:20.716932" level="INFO">Opening browser 'chrome' to base url 'https://qa-pms.lumatehealth.com/'.</msg>
+<arg>url=${PMS_URL}</arg>
+<arg>browser=${Browser}</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2024-04-24T19:01:20.716620" elapsed="5.261423"/>
+</kw>
+<kw name="Maximize Browser Window" owner="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" start="2024-04-24T19:01:25.978780" elapsed="0.006773"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${LOGIN_PAGE_PMS}</arg>
+<arg>15s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2024-04-24T19:01:25.985914" elapsed="4.078914"/>
+</kw>
+<status status="PASS" start="2024-04-24T19:01:20.716319" elapsed="9.348735"/>
+</kw>
+<kw name="Fill the credentials and login" owner="lumate1Resource">
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2024-04-24T19:01:30.066274" level="INFO">Typing text 'kalpesh' into text field 'xpath://*[@id="mat-input-0"]'.</msg>
+<arg>${USERNAME_PATH_PMS}</arg>
+<arg>${USERNAME_PMS}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2024-04-24T19:01:30.065966" elapsed="0.120975"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2024-04-24T19:01:30.187720" level="INFO">Typing text 'Test1234!' into text field 'xpath://*[@id="mat-input-1"]'.</msg>
+<arg>${PASSWORD_PATH_PMS}</arg>
+<arg>${PASSWORD_PMS}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2024-04-24T19:01:30.187315" elapsed="0.099890"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2024-04-24T19:01:30.288019" level="INFO">Clicking element 'xpath://*[@class="check remember-check"]'.</msg>
+<arg>${REMEMBER_ME}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2024-04-24T19:01:30.287637" elapsed="0.066795"/>
+</kw>
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2024-04-24T19:01:30.355018" level="INFO">Clicking button 'xpath://*[@class="mat-focus-indicator auth-form-btn mat-raised-button mat-button-base mat-primary"]'.</msg>
+<arg>${LOGIN_BTN}</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2024-04-24T19:01:30.354736" elapsed="0.075660"/>
+</kw>
+<status status="PASS" start="2024-04-24T19:01:30.065555" elapsed="0.365063"/>
+</kw>
+<kw name="Enetr OTP and Submit it" owner="lumate1Resource">
+<kw name="Wait for OTP Email" owner="lumate1Resource">
+<kw name="Open Mailbox" owner="ImapLibrary2">
+<arg>host=${EMAIL_SERVER}</arg>
+<arg>user=${EMAIL_USERNAME}</arg>
+<arg>password=${EMAIL_PASSWORD}</arg>
+<doc>Open IMAP email client session to given ``host`` with given ``user`` and ``password``.</doc>
+<status status="PASS" start="2024-04-24T19:01:30.432434" elapsed="1.229947"/>
+</kw>
+<kw name="Wait For Email" owner="ImapLibrary2">
+<msg time="2024-04-24T19:01:32.181416" level="INFO">${email_index} = 1807</msg>
+<var>${email_index}</var>
+<arg>sender=${SENDER_USERNAME}</arg>
+<arg>status=UNSEEN</arg>
+<arg>timeout=300</arg>
+<doc>Wait for email message to arrived base on any given filter criteria.
+Returns email index of the latest email message received.</doc>
+<status status="PASS" start="2024-04-24T19:01:31.663239" elapsed="0.518444"/>
+</kw>
+<kw name="Get Email Body" owner="ImapLibrary2">
+<msg time="2024-04-24T19:01:32.637576" level="INFO">${email_body} = &lt;html xmlns="http://www.w3.org/1999/xhtml" xmlns:o="urn:schemas-microsoft-com:office:office" xmlns:v="urn:schemas-microsoft-com:vml" lang="en"&gt;&lt;head&gt;
+&lt;meta http-equiv="Content-Type" content="text/htm...</msg>
+<var>${email_body}</var>
+<arg>${email_index}</arg>
+<doc>Returns the decoded email body on multipart email message,
+otherwise returns the body text.</doc>
+<status status="PASS" start="2024-04-24T19:01:32.182790" elapsed="0.454954"/>
+</kw>
+<kw name="Get Regexp Matches" owner="String">
+<msg time="2024-04-24T19:01:32.641650" level="INFO">${otp} = ['353454', '000000', '353454', '570542', '353454', '353454', '000000', '353454', '353454', '353454', '353454', '353454', '353454', '353454', '353454', '353454', '353454']</msg>
+<var>${otp}</var>
+<arg>${email_body}</arg>
+<arg>\\b\\d{6}\\b</arg>
+<doc>Returns a list of all non-overlapping matches in the given string.</doc>
+<status status="PASS" start="2024-04-24T19:01:32.638445" elapsed="0.003339"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2024-04-24T19:01:32.643111" level="INFO">OTP received: ['353454', '000000', '353454', '570542', '353454', '353454', '000000', '353454', '353454', '353454', '353454', '353454', '353454', '353454', '353454', '353454', '353454']</msg>
+<arg>OTP received: ${otp}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2024-04-24T19:01:32.642418" elapsed="0.001035"/>
+</kw>
+<return>
+<value>${otp}[3]</value>
+<status status="PASS" start="2024-04-24T19:01:32.643781" elapsed="0.000357"/>
+</return>
+<msg time="2024-04-24T19:01:32.645021" level="INFO">${otp} = 570542</msg>
+<var>${otp}</var>
+<status status="PASS" start="2024-04-24T19:01:30.431831" elapsed="2.213316"/>
+</kw>
+<kw name="Copy To Clipboard" owner="CustomKeywords">
+<arg>${otp}</arg>
+<status status="PASS" start="2024-04-24T19:01:32.645763" elapsed="0.018289"/>
+</kw>
+<kw name="Wait Until Element Is Enabled" owner="SeleniumLibrary">
+<arg>${OTP_PMS}</arg>
+<arg>${TIMEOUT}</arg>
+<doc>Waits until the element ``locator`` is enabled.</doc>
+<status status="PASS" start="2024-04-24T19:01:32.668005" elapsed="8.025259"/>
+</kw>
+<kw name="Press Keys" owner="SeleniumLibrary">
+<msg time="2024-04-24T19:01:40.695056" level="INFO">Sending key(s) ('CTRL+V',) to xpath://*[@class="otp-input ng-pristine ng-valid ng-star-inserted ng-touched"] element.</msg>
+<msg time="2024-04-24T19:01:40.708851" level="INFO">Pressing special key CONTROL down.</msg>
+<msg time="2024-04-24T19:01:40.708984" level="INFO">Sending key V</msg>
+<msg time="2024-04-24T19:01:40.709105" level="INFO">Releasing special key CONTROL.</msg>
+<arg>${OTP_PMS}</arg>
+<arg>CTRL+V</arg>
+<doc>Simulates the user pressing key(s) to an element or on the active browser.</doc>
+<status status="PASS" start="2024-04-24T19:01:40.693935" elapsed="0.315456"/>
+</kw>
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2024-04-24T19:01:41.010277" level="INFO">Clicking button 'xpath://*[@class="mat-focus-indicator auth-form-btn mat-flat-button mat-button-base mat-primary"]'.</msg>
+<arg>${VALIDATE_OTP}</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2024-04-24T19:01:41.009858" elapsed="0.089266"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2024-04-24T19:01:51.100264" level="INFO">Slept 10 seconds.</msg>
+<arg>10s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2024-04-24T19:01:41.099596" elapsed="10.001025"/>
+</kw>
+<status status="PASS" start="2024-04-24T19:01:30.431127" elapsed="20.670009"/>
+</kw>
+<arg>Open PMS Url On Browser</arg>
+<arg>Fill the credentials and login</arg>
+<arg>Enetr OTP and Submit it</arg>
+<doc>Executes all the given keywords in a sequence.</doc>
+<status status="PASS" start="2024-04-24T19:01:20.715894" elapsed="30.385678"/>
+</kw>
+<test id="s1-t1" name="Change billing status" line="71">
+<kw name="Click Element" owner="SeleniumLibrary" type="SETUP">
+<msg time="2024-04-24T19:01:51.106292" level="INFO">Clicking element 'xpath://*[@class="menu overflow-hidden"]/ul/div[1]/li[2]'.</msg>
+<arg>${HOME_SEC_ICON}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2024-04-24T19:01:51.105115" elapsed="0.095688"/>
+</kw>
+<kw name="Patient Edit Details Screen" owner="lumate1Resource">
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2024-04-24T19:01:51.202746" level="INFO">Clicking element 'xpath://*[@class="menu overflow-hidden"]/ul/div[1]/li[4]'.</msg>
+<arg>${PATIENT_SEC}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2024-04-24T19:01:51.202068" elapsed="0.052286"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2024-04-24T19:01:56.255400" level="INFO">Slept 5 seconds.</msg>
+<arg>5s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2024-04-24T19:01:51.254799" elapsed="5.000999"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2024-04-24T19:01:56.257598" level="INFO">Clicking element 'xpath://*[@class="fa-solid fa-pen-to-square font-18 text-white"]'.</msg>
+<arg>${EDIT_PATIENT1}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2024-04-24T19:01:56.256744" elapsed="0.137234"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2024-04-24T19:02:01.394949" level="INFO">Slept 5 seconds.</msg>
+<arg>5s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2024-04-24T19:01:56.394306" elapsed="5.001067"/>
+</kw>
+<status status="PASS" start="2024-04-24T19:01:51.201452" elapsed="10.194381"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2024-04-24T19:02:01.397566" level="INFO">Clicking element 'xpath://*[@class="p-a-15"]/li[8]'.</msg>
+<arg>${BILLING_SEC}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2024-04-24T19:02:01.396774" elapsed="0.240246"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2024-04-24T19:02:06.638255" level="INFO">Slept 5 seconds.</msg>
+<arg>5s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2024-04-24T19:02:01.637467" elapsed="5.001145"/>
+</kw>
+<kw name="Changing status of billing to ready to bill" owner="lumate1Resource">
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2024-04-24T19:02:06.642060" level="INFO">Clicking element 'xpath://*[@aria-label="Unbilled"]'.</msg>
+<arg>${UNBILLED_STATUS}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2024-04-24T19:02:06.641321" elapsed="0.098456"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2024-04-24T19:02:09.740536" level="INFO">Slept 3 seconds.</msg>
+<arg>3s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2024-04-24T19:02:06.740081" elapsed="3.000574"/>
+</kw>
+<kw name="Get Element Count" owner="SeleniumLibrary">
+<msg time="2024-04-24T19:02:09.752729" level="INFO">${COUNT} = 2</msg>
+<var>${COUNT}</var>
+<arg>${DETAILED_STATUS}</arg>
+<doc>Returns the number of elements matching ``locator``.</doc>
+<status status="PASS" start="2024-04-24T19:02:09.740887" elapsed="0.011895"/>
+</kw>
+<for flavor="IN RANGE">
+<iter>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2024-04-24T19:02:09.753514" level="INFO">Clicking element 'xpath://*[@class="mat-cell cdk-cell cdk-column-Status mat-column-Status ng-star-inserted"]/mat-form-field'.</msg>
+<arg>${BILLING_STATUS}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2024-04-24T19:02:09.753325" elapsed="0.079672"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2024-04-24T19:02:09.834217" level="INFO">Clicking element 'xpath://*[@role="option"][2]'.</msg>
+<arg>${READY_TO_BILL}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2024-04-24T19:02:09.833929" elapsed="0.136521"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2024-04-24T19:02:09.971216" level="INFO">Clicking element 'xpath://*[@class="wi-183 he-38 b-r-10 bg-primary d-flex align-items-center justify-content-center"]'.</msg>
+<arg>${YES_FOR_STATUS_CHANGE}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2024-04-24T19:02:09.970910" elapsed="0.075651"/>
+</kw>
+<var name="${i}">0</var>
+<status status="PASS" start="2024-04-24T19:02:09.753169" elapsed="0.293488"/>
+</iter>
+<iter>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2024-04-24T19:02:10.047330" level="INFO">Clicking element 'xpath://*[@class="mat-cell cdk-cell cdk-column-Status mat-column-Status ng-star-inserted"]/mat-form-field'.</msg>
+<kw name="Capture Page Screenshot" owner="SeleniumLibrary">
+<msg time="2024-04-24T19:02:11.466010" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-130.png"&gt;&lt;img src="selenium-screenshot-130.png" width="800px"&gt;&lt;/a&gt;</msg>
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<status status="PASS" start="2024-04-24T19:02:11.242438" elapsed="0.223683"/>
+</kw>
+<msg time="2024-04-24T19:02:11.466313" level="FAIL">ElementClickInterceptedException: Message: element click intercepted: Element &lt;mat-form-field _ngcontent-wws-c459="" appearance="outline" class="mat-form-field w-100 demographics-details-input patient-details max-wi-200 ng-tns-c100-120 mat-primary mat-form-field-type-mat-select mat-form-field-appearance-outline mat-form-field-can-float ng-star-inserted mat-form-field-should-float"&gt;...&lt;/mat-form-field&gt; is not clickable at point (1102, 521). Other element would receive the click: &lt;div class="cdk-overlay-backdrop cdk-overlay-dark-backdrop cdk-overlay-backdrop-showing"&gt;&lt;/div&gt;
+  (Session info: chrome=123.0.6312.122)
+</msg>
+<arg>${BILLING_STATUS}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="FAIL" start="2024-04-24T19:02:10.047027" elapsed="1.431740">ElementClickInterceptedException: Message: element click intercepted: Element &lt;mat-form-field _ngcontent-wws-c459="" appearance="outline" class="mat-form-field w-100 demographics-details-input patient-details max-wi-200 ng-tns-c100-120 mat-primary mat-form-field-type-mat-select mat-form-field-appearance-outline mat-form-field-can-float ng-star-inserted mat-form-field-should-float"&gt;...&lt;/mat-form-field&gt; is not clickable at point (1102, 521). Other element would receive the click: &lt;div class="cdk-overlay-backdrop cdk-overlay-dark-backdrop cdk-overlay-backdrop-showing"&gt;&lt;/div&gt;
+  (Session info: chrome=123.0.6312.122)
+</status>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<arg>${READY_TO_BILL}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="NOT RUN" start="2024-04-24T19:02:11.479031" elapsed="0.000059"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<arg>${YES_FOR_STATUS_CHANGE}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="NOT RUN" start="2024-04-24T19:02:11.479214" elapsed="0.000028"/>
+</kw>
+<var name="${i}">1</var>
+<status status="FAIL" start="2024-04-24T19:02:10.046828" elapsed="1.432512">ElementClickInterceptedException: Message: element click intercepted: Element &lt;mat-form-field _ngcontent-wws-c459="" appearance="outline" class="mat-form-field w-100 demographics-details-input patient-details max-wi-200 ng-tns-c100-120 mat-primary mat-form-field-type-mat-select mat-form-field-appearance-outline mat-form-field-can-float ng-star-inserted mat-form-field-should-float"&gt;...&lt;/mat-form-field&gt; is not clickable at point (1102, 521). Other element would receive the click: &lt;div class="cdk-overlay-backdrop cdk-overlay-dark-backdrop cdk-overlay-backdrop-showing"&gt;&lt;/div&gt;
+  (Session info: chrome=123.0.6312.122)
+</status>
+</iter>
+<var>${i}</var>
+<value>${COUNT}</value>
+<status status="FAIL" start="2024-04-24T19:02:09.752921" elapsed="1.726508">ElementClickInterceptedException: Message: element click intercepted: Element &lt;mat-form-field _ngcontent-wws-c459="" appearance="outline" class="mat-form-field w-100 demographics-details-input patient-details max-wi-200 ng-tns-c100-120 mat-primary mat-form-field-type-mat-select mat-form-field-appearance-outline mat-form-field-can-float ng-star-inserted mat-form-field-should-float"&gt;...&lt;/mat-form-field&gt; is not clickable at point (1102, 521). Other element would receive the click: &lt;div class="cdk-overlay-backdrop cdk-overlay-dark-backdrop cdk-overlay-backdrop-showing"&gt;&lt;/div&gt;
+  (Session info: chrome=123.0.6312.122)
+</status>
+</for>
+<kw name="Sleep" owner="BuiltIn">
+<arg>5s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="NOT RUN" start="2024-04-24T19:02:11.479641" elapsed="0.000033"/>
+</kw>
+<kw name="Element Should Not Be Visible" owner="SeleniumLibrary">
+<arg>${DETAILED_STATUS}</arg>
+<doc>Verifies that the element identified by ``locator`` is NOT visible.</doc>
+<status status="NOT RUN" start="2024-04-24T19:02:11.479801" elapsed="0.000028"/>
+</kw>
+<status status="FAIL" start="2024-04-24T19:02:06.640021" elapsed="4.839925">ElementClickInterceptedException: Message: element click intercepted: Element &lt;mat-form-field _ngcontent-wws-c459="" appearance="outline" class="mat-form-field w-100 demographics-details-input patient-details max-wi-200 ng-tns-c100-120 mat-primary mat-form-field-type-mat-select mat-form-field-appearance-outline mat-form-field-can-float ng-star-inserted mat-form-field-should-float"&gt;...&lt;/mat-form-field&gt; is not clickable at point (1102, 521). Other element would receive the click: &lt;div class="cdk-overlay-backdrop cdk-overlay-dark-backdrop cdk-overlay-backdrop-showing"&gt;&lt;/div&gt;
+  (Session info: chrome=123.0.6312.122)
+</status>
+</kw>
+<tag>TC-PCV-005</tag>
+<status status="FAIL" start="2024-04-24T19:01:51.102216" elapsed="20.377966">ElementClickInterceptedException: Message: element click intercepted: Element &lt;mat-form-field _ngcontent-wws-c459="" appearance="outline" class="mat-form-field w-100 demographics-details-input patient-details max-wi-200 ng-tns-c100-120 mat-primary mat-form-field-type-mat-select mat-form-field-appearance-outline mat-form-field-can-float ng-star-inserted mat-form-field-should-float"&gt;...&lt;/mat-form-field&gt; is not clickable at point (1102, 521). Other element would receive the click: &lt;div class="cdk-overlay-backdrop cdk-overlay-dark-backdrop cdk-overlay-backdrop-showing"&gt;&lt;/div&gt;
+  (Session info: chrome=123.0.6312.122)
+</status>
+</test>
+<status status="FAIL" start="2024-04-24T19:01:20.581461" elapsed="50.899321"/>
+</suite>
+<statistics>
+<total>
+<stat pass="0" fail="1" skip="0">All Tests</stat>
+</total>
+<tag>
+<stat pass="0" fail="1" skip="0">TC-PCV-005</stat>
+</tag>
+<suite>
+<stat pass="0" fail="1" skip="0" id="s1" name="lumate1Test">lumate1Test</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>
