@@ -5,7 +5,7 @@ Resource   ../Resources/lumate1Resource.robot
 
 Suite Setup    Run Keywords        Open PMS Url On Browser
 ...                                Fill the credentials and login
-...                                Enetr OTP and Submit it
+...                                Enter OTP and Submit it
 
 *** Test Cases ***
 

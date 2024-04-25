@@ -1,8 +1,9 @@
 *** Settings ***
 Library    SeleniumLibrary
+Library    BuiltIn
 Library    ImapLibrary2
 Library    String
-#Library    OperatingSystem
+Library    OperatingSystem
 Library    pyperclip
 Library    Collections
 Library    ../PythonLib/copy-paste.py    WITH NAME    CustomKeywords
@@ -21,10 +22,11 @@ Fill the credentials and login
     Click Element     ${REMEMBER_ME}
     Click Button      ${LOGIN_BTN}
 
-Enetr OTP and Submit it
+Enter OTP and Submit it
     ${otp}=  Wait for OTP email
     CustomKeywords.Copy To Clipboard    ${otp}
-#    Execute JavaScript    document.body.click()
+    sleep    5s
+    Click Element    ${OTP_CLICK}
     wait until element is enabled    ${OTP_PMS}    ${TIMEOUT}
     Press Keys    ${OTP_PMS}    CTRL+V
     Click Button      ${VALIDATE_OTP}
@@ -36,8 +38,22 @@ Wait for OTP Email
     ${email_index}=    Wait For Email   sender=${SENDER_USERNAME}  status=UNSEEN   timeout=300
     ${email_body}=      Get Email Body    ${email_index}
     ${otp}=    Get Regexp Matches    ${email_body}    \\b\\d{6}\\b
+    Delete Email    ${email_index}
     Log               OTP received: ${otp}
     RETURN          ${otp}[3]
+
+#
+#    Open Mailbox    host=${GmailHost}    user=${GmailId}    password=${GmailPassword}
+#    ${LATEST} =    Wait For Email    sender=${MailSenderId}    status=UNSEEN    timeout=300
+#    ${HTML} =    Get Email Body    ${LATEST}
+#    ${otpText}    Get Regexp Matches    ${HTML}    \\d{${OtpLength}}
+#    Delete Email         ${LATEST}
+#    Web.Wait Until Element Is Visible    ${OtpTextBox}    ${StandardTimeout}
+#    Web.Input Text       ${OtpTextBox}    ${otpText}[0]
+#    Web.Click Element    ${VerifyOtpButton}
+#    Select the Checkbox if Terms of Use Page is visible
+
+
 
 
 Wait Until the Update Icon Disappear
@@ -78,12 +94,17 @@ Changing status of billing to ready to bill
     Click Element    ${UNBILLED_STATUS}
     Sleep    3s
     ${COUNT}=    Get Element Count    ${DETAILED_STATUS}
-    FOR     ${i}  IN RANGE      ${COUNT}
-        Click Element    ${BILLING_STATUS}
-        Click Element    ${READY_TO_BILL}
-        Click Element    ${YES_FOR_STATUS_CHANGE}
-        Sleep    5s
-    END
+    Run Keyword If    ${COUNT} > 0    
+    ...    Run Keywords
+    ...    Click Element        ${BILLING_STATUS}
+    ...    Click Element        ${READY_TO_BILL}
+    ...    Click Element        ${YES_FOR_STATUS_CHANGE}
+#    FOR     ${i}  IN RANGE      ${COUNT}
+#        Click Element    ${BILLING_STATUS}
+#        Click Element    ${READY_TO_BILL}
+#        Click Element    ${YES_FOR_STATUS_CHANGE}
+#        Sleep    5s
+#    END
 
     Sleep    5s
     Element Should Not Be Visible   ${DETAILED_STATUS}

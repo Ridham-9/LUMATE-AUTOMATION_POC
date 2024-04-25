@@ -29,6 +29,7 @@ ${VALIDATE_OTP}                      xpath://*[@class="mat-focus-indicator auth-
 ${HOMEPAGE_PMS}                      xpath://*[@class="content-block p-a-25 overflow-y-auto"]
 ${OTP_PMS}                           xpath://*[@class="otp-input ng-pristine ng-valid ng-star-inserted ng-touched"]
 ${OTP_PAGE}                          xpath://*[@class="login-heading"]
+${OTP_CLICK}                         xpath://*[@class="information-text resend-otp m-auto p-t-10"]
 ${UpdateIcon}                        xpath://*[@class="ng-tns-c2009170884-0 ng-star-inserted"]
 ${HOME_SEC}                          xpath://*[@class="menu overflow-hidden"]/ul/div[1]/li[3]
 ${HOME_SEC_ICON}                     xpath://*[@class="menu overflow-hidden"]/ul/div[1]/li[2]
