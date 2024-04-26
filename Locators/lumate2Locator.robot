@@ -38,7 +38,7 @@ ${PAY1}                          xpath:/html/body/app-root/ion-app/ion-router-ou
 ${ADD_NEW_CARD}                  xpath://*[@class="mdc-checkbox__native-control"]
 #${CARD_NUMBER_PATH}              xpath:/html/body/div/form/div/div[2]/span[1]/span[2]/div/div[2]/span/input
 #${CARD_NUMBER_PATH}              css:[#root > form > div > div.CardField-input-wrapper > span.CardField-number.CardField-child > span:nth-child(2) > div > div.CardNumberField-input-wrapper > span > input]
-${CARD_NUMBER_PATH}              xpath://input[@class="InputElement is-empty Input Input--empty" and @autocomplete="cc-number" and @autocorrect="off" and @spellcheck="false" and @type="text" and @name="cardnumber" and @data-elements-stable-field-name="cardNumber" and @inputmode="numeric" and @aria-label="Credit or debit card number" and @placeholder="Card number" and @aria-invalid="false" and @tabindex="0" and @value=""]
+${CARD_NUMBER_PATH}              xpath://*[@name="cardnumber"]
 ${CARD_EXPIRY_PATH}              xpath://*[@id="root"]/form/div/div[2]/span[2]/span[1]/span/span
 ${CARD_CVC_PATH}                 xpath://*[@id="root"]/form/div/div[2]/span[2]/span[2]/span/span
 ${NAME_ON_CARD_PATH}             xpath://*[@id="mat-input-0"]

@@ -94,17 +94,17 @@ Changing status of billing to ready to bill
     Click Element    ${UNBILLED_STATUS}
     Sleep    3s
     ${COUNT}=    Get Element Count    ${DETAILED_STATUS}
-    Run Keyword If    ${COUNT} > 0    
-    ...    Run Keywords
-    ...    Click Element        ${BILLING_STATUS}
-    ...    Click Element        ${READY_TO_BILL}
-    ...    Click Element        ${YES_FOR_STATUS_CHANGE}
-#    FOR     ${i}  IN RANGE      ${COUNT}
-#        Click Element    ${BILLING_STATUS}
-#        Click Element    ${READY_TO_BILL}
-#        Click Element    ${YES_FOR_STATUS_CHANGE}
-#        Sleep    5s
-#    END
+#    Run Keyword If    ${COUNT} > 0
+#    ...    Run Keywords
+#    ...    Click Element        ${BILLING_STATUS}
+#    ...    Click Element        ${READY_TO_BILL}
+#    ...    Click Element        ${YES_FOR_STATUS_CHANGE}
+    FOR     ${i}  IN RANGE      ${COUNT}
+        Click Element    ${BILLING_STATUS}
+        Click Element    ${READY_TO_BILL}
+        Click Element    ${YES_FOR_STATUS_CHANGE}
+        Sleep    5s
+    END
 
     Sleep    5s
     Element Should Not Be Visible   ${DETAILED_STATUS}

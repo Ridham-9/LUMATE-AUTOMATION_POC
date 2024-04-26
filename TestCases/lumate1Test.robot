@@ -1,5 +1,6 @@
 *** Settings ***
 Library    SeleniumLibrary
+Library    BuiltIn
 Resource   ../Locators/lumate1Locator.robot
 Resource   ../Resources/lumate1Resource.robot
 

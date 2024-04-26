@@ -71,10 +71,10 @@ Payment Of Clinician1
     Wait Until Element Is Visible        ${BILLING_PAGE}    ${TIMEOUT}
     Wait Until the Update Icon Disappear
     Click Button                         ${PAY1}
-    Wait Until Element Is Visible        ${PAYMENT_POPUP}
+#    Wait Until Element Is Visible        ${PAYMENT_POPUP}
     Wait Until the Update Icon Disappear
     Click Element                        ${ADD_NEW_CARD}
-    Wait Until Element Is Visible        ${CARD_NUMBER_PATH}    60s
+    Wait Until Element Is Visible        ${CARD_NUMBER_PATH}    ${TIMEOUT}
     Input Text        ${CARD_NUMBER_PATH}    ${CARD_NUMBER}
 #    Input Text                           ${CARD_EXPIRY_PATH}    ${CARD_EXPIRY}
 #    Input Text                           ${CARD_CVC_PATH}    ${CARD_CVC}
