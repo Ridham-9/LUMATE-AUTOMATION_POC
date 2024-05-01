@@ -26,7 +26,7 @@ Verify that the user gets redirected to enter OTP page when entered the correct 
 
 Verify the clinician Home Page
     [Tags]    TC-APP-001
-    Enetr OTP and Submit it
+    Enter OTP and Submit it
     Element Should Contain   ${TO-DO_HOME}    TO DO's
     Element Should Contain   ${APPOINTMENT_HOME}    Appointments
 
@@ -34,12 +34,12 @@ Verify the Calender & appointments screen
     [Tags]    TC-APP-002
     Click Element     ${APPOINTMENT_SEC}
     sleep    10s
-    verify elements of TC-APP-002 visisble or not
+    verify elements of TC-APP-002 visible or not
 
 Verify the create an appointment button
     [Tags]    TC-APP-003
     [Setup]    Click Element    ${HOME_SEC}
-    Creat Appointment and check elements
+    Create Appointment And Check Elements
 
 Verify View Patient
     [Tags]    TC-PCV-001

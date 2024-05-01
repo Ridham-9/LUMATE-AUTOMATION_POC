@@ -9,7 +9,7 @@ ${USERNAME_PMS}             kalpesh
 ${PASSWORD_PMS}             Test1234!
 ${EMAIL_SERVER}             imap.gmail.com
 ${EMAIL_USERNAME}           kalpesh.patel@acldigital.com
-${EMAIL_PASSWORD}           owqrypyaxsypeadf
+${EMAIL_PASSWORD}           ksdxbtbgbmekciiz
 ${SENDER_USERNAME}          it.notifications@lumatehealth.com
 ${EMAIL_SUBJECT}            Lumate Health Authentication OTP:
 

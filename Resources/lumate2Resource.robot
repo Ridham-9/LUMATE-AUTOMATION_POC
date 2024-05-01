@@ -32,7 +32,9 @@ Enter OTP and Submit it
     sleep    10s
     Click Element                        ${SELECT_DEPENDENT}
     sleep    10s
-    Click Element    ${SKIP}
+    ${SKIP_BTN}=  Run Keyword And Return Status  Element Should Be Visible    ${SKIP}
+    Log    ${SKIP_BTN}
+    Run Keyword If    ${SKIP_BTN}  Click Element    ${SKIP}
 #
 #Wait for OTP Email
 #    Open Mailbox    host=${EMAIL_SERVER}   user=${EMAIL_USERNAME}   password=${EMAIL_PASSWORD}
@@ -71,7 +73,6 @@ Payment Of Clinician1
     Wait Until Element Is Visible        ${BILLING_PAGE}    ${TIMEOUT}
     Wait Until the Update Icon Disappear
     Click Button                         ${PAY1}
-#    Wait Until Element Is Visible        ${PAYMENT_POPUP}
     Wait Until the Update Icon Disappear
     Click Element                        ${ADD_NEW_CARD}
     Wait Until Element Is Visible        ${CARD_NUMBER_PATH}    ${TIMEOUT}

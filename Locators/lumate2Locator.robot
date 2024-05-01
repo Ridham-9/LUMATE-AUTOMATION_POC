@@ -8,7 +8,7 @@ ${USERNAME_P_PORTAL}             robert.grigsby
 ${PASSWORD_P_PORTAL}             Test1234!
 ${EMAIL_SERVER}                  imap.gmail.com
 ${EMAIL_USERNAME}                kalpesh.patel@acldigital.com
-${EMAIL_PASSWORD}                owqrypyaxsypeadf
+${EMAIL_PASSWORD}                ksdxbtbgbmekciiz
 ${SENDER_USERNAME}               it.notifications@lumatehealth.com
 ${CARD_NUMBER}                   4242424242424242
 ${CARD_EXPIRY}                   0425
@@ -34,11 +34,12 @@ ${CONSENTS}                      xpath://*[@class="consents-container d-grid p-x
 ${BILLING_SECTION}               xpath://*[@class="he-50 d-flex align-items-center cursor-pointer b-r-20 ng-star-inserted"][2]
 ${HOME_SECTION}                  xpath://*[@class="he-50 d-flex align-items-center cursor-pointer b-r-20 ng-star-inserted"][1]
 ${BILLING_PAGE}                  xpath://*[@class="mat-mdc-tab-body-wrapper"]
+${HOME_PAGE}                     xpath://*[@class="main-container p-a-15"]
 ${PAY1}                          xpath:/html/body/app-root/ion-app/ion-router-outlet/app-main/app-billing/div/mat-tab-group/div/mat-tab-body[1]/div/app-statements/div[3]/app-billing-card[1]/div/div[5]/button[2]
 ${ADD_NEW_CARD}                  xpath://*[@class="mdc-checkbox__native-control"]
 #${CARD_NUMBER_PATH}              xpath:/html/body/div/form/div/div[2]/span[1]/span[2]/div/div[2]/span/input
 #${CARD_NUMBER_PATH}              css:[#root > form > div > div.CardField-input-wrapper > span.CardField-number.CardField-child > span:nth-child(2) > div > div.CardNumberField-input-wrapper > span > input]
-${CARD_NUMBER_PATH}              xpath://*[@name="cardnumber"]
+${CARD_NUMBER_PATH}              xpath://*[@placeholder="Card number"]
 ${CARD_EXPIRY_PATH}              xpath://*[@id="root"]/form/div/div[2]/span[2]/span[1]/span/span
 ${CARD_CVC_PATH}                 xpath://*[@id="root"]/form/div/div[2]/span[2]/span[2]/span/span
 ${NAME_ON_CARD_PATH}             xpath://*[@id="mat-input-0"]

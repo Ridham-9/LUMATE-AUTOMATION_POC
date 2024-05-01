@@ -4,9 +4,9 @@ Library    BuiltIn
 Resource   ../Locators/lumate2Locator.robot
 Resource   ../Resources/lumate2Resource.robot
 
-Suite Setup    Run Keywords        Open PMS Url On Browser
-...                                Fill the credentials and login
-...                                Enter OTP and Submit it
+#Suite Setup    Run Keywords        Open PMS Url On Browser
+#...                                Fill the credentials and login
+#...                                Enter OTP and Submit it
 
 *** Test Cases ***
 
@@ -26,6 +26,8 @@ Add consent forms
 
 Bill payment
     [Tags]    TC-PATIENT-003
-#    [Setup]    Click Element    ${HOME_SECTION}
-    Sleep    5s
+#    Wait Until the Update Icon Disappear
+    ${HOME_VERIFY}=  Run Keyword And Return Status  Element Should Not Be Visible    ${HOME_PAGE}
+    Log    ${HOME_VERIFY}
+    Run Keyword If    ${HOME_VERIFY}  Click Element    ${HOME_SECTION}
     Payment Of Clinician1

@@ -61,14 +61,15 @@ Wait Until the Update Icon Disappear
     Wait Until Element Is Not Visible  ${UpdateIcon}    ${Timeout}
 
 
-verify elements of TC-APP-002 visisble or not
+verify elements of TC-APP-002 visible or not
     Element Should Be Visible   //*[@class="appointment-calendar h-100"]    Today
     Element Should Be Visible    ${CREATE_APPOINTMENT}
     Click Button    ${OPEN_RIGHTBAR_FOR_CALANEDER}
     Element Should Be Visible    ${Select_Office}    Select Office
+    Sleep    5s
     Element Should Be Visible    ${Select_Clinicians}    Select Clinicians
 
-Creat Appointment and check elements
+Create Appointment and check elements
     Click Element     ${APPOINTMENT_SEC}
     Click Element     ${CREATE_APPOINTMENT}
     sleep    5s
