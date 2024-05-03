@@ -4,6 +4,7 @@
 
 ${Browser}                  chrome
 ${TIMEOUT}                  30s
+${TIMEOUT_40}               40s
 ${PMS_URL}                  https://qa-pms.lumatehealth.com/
 ${USERNAME_PMS}             kalpesh
 ${PASSWORD_PMS}             Test1234!
@@ -42,6 +43,7 @@ ${Select_Office}                     xpath://*[@class="card border-bottom-0"]
 ${Select_Clinicians}                 xpath://*[@class="d-flex align-items-center"]
 ${States_Field}                      xpath://*[@class="p-x-10 p-y-10 d-flex justify-content-between align-items-center"]
 ${SCHEDULED_APPOINTMENT}             xpath://*[@class="block-header"]
+${APPOINTMENT_CALENDER}              xpath://*[@class="appointment-calendar h-100"]
 ${APPOINTMENT_TYPE}                  xpath://*[@class="p-x-18 col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-6 col-xxl-4"]
 ${BACK_BUTTON}                       xpath://*[@class="d-flex m-a-20"]
 ${PATIENT_SEC}                       xpath://*[@class="menu overflow-hidden"]/ul/div[1]/li[4]

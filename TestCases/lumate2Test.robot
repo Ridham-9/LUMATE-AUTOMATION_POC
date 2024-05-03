@@ -19,15 +19,16 @@ Verify patient signup
 
 Add consent forms
      [Tags]    TC-PATIENT-002
-     Wait Until the Update Icon Disappear
+     Wait Until Element Is Visible    ${VIEW_CONSENT}    ${TIMEOUT}
+     Wait Until The Update Icon Disappear
      Click Element    ${VIEW_CONSENT}
      Wait Until the Update Icon Disappear
      Element Should Be Visible    ${CONSENTS}
 
 Bill payment
     [Tags]    TC-PATIENT-003
-#    Wait Until the Update Icon Disappear
-    ${HOME_VERIFY}=  Run Keyword And Return Status  Element Should Not Be Visible    ${HOME_PAGE}
-    Log    ${HOME_VERIFY}
-    Run Keyword If    ${HOME_VERIFY}  Click Element    ${HOME_SECTION}
+#    [Setup]    Click Element    ${HOME_SECTION}
+    Wait Until the Update Icon Disappear
+    Wait Until the Update Icon Disappear
+    Click Element    ${HOME_SECTION}
     Payment Of Clinician1

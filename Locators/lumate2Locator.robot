@@ -3,6 +3,7 @@
 ################################## VARIABLES ##################################
 ${Browser}                       chrome
 ${TIMEOUT}                       30s
+${TIMEOUT_40}                    40s
 ${P_PORTAL_URL}                  https://qa-lumacare.lumatehealth.com/#/authentication/login
 ${USERNAME_P_PORTAL}             robert.grigsby
 ${PASSWORD_P_PORTAL}             Test1234!
@@ -39,7 +40,7 @@ ${PAY1}                          xpath:/html/body/app-root/ion-app/ion-router-ou
 ${ADD_NEW_CARD}                  xpath://*[@class="mdc-checkbox__native-control"]
 #${CARD_NUMBER_PATH}              xpath:/html/body/div/form/div/div[2]/span[1]/span[2]/div/div[2]/span/input
 #${CARD_NUMBER_PATH}              css:[#root > form > div > div.CardField-input-wrapper > span.CardField-number.CardField-child > span:nth-child(2) > div > div.CardNumberField-input-wrapper > span > input]
-${CARD_NUMBER_PATH}              xpath://*[@placeholder="Card number"]
+${CARD_NUMBER_PATH}              xpath://*[@class="InputElement is-empty Input Input--empty"]
 ${CARD_EXPIRY_PATH}              xpath://*[@id="root"]/form/div/div[2]/span[2]/span[1]/span/span
 ${CARD_CVC_PATH}                 xpath://*[@id="root"]/form/div/div[2]/span[2]/span[2]/span/span
 ${NAME_ON_CARD_PATH}             xpath://*[@id="mat-input-0"]

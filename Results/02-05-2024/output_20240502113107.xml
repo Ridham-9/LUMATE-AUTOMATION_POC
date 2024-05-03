@@ -1,0 +1,571 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 7.0 (Python 3.8.10 on linux)" generated="2024-05-02T11:31:09.008580" rpa="false" schemaversion="5">
+<suite id="s1" name="lumate1Test" source="/home/ridham/PycharmProjects/LUMATE-AUTOMATION_POC/TestCases/lumate1Test.robot">
+<kw name="Run Keywords" owner="BuiltIn" type="SETUP">
+<kw name="Open PMS url on browser" owner="lumate1Resource">
+<kw name="Open Browser" owner="SeleniumLibrary">
+<msg time="2024-05-02T11:31:09.730046" level="INFO">Opening browser 'chrome' to base url 'https://qa-pms.lumatehealth.com/'.</msg>
+<arg>url=${PMS_URL}</arg>
+<arg>browser=${Browser}</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2024-05-02T11:31:09.729611" elapsed="13.550541"/>
+</kw>
+<kw name="Maximize Browser Window" owner="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" start="2024-05-02T11:31:23.281735" elapsed="0.003908"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${LOGIN_PAGE_PMS}</arg>
+<arg>15s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2024-05-02T11:31:23.286075" elapsed="4.349791"/>
+</kw>
+<status status="PASS" start="2024-05-02T11:31:09.729218" elapsed="17.906907"/>
+</kw>
+<kw name="Fill the credentials and login" owner="lumate1Resource">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${USERNAME_PATH_PMS}</arg>
+<arg>15s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2024-05-02T11:31:27.637139" elapsed="0.025563"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2024-05-02T11:31:27.663209" level="INFO">Typing text 'kalpesh' into text field 'xpath://*[@id="mat-input-0"]'.</msg>
+<arg>${USERNAME_PATH_PMS}</arg>
+<arg>${USERNAME_PMS}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2024-05-02T11:31:27.662956" elapsed="0.128874"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2024-05-02T11:31:27.792306" level="INFO">Typing text 'Test1234!' into text field 'xpath://*[@id="mat-input-1"]'.</msg>
+<arg>${PASSWORD_PATH_PMS}</arg>
+<arg>${PASSWORD_PMS}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2024-05-02T11:31:27.792065" elapsed="0.097230"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${REMEMBER_ME}</arg>
+<arg>15s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2024-05-02T11:31:27.889663" elapsed="0.024873"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2024-05-02T11:31:27.915219" level="INFO">Clicking element 'xpath://*[@class="check remember-check"]'.</msg>
+<arg>${REMEMBER_ME}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2024-05-02T11:31:27.914912" elapsed="0.064229"/>
+</kw>
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2024-05-02T11:31:27.979838" level="INFO">Clicking button 'xpath://*[@class="mat-focus-indicator auth-form-btn mat-raised-button mat-button-base mat-primary"]'.</msg>
+<arg>${LOGIN_BTN}</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2024-05-02T11:31:27.979505" elapsed="0.107666"/>
+</kw>
+<status status="PASS" start="2024-05-02T11:31:27.636621" elapsed="0.450733"/>
+</kw>
+<kw name="Enter OTP and Submit it" owner="lumate1Resource">
+<kw name="Wait for OTP Email" owner="lumate1Resource">
+<kw name="Open Mailbox" owner="ImapLibrary2">
+<arg>host=${EMAIL_SERVER}</arg>
+<arg>user=${EMAIL_USERNAME}</arg>
+<arg>password=${EMAIL_PASSWORD}</arg>
+<doc>Open IMAP email client session to given ``host`` with given ``user`` and ``password``.</doc>
+<status status="PASS" start="2024-05-02T11:31:28.088511" elapsed="1.728279"/>
+</kw>
+<kw name="Wait For Email" owner="ImapLibrary2">
+<msg time="2024-05-02T11:31:30.433115" level="INFO">${email_index} = 2236</msg>
+<var>${email_index}</var>
+<arg>sender=${SENDER_USERNAME}</arg>
+<arg>status=UNSEEN</arg>
+<arg>timeout=300</arg>
+<doc>Wait for email message to arrived base on any given filter criteria.
+Returns email index of the latest email message received.</doc>
+<status status="PASS" start="2024-05-02T11:31:29.818051" elapsed="0.615169"/>
+</kw>
+<kw name="Get Email Body" owner="ImapLibrary2">
+<msg time="2024-05-02T11:31:30.976661" level="INFO">${email_body} = &lt;html xmlns="http://www.w3.org/1999/xhtml" xmlns:o="urn:schemas-microsoft-com:office:office" xmlns:v="urn:schemas-microsoft-com:vml" lang="en"&gt;&lt;head&gt;
+&lt;meta http-equiv="Content-Type" content="text/htm...</msg>
+<var>${email_body}</var>
+<arg>${email_index}</arg>
+<doc>Returns the decoded email body on multipart email message,
+otherwise returns the body text.</doc>
+<status status="PASS" start="2024-05-02T11:31:30.433670" elapsed="0.543175"/>
+</kw>
+<kw name="Get Regexp Matches" owner="String">
+<msg time="2024-05-02T11:31:30.980765" level="INFO">${otp} = ['353454', '000000', '353454', '545646', '353454', '353454', '000000', '353454', '353454', '353454', '353454', '353454', '353454', '353454', '353454', '353454', '353454']</msg>
+<var>${otp}</var>
+<arg>${email_body}</arg>
+<arg>\\b\\d{6}\\b</arg>
+<doc>Returns a list of all non-overlapping matches in the given string.</doc>
+<status status="PASS" start="2024-05-02T11:31:30.977641" elapsed="0.003256"/>
+</kw>
+<kw name="Delete Email" owner="ImapLibrary2">
+<arg>${email_index}</arg>
+<doc>Delete email on given ``email_index``.</doc>
+<status status="PASS" start="2024-05-02T11:31:30.981487" elapsed="0.939577"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2024-05-02T11:31:31.922793" level="INFO">OTP received: ['353454', '000000', '353454', '545646', '353454', '353454', '000000', '353454', '353454', '353454', '353454', '353454', '353454', '353454', '353454', '353454', '353454']</msg>
+<arg>OTP received: ${otp}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2024-05-02T11:31:31.921896" elapsed="0.001144"/>
+</kw>
+<return>
+<value>${otp}[3]</value>
+<status status="PASS" start="2024-05-02T11:31:31.923386" elapsed="0.000356"/>
+</return>
+<msg time="2024-05-02T11:31:31.924395" level="INFO">${otp} = 545646</msg>
+<var>${otp}</var>
+<status status="PASS" start="2024-05-02T11:31:28.088153" elapsed="3.836359"/>
+</kw>
+<kw name="Copy To Clipboard" owner="CustomKeywords">
+<arg>${otp}</arg>
+<status status="PASS" start="2024-05-02T11:31:31.925087" elapsed="1.749486"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${OTP_CLICK}</arg>
+<arg>15s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2024-05-02T11:31:33.677367" elapsed="0.054392"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2024-05-02T11:31:33.732365" level="INFO">Clicking element 'xpath://*[@class="information-text resend-otp m-auto p-t-10"]'.</msg>
+<arg>${OTP_CLICK}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2024-05-02T11:31:33.732062" elapsed="0.037286"/>
+</kw>
+<kw name="Wait Until Element Is Enabled" owner="SeleniumLibrary">
+<arg>${OTP_PMS}</arg>
+<arg>${TIMEOUT}</arg>
+<doc>Waits until the element ``locator`` is enabled.</doc>
+<status status="PASS" start="2024-05-02T11:31:33.769851" elapsed="0.024452"/>
+</kw>
+<kw name="Press Keys" owner="SeleniumLibrary">
+<msg time="2024-05-02T11:31:33.795150" level="INFO">Sending key(s) ('CTRL+V',) to xpath://*[@class="otp-input ng-pristine ng-valid ng-star-inserted ng-touched"] element.</msg>
+<msg time="2024-05-02T11:31:33.802387" level="INFO">Pressing special key CONTROL down.</msg>
+<msg time="2024-05-02T11:31:33.802514" level="INFO">Sending key V</msg>
+<msg time="2024-05-02T11:31:33.802622" level="INFO">Releasing special key CONTROL.</msg>
+<arg>${OTP_PMS}</arg>
+<arg>CTRL+V</arg>
+<doc>Simulates the user pressing key(s) to an element or on the active browser.</doc>
+<status status="PASS" start="2024-05-02T11:31:33.794662" elapsed="0.324036"/>
+</kw>
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2024-05-02T11:31:34.119419" level="INFO">Clicking button 'xpath://*[@class="mat-focus-indicator auth-form-btn mat-flat-button mat-button-base mat-primary"]'.</msg>
+<arg>${VALIDATE_OTP}</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2024-05-02T11:31:34.119039" elapsed="0.068669"/>
+</kw>
+<status status="PASS" start="2024-05-02T11:31:28.087729" elapsed="6.100233"/>
+</kw>
+<arg>Open PMS Url On Browser</arg>
+<arg>Fill the credentials and login</arg>
+<arg>Enter OTP and Submit it</arg>
+<doc>Executes all the given keywords in a sequence.</doc>
+<status status="PASS" start="2024-05-02T11:31:09.728659" elapsed="24.459443"/>
+</kw>
+<test id="s1-t1" name="Verify that the user is able to Log in to the Portal with correct credentials" line="13">
+<kw name="Open PMS url on browser" owner="lumate1Resource">
+<kw name="Open Browser" owner="SeleniumLibrary">
+<msg time="2024-05-02T11:31:34.190775" level="INFO">Opening browser 'chrome' to base url 'https://qa-pms.lumatehealth.com/'.</msg>
+<arg>url=${PMS_URL}</arg>
+<arg>browser=${Browser}</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2024-05-02T11:31:34.190217" elapsed="4.521448"/>
+</kw>
+<kw name="Maximize Browser Window" owner="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" start="2024-05-02T11:31:38.712515" elapsed="0.007003"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${LOGIN_PAGE_PMS}</arg>
+<arg>15s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2024-05-02T11:31:38.719863" elapsed="4.810776"/>
+</kw>
+<status status="PASS" start="2024-05-02T11:31:34.189589" elapsed="9.341238"/>
+</kw>
+<kw name="Fill the credentials and login" owner="lumate1Resource">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${USERNAME_PATH_PMS}</arg>
+<arg>15s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2024-05-02T11:31:43.532209" elapsed="0.034585"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2024-05-02T11:31:43.567761" level="INFO">Typing text 'kalpesh' into text field 'xpath://*[@id="mat-input-0"]'.</msg>
+<arg>${USERNAME_PATH_PMS}</arg>
+<arg>${USERNAME_PMS}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2024-05-02T11:31:43.567233" elapsed="0.122875"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2024-05-02T11:31:43.690771" level="INFO">Typing text 'Test1234!' into text field 'xpath://*[@id="mat-input-1"]'.</msg>
+<arg>${PASSWORD_PATH_PMS}</arg>
+<arg>${PASSWORD_PMS}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2024-05-02T11:31:43.690442" elapsed="0.093674"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${REMEMBER_ME}</arg>
+<arg>15s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2024-05-02T11:31:43.784478" elapsed="0.025392"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2024-05-02T11:31:43.810811" level="INFO">Clicking element 'xpath://*[@class="check remember-check"]'.</msg>
+<arg>${REMEMBER_ME}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2024-05-02T11:31:43.810315" elapsed="0.064376"/>
+</kw>
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2024-05-02T11:31:43.875441" level="INFO">Clicking button 'xpath://*[@class="mat-focus-indicator auth-form-btn mat-raised-button mat-button-base mat-primary"]'.</msg>
+<arg>${LOGIN_BTN}</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2024-05-02T11:31:43.875069" elapsed="0.101078"/>
+</kw>
+<status status="PASS" start="2024-05-02T11:31:43.531263" elapsed="0.445048"/>
+</kw>
+<tag>TC-PMS-001</tag>
+<status status="PASS" start="2024-05-02T11:31:34.188346" elapsed="9.788452"/>
+</test>
+<test id="s1-t2" name="Verify that the user gets redirected to enter OTP page when entered the correct credentials." line="19">
+<kw name="Open PMS url on browser" owner="lumate1Resource">
+<kw name="Open Browser" owner="SeleniumLibrary">
+<msg time="2024-05-02T11:31:43.980754" level="INFO">Opening browser 'chrome' to base url 'https://qa-pms.lumatehealth.com/'.</msg>
+<arg>url=${PMS_URL}</arg>
+<arg>browser=${Browser}</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2024-05-02T11:31:43.980173" elapsed="4.740856"/>
+</kw>
+<kw name="Maximize Browser Window" owner="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" start="2024-05-02T11:31:48.722052" elapsed="0.005696"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${LOGIN_PAGE_PMS}</arg>
+<arg>15s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2024-05-02T11:31:48.730195" elapsed="4.481696"/>
+</kw>
+<status status="PASS" start="2024-05-02T11:31:43.979290" elapsed="9.232832"/>
+</kw>
+<kw name="Fill the credentials and login" owner="lumate1Resource">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${USERNAME_PATH_PMS}</arg>
+<arg>15s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2024-05-02T11:31:53.213259" elapsed="0.043263"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2024-05-02T11:31:53.257299" level="INFO">Typing text 'kalpesh' into text field 'xpath://*[@id="mat-input-0"]'.</msg>
+<arg>${USERNAME_PATH_PMS}</arg>
+<arg>${USERNAME_PMS}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2024-05-02T11:31:53.256921" elapsed="0.129203"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2024-05-02T11:31:53.386814" level="INFO">Typing text 'Test1234!' into text field 'xpath://*[@id="mat-input-1"]'.</msg>
+<arg>${PASSWORD_PATH_PMS}</arg>
+<arg>${PASSWORD_PMS}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2024-05-02T11:31:53.386470" elapsed="0.139309"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${REMEMBER_ME}</arg>
+<arg>15s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2024-05-02T11:31:53.527154" elapsed="0.041219"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2024-05-02T11:31:53.569035" level="INFO">Clicking element 'xpath://*[@class="check remember-check"]'.</msg>
+<arg>${REMEMBER_ME}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2024-05-02T11:31:53.568696" elapsed="0.067040"/>
+</kw>
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2024-05-02T11:31:53.636508" level="INFO">Clicking button 'xpath://*[@class="mat-focus-indicator auth-form-btn mat-raised-button mat-button-base mat-primary"]'.</msg>
+<arg>${LOGIN_BTN}</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2024-05-02T11:31:53.636173" elapsed="0.103031"/>
+</kw>
+<status status="PASS" start="2024-05-02T11:31:53.212679" elapsed="0.526700"/>
+</kw>
+<kw name="Wait Until Element Contains" owner="SeleniumLibrary">
+<arg>${OTP_PAGE}</arg>
+<arg>Almost There</arg>
+<arg>${TIMEOUT}</arg>
+<doc>Waits until the element ``locator`` contains ``text``.</doc>
+<status status="PASS" start="2024-05-02T11:31:53.739726" elapsed="2.488104"/>
+</kw>
+<tag>TC-PMS-005</tag>
+<status status="PASS" start="2024-05-02T11:31:43.977709" elapsed="12.250497"/>
+</test>
+<test id="s1-t3" name="Verify the clinician Home Page" line="27">
+<kw name="Enter OTP and Submit it" owner="lumate1Resource">
+<kw name="Wait for OTP Email" owner="lumate1Resource">
+<kw name="Open Mailbox" owner="ImapLibrary2">
+<arg>host=${EMAIL_SERVER}</arg>
+<arg>user=${EMAIL_USERNAME}</arg>
+<arg>password=${EMAIL_PASSWORD}</arg>
+<doc>Open IMAP email client session to given ``host`` with given ``user`` and ``password``.</doc>
+<status status="PASS" start="2024-05-02T11:31:56.230293" elapsed="1.396275"/>
+</kw>
+<kw name="Wait For Email" owner="ImapLibrary2">
+<msg time="2024-05-02T11:31:58.222988" level="INFO">${email_index} = 2238</msg>
+<var>${email_index}</var>
+<arg>sender=${SENDER_USERNAME}</arg>
+<arg>status=UNSEEN</arg>
+<arg>timeout=300</arg>
+<doc>Wait for email message to arrived base on any given filter criteria.
+Returns email index of the latest email message received.</doc>
+<status status="PASS" start="2024-05-02T11:31:57.627734" elapsed="0.595432"/>
+</kw>
+<kw name="Get Email Body" owner="ImapLibrary2">
+<msg time="2024-05-02T11:31:58.784190" level="INFO">${email_body} = &lt;html xmlns="http://www.w3.org/1999/xhtml" xmlns:o="urn:schemas-microsoft-com:office:office" xmlns:v="urn:schemas-microsoft-com:vml" lang="en"&gt;&lt;head&gt;
+&lt;meta http-equiv="Content-Type" content="text/htm...</msg>
+<var>${email_body}</var>
+<arg>${email_index}</arg>
+<doc>Returns the decoded email body on multipart email message,
+otherwise returns the body text.</doc>
+<status status="PASS" start="2024-05-02T11:31:58.223955" elapsed="0.560422"/>
+</kw>
+<kw name="Get Regexp Matches" owner="String">
+<msg time="2024-05-02T11:31:58.789121" level="INFO">${otp} = ['353454', '000000', '353454', '062442', '353454', '353454', '000000', '353454', '353454', '353454', '353454', '353454', '353454', '353454', '353454', '353454', '353454']</msg>
+<var>${otp}</var>
+<arg>${email_body}</arg>
+<arg>\\b\\d{6}\\b</arg>
+<doc>Returns a list of all non-overlapping matches in the given string.</doc>
+<status status="PASS" start="2024-05-02T11:31:58.785169" elapsed="0.004100"/>
+</kw>
+<kw name="Delete Email" owner="ImapLibrary2">
+<arg>${email_index}</arg>
+<doc>Delete email on given ``email_index``.</doc>
+<status status="PASS" start="2024-05-02T11:31:58.789950" elapsed="1.203640"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2024-05-02T11:31:59.995376" level="INFO">OTP received: ['353454', '000000', '353454', '062442', '353454', '353454', '000000', '353454', '353454', '353454', '353454', '353454', '353454', '353454', '353454', '353454', '353454']</msg>
+<arg>OTP received: ${otp}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2024-05-02T11:31:59.994517" elapsed="0.001098"/>
+</kw>
+<return>
+<value>${otp}[3]</value>
+<status status="PASS" start="2024-05-02T11:31:59.995943" elapsed="0.000296"/>
+</return>
+<msg time="2024-05-02T11:31:59.997252" level="INFO">${otp} = 062442</msg>
+<var>${otp}</var>
+<status status="PASS" start="2024-05-02T11:31:56.229904" elapsed="3.767494"/>
+</kw>
+<kw name="Copy To Clipboard" owner="CustomKeywords">
+<arg>${otp}</arg>
+<status status="PASS" start="2024-05-02T11:31:59.998057" elapsed="0.019907"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${OTP_CLICK}</arg>
+<arg>15s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2024-05-02T11:32:00.021388" elapsed="0.051258"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2024-05-02T11:32:00.073499" level="INFO">Clicking element 'xpath://*[@class="information-text resend-otp m-auto p-t-10"]'.</msg>
+<arg>${OTP_CLICK}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2024-05-02T11:32:00.073052" elapsed="0.038627"/>
+</kw>
+<kw name="Wait Until Element Is Enabled" owner="SeleniumLibrary">
+<arg>${OTP_PMS}</arg>
+<arg>${TIMEOUT}</arg>
+<doc>Waits until the element ``locator`` is enabled.</doc>
+<status status="PASS" start="2024-05-02T11:32:00.112074" elapsed="0.024927"/>
+</kw>
+<kw name="Press Keys" owner="SeleniumLibrary">
+<msg time="2024-05-02T11:32:00.137883" level="INFO">Sending key(s) ('CTRL+V',) to xpath://*[@class="otp-input ng-pristine ng-valid ng-star-inserted ng-touched"] element.</msg>
+<msg time="2024-05-02T11:32:00.145781" level="INFO">Pressing special key CONTROL down.</msg>
+<msg time="2024-05-02T11:32:00.145888" level="INFO">Sending key V</msg>
+<msg time="2024-05-02T11:32:00.145988" level="INFO">Releasing special key CONTROL.</msg>
+<arg>${OTP_PMS}</arg>
+<arg>CTRL+V</arg>
+<doc>Simulates the user pressing key(s) to an element or on the active browser.</doc>
+<status status="PASS" start="2024-05-02T11:32:00.137348" elapsed="0.320797"/>
+</kw>
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2024-05-02T11:32:00.459246" level="INFO">Clicking button 'xpath://*[@class="mat-focus-indicator auth-form-btn mat-flat-button mat-button-base mat-primary"]'.</msg>
+<arg>${VALIDATE_OTP}</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2024-05-02T11:32:00.458863" elapsed="0.068890"/>
+</kw>
+<status status="PASS" start="2024-05-02T11:31:56.229400" elapsed="4.298601"/>
+</kw>
+<kw name="Element Should Contain" owner="SeleniumLibrary">
+<kw name="Capture Page Screenshot" owner="SeleniumLibrary">
+<msg time="2024-05-02T11:32:00.760095" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-20.png"&gt;&lt;img src="selenium-screenshot-20.png" width="800px"&gt;&lt;/a&gt;</msg>
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<status status="PASS" start="2024-05-02T11:32:00.545371" elapsed="0.214836"/>
+</kw>
+<msg time="2024-05-02T11:32:00.760393" level="FAIL">Element with locator 'xpath://*[@class="to-do-container h-100"]' not found.</msg>
+<arg>${TO-DO_HOME}</arg>
+<arg>TO DO's</arg>
+<doc>Verifies that element ``locator`` contains text ``expected``.</doc>
+<status status="FAIL" start="2024-05-02T11:32:00.528485" elapsed="0.244270">Element with locator 'xpath://*[@class="to-do-container h-100"]' not found.</status>
+</kw>
+<kw name="Element Should Contain" owner="SeleniumLibrary">
+<arg>${APPOINTMENT_HOME}</arg>
+<arg>Appointments</arg>
+<doc>Verifies that element ``locator`` contains text ``expected``.</doc>
+<status status="NOT RUN" start="2024-05-02T11:32:00.773160" elapsed="0.000074"/>
+</kw>
+<tag>TC-APP-001</tag>
+<status status="FAIL" start="2024-05-02T11:31:56.228646" elapsed="4.545020">Element with locator 'xpath://*[@class="to-do-container h-100"]' not found.</status>
+</test>
+<test id="s1-t4" name="Verify the Calender &amp; appointments screen" line="33">
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2024-05-02T11:32:00.775427" level="INFO">Clicking element 'xpath://*[@class="menu overflow-hidden"]/ul/div[1]/li[3]'.</msg>
+<kw name="Capture Page Screenshot" owner="SeleniumLibrary">
+<msg time="2024-05-02T11:32:01.008470" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-21.png"&gt;&lt;img src="selenium-screenshot-21.png" width="800px"&gt;&lt;/a&gt;</msg>
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<status status="PASS" start="2024-05-02T11:32:00.786562" elapsed="0.222207"/>
+</kw>
+<msg time="2024-05-02T11:32:01.009077" level="FAIL">Element with locator 'xpath://*[@class="menu overflow-hidden"]/ul/div[1]/li[3]' not found.</msg>
+<arg>${APPOINTMENT_SEC}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="FAIL" start="2024-05-02T11:32:00.775188" elapsed="0.234215">Element with locator 'xpath://*[@class="menu overflow-hidden"]/ul/div[1]/li[3]' not found.</status>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${APPOINTMENT_CALENDER}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="NOT RUN" start="2024-05-02T11:32:01.010440" elapsed="0.000114"/>
+</kw>
+<kw name="verify elements of TC-APP-002 visible or not" owner="lumate1Resource">
+<status status="NOT RUN" start="2024-05-02T11:32:01.011312" elapsed="0.000154"/>
+</kw>
+<tag>TC-APP-002</tag>
+<status status="FAIL" start="2024-05-02T11:32:00.774524" elapsed="0.237493">Element with locator 'xpath://*[@class="menu overflow-hidden"]/ul/div[1]/li[3]' not found.</status>
+</test>
+<test id="s1-t5" name="Verify the create an appointment button" line="39">
+<kw name="Click Element" owner="SeleniumLibrary" type="SETUP">
+<msg time="2024-05-02T11:32:01.014667" level="INFO">Clicking element 'xpath://*[@class="menu overflow-hidden"]/ul/div[1]/li[3]'.</msg>
+<kw name="Capture Page Screenshot" owner="SeleniumLibrary">
+<msg time="2024-05-02T11:32:01.223636" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-22.png"&gt;&lt;img src="selenium-screenshot-22.png" width="800px"&gt;&lt;/a&gt;</msg>
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<status status="PASS" start="2024-05-02T11:32:01.027905" elapsed="0.196001"/>
+</kw>
+<msg time="2024-05-02T11:32:01.224108" level="FAIL">Element with locator 'xpath://*[@class="menu overflow-hidden"]/ul/div[1]/li[3]' not found.</msg>
+<arg>${HOME_SEC}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="FAIL" start="2024-05-02T11:32:01.014122" elapsed="0.210173">Element with locator 'xpath://*[@class="menu overflow-hidden"]/ul/div[1]/li[3]' not found.</status>
+</kw>
+<tag>TC-APP-003</tag>
+<status status="FAIL" start="2024-05-02T11:32:01.012736" elapsed="0.211885">Setup failed:
+Element with locator 'xpath://*[@class="menu overflow-hidden"]/ul/div[1]/li[3]' not found.</status>
+</test>
+<test id="s1-t6" name="Verify View Patient" line="44">
+<kw name="Click Element" owner="SeleniumLibrary" type="SETUP">
+<msg time="2024-05-02T11:32:01.226230" level="INFO">Clicking element 'xpath://*[@class="menu overflow-hidden"]/ul/div[1]/li[3]'.</msg>
+<kw name="Capture Page Screenshot" owner="SeleniumLibrary">
+<msg time="2024-05-02T11:32:01.359213" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-23.png"&gt;&lt;img src="selenium-screenshot-23.png" width="800px"&gt;&lt;/a&gt;</msg>
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<status status="PASS" start="2024-05-02T11:32:01.233522" elapsed="0.125936"/>
+</kw>
+<msg time="2024-05-02T11:32:01.359684" level="FAIL">Element with locator 'xpath://*[@class="menu overflow-hidden"]/ul/div[1]/li[3]' not found.</msg>
+<arg>${HOME_SEC}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="FAIL" start="2024-05-02T11:32:01.225987" elapsed="0.133873">Element with locator 'xpath://*[@class="menu overflow-hidden"]/ul/div[1]/li[3]' not found.</status>
+</kw>
+<tag>TC-PCV-001</tag>
+<status status="FAIL" start="2024-05-02T11:32:01.225173" elapsed="0.134949">Setup failed:
+Element with locator 'xpath://*[@class="menu overflow-hidden"]/ul/div[1]/li[3]' not found.</status>
+</test>
+<test id="s1-t7" name="Verify Edit Patient" line="49">
+<kw name="Click Element" owner="SeleniumLibrary" type="SETUP">
+<msg time="2024-05-02T11:32:01.361078" level="INFO">Clicking element 'xpath://*[@class="menu overflow-hidden"]/ul/div[1]/li[3]'.</msg>
+<kw name="Capture Page Screenshot" owner="SeleniumLibrary">
+<msg time="2024-05-02T11:32:01.546946" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-24.png"&gt;&lt;img src="selenium-screenshot-24.png" width="800px"&gt;&lt;/a&gt;</msg>
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<status status="PASS" start="2024-05-02T11:32:01.369809" elapsed="0.177249"/>
+</kw>
+<msg time="2024-05-02T11:32:01.547200" level="FAIL">Element with locator 'xpath://*[@class="menu overflow-hidden"]/ul/div[1]/li[3]' not found.</msg>
+<arg>${HOME_SEC}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="FAIL" start="2024-05-02T11:32:01.360851" elapsed="0.186479">Element with locator 'xpath://*[@class="menu overflow-hidden"]/ul/div[1]/li[3]' not found.</status>
+</kw>
+<tag>TC-PCV-002</tag>
+<status status="FAIL" start="2024-05-02T11:32:01.360453" elapsed="0.187086">Setup failed:
+Element with locator 'xpath://*[@class="menu overflow-hidden"]/ul/div[1]/li[3]' not found.</status>
+</test>
+<test id="s1-t8" name="Verify the Basic details screen given under the Demographic section" line="56">
+<kw name="Click Element" owner="SeleniumLibrary" type="SETUP">
+<msg time="2024-05-02T11:32:01.548497" level="INFO">Clicking element 'xpath://*[@class="menu overflow-hidden"]/ul/div[1]/li[3]'.</msg>
+<kw name="Capture Page Screenshot" owner="SeleniumLibrary">
+<msg time="2024-05-02T11:32:01.763960" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-25.png"&gt;&lt;img src="selenium-screenshot-25.png" width="800px"&gt;&lt;/a&gt;</msg>
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<status status="PASS" start="2024-05-02T11:32:01.555240" elapsed="0.208854"/>
+</kw>
+<msg time="2024-05-02T11:32:01.764236" level="FAIL">Element with locator 'xpath://*[@class="menu overflow-hidden"]/ul/div[1]/li[3]' not found.</msg>
+<arg>${HOME_SEC}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="FAIL" start="2024-05-02T11:32:01.548280" elapsed="0.216084">Element with locator 'xpath://*[@class="menu overflow-hidden"]/ul/div[1]/li[3]' not found.</status>
+</kw>
+<tag>TC-PCV-003</tag>
+<status status="FAIL" start="2024-05-02T11:32:01.547823" elapsed="0.216746">Setup failed:
+Element with locator 'xpath://*[@class="menu overflow-hidden"]/ul/div[1]/li[3]' not found.</status>
+</test>
+<test id="s1-t9" name="Verify billing tab" line="63">
+<kw name="Click Element" owner="SeleniumLibrary" type="SETUP">
+<msg time="2024-05-02T11:32:01.765611" level="INFO">Clicking element 'xpath://*[@class="menu overflow-hidden"]/ul/div[1]/li[3]'.</msg>
+<kw name="Capture Page Screenshot" owner="SeleniumLibrary">
+<msg time="2024-05-02T11:32:01.981096" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-26.png"&gt;&lt;img src="selenium-screenshot-26.png" width="800px"&gt;&lt;/a&gt;</msg>
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<status status="PASS" start="2024-05-02T11:32:01.773217" elapsed="0.207992"/>
+</kw>
+<msg time="2024-05-02T11:32:01.981348" level="FAIL">Element with locator 'xpath://*[@class="menu overflow-hidden"]/ul/div[1]/li[3]' not found.</msg>
+<arg>${HOME_SEC}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="FAIL" start="2024-05-02T11:32:01.765351" elapsed="0.216151">Element with locator 'xpath://*[@class="menu overflow-hidden"]/ul/div[1]/li[3]' not found.</status>
+</kw>
+<tag>TC-PCV-004</tag>
+<status status="FAIL" start="2024-05-02T11:32:01.764899" elapsed="0.216813">Setup failed:
+Element with locator 'xpath://*[@class="menu overflow-hidden"]/ul/div[1]/li[3]' not found.</status>
+</test>
+<test id="s1-t10" name="Change billing status" line="72">
+<kw name="Click Element" owner="SeleniumLibrary" type="SETUP">
+<msg time="2024-05-02T11:32:01.982962" level="INFO">Clicking element 'xpath://*[@class="menu overflow-hidden"]/ul/div[1]/li[2]'.</msg>
+<kw name="Capture Page Screenshot" owner="SeleniumLibrary">
+<msg time="2024-05-02T11:32:02.191066" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-27.png"&gt;&lt;img src="selenium-screenshot-27.png" width="800px"&gt;&lt;/a&gt;</msg>
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<status status="PASS" start="2024-05-02T11:32:01.996549" elapsed="0.194735"/>
+</kw>
+<msg time="2024-05-02T11:32:02.191567" level="FAIL">Element with locator 'xpath://*[@class="menu overflow-hidden"]/ul/div[1]/li[2]' not found.</msg>
+<arg>${HOME_SEC_ICON}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="FAIL" start="2024-05-02T11:32:01.982643" elapsed="0.209274">Element with locator 'xpath://*[@class="menu overflow-hidden"]/ul/div[1]/li[2]' not found.</status>
+</kw>
+<tag>TC-PCV-005</tag>
+<status status="FAIL" start="2024-05-02T11:32:01.982100" elapsed="0.210511">Setup failed:
+Element with locator 'xpath://*[@class="menu overflow-hidden"]/ul/div[1]/li[2]' not found.</status>
+</test>
+<status status="FAIL" start="2024-05-02T11:31:09.009650" elapsed="53.184815"/>
+</suite>
+<statistics>
+<total>
+<stat pass="2" fail="8" skip="0">All Tests</stat>
+</total>
+<tag>
+<stat pass="0" fail="1" skip="0">TC-APP-001</stat>
+<stat pass="0" fail="1" skip="0">TC-APP-002</stat>
+<stat pass="0" fail="1" skip="0">TC-APP-003</stat>
+<stat pass="0" fail="1" skip="0">TC-PCV-001</stat>
+<stat pass="0" fail="1" skip="0">TC-PCV-002</stat>
+<stat pass="0" fail="1" skip="0">TC-PCV-003</stat>
+<stat pass="0" fail="1" skip="0">TC-PCV-004</stat>
+<stat pass="0" fail="1" skip="0">TC-PCV-005</stat>
+<stat pass="1" fail="0" skip="0">TC-PMS-001</stat>
+<stat pass="1" fail="0" skip="0">TC-PMS-005</stat>
+</tag>
+<suite>
+<stat pass="2" fail="8" skip="0" id="s1" name="lumate1Test">lumate1Test</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>
