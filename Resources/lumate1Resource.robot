@@ -20,9 +20,9 @@ Fill the credentials and login
     Wait Until Element Is Visible    ${USERNAME_PATH_PMS}    15s
     Input Text        ${USERNAME_PATH_PMS}    ${USERNAME_PMS}
     Input Text        ${PASSWORD_PATH_PMS}    ${PASSWORD_PMS}
-    Wait Until Element Is Visible    ${REMEMBER_ME}    15s
-    Click Element     ${REMEMBER_ME}
-    Click Button      ${LOGIN_BTN}
+    Wait Until Element Is Visible    ${REMEMBER_ME_PMS}    15s
+    Click Element     ${REMEMBER_ME_PMS}
+    Click Button      ${LOGIN_BTN_PMS}
 
 Enter OTP and Submit it
     ${otp}=  Wait for OTP email
@@ -32,7 +32,10 @@ Enter OTP and Submit it
     Wait Until Element Is Visible    ${OTP_PAGE}    ${TIMEOUT}
     wait until element is visible    ${OTP_PMS}    ${TIMEOUT}
     Press Keys    ${OTP_PMS}    CTRL+V
-    Click Button      ${VALIDATE_OTP}
+    Click Button      ${VALIDATE_OTP_PMS}
+    Sleep    2s
+    ${error_exists}=    Run Keyword And Return Status    Page Should Contain    Incorrect OTP is provided. Try resending OTP.
+    Run Keyword If    ${error_exists}    Enter OTP And Submit It
     Wait Until Element Is Visible    ${HOMEPAGE_PMS}
 
 Wait for OTP Email
@@ -45,16 +48,7 @@ Wait for OTP Email
     RETURN          ${otp}[3]
 
 Wait Until the Update Icon Disappear
-#    ${Status}   Run Keyword and return status   Wait Until Element Is Visible    ${UpdateIcon}    ${TIMEOUT}
-#    Run Keyword If    '${status}' == 'True'  Sleep  2s
-#    Check Update Icon Status
     Wait Until Element Is Not Visible  ${UpdateIcon}    ${TIMEOUT_40}
-
-
-#Check Update Icon Status
-#    ${Status}   Run Keyword and return status   Wait Until Element Is Not Visible    ${UpdateIcon}    ${TIMEOUT}
-#    Run Keyword If    '${status}' == 'False'  Wait Until the Update Icon Disappear
-
 
 verify elements of TC-APP-002 visible or not
     Wait Until Element Is Visible  ${APPOINTMENT_CALENDER}    ${TIMEOUT_40}
@@ -63,9 +57,7 @@ verify elements of TC-APP-002 visible or not
     Wait Until The Update Icon Disappear
     Wait Until Element Is Enabled  ${OPEN_RIGHTBAR_FOR_CALANEDER}    ${TIMEOUT_40}
     Wait Until The Update Icon Disappear
-#    Wait Until The Update Icon Disappear
-#    Wait Until The Update Icon Disappear
-    Sleep    2s
+    Sleep    5s
     Click Button    ${OPEN_RIGHTBAR_FOR_CALANEDER}
     Element Should Be Visible    ${Select_Office}    Select Office
     Wait Until Element Is Visible  ${Select_Clinicians}    ${TIMEOUT}
@@ -103,40 +95,3 @@ Changing status of billing to ready to bill
         Wait Until The Update Icon Disappear
     END
     Element Should Not Be Visible   ${DETAILED_STATUS}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    #    Input Text        ${OTP_PMS}    ${otp}[0]
-#    wait until element is enabled    ${OTP_PMS}    ${TIMEOUT}
-#    Input Text        ${OTP_PMS}    ${otp}[1]
-#    wait until element is enabled    ${OTP_PMS}    ${TIMEOUT}
-#    Input Text        ${OTP_PMS}    ${otp}[2]
-#    wait until element is enabled    ${OTP_PMS}    ${TIMEOUT}
-#    Input Text        ${OTP_PMS}    ${otp}[3]
-#    wait until element is enabled    ${OTP_PMS}    ${TIMEOUT}
-#    Input Text        ${OTP_PMS}    ${otp}[4]
-#    wait until element is enabled    ${OTP_PMS}    ${TIMEOUT}
-#    Input Text        ${OTP_PMS}    ${otp}[5]

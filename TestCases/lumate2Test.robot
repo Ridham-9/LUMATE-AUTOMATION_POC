@@ -4,7 +4,7 @@ Library    BuiltIn
 Resource   ../Locators/lumate2Locator.robot
 Resource   ../Resources/lumate2Resource.robot
 
-#Suite Setup    Run Keywords        Open PMS Url On Browser
+#Suite Setup    Run Keywords        Open LUMCARE Url On Browser
 #...                                Fill the credentials and login
 #...                                Enter OTP and Submit it
 
@@ -12,7 +12,7 @@ Resource   ../Resources/lumate2Resource.robot
 
 Verify patient signup
     [Tags]    test:retry(2)    TC-PATIENT-001
-    Open PMS Url On Browser
+    Open LUMCARE Url On Browser
     Fill the credentials and login
     Enter OTP and Submit it
     Wait Until Element Is Visible    ${HOMEPAGE_P_PORTAL}    ${TIMEOUT}

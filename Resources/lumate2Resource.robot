@@ -11,7 +11,7 @@ Resource   ../Locators/lumate2Locator.robot
 
 *** Keywords ***
 
-Open PMS url on browser
+Open LUMCARE url on browser
     Open Browser    url=${P_PORTAL_URL}    browser=${Browser}
     Maximize Browser Window
     Wait Until Element Is Visible    ${LOGIN_PAGE_P_PORTAL}    15s
@@ -29,6 +29,12 @@ Enter OTP and Submit it
     wait until element is enabled        ${OTP_P_PORTAL}    ${TIMEOUT}
     Press Keys                           ${OTP_P_PORTAL}    CTRL+V
     Click Element                        ${VALIDATE_OTP}
+#    Sleep    2s
+#    ${error_exists}=    Run Keyword And Return Status    Page Should Contain    Incorrect OTP is provided. Try resending OTP.
+#    Run Keyword If    ${error_exists}    Enter OTP And Submit It
+    Sleep    2s
+    ${error_exists}=    Run Keyword And Return Status    Page Should Contain  //*[@class="toast message"]
+    Run Keyword If    ${error_exists}    Enter OTP And Submit It
     Wait Until Element Is Visible        ${SELECT_DEPENDENT}    15s
     Click Element                        ${SELECT_DEPENDENT}
     Wait Until the Update Icon Disappear
@@ -59,7 +65,7 @@ Payment Of Clinician1
     Wait Until the Update Icon Disappear
     Click Button                         ${PAY1}
     Wait Until the Update Icon Disappear
-    Sleep    2s
+    Sleep    5s
 #    Wait Until Element Is Visible        ${ADD_NEW_CARD}    ${TIMEOUT}
     Click Element                        ${ADD_NEW_CARD}
     Wait Until the Update Icon Disappear
