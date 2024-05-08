@@ -55,9 +55,9 @@ verify elements of TC-APP-002 visible or not
     Element Should Be Visible   ${APPOINTMENT_CALENDER}    Today
     Element Should Be Visible    ${CREATE_APPOINTMENT}
     Wait Until The Update Icon Disappear
-    Wait Until Element Is Enabled  ${OPEN_RIGHTBAR_FOR_CALANEDER}    ${TIMEOUT_40}
+    Wait Until Element Is Visible  ${OPEN_RIGHTBAR_FOR_CALANEDER}    ${TIMEOUT_40}
     Wait Until The Update Icon Disappear
-    Sleep    5s
+    Sleep    8s
     Click Button    ${OPEN_RIGHTBAR_FOR_CALANEDER}
     Element Should Be Visible    ${Select_Office}    Select Office
     Wait Until Element Is Visible  ${Select_Clinicians}    ${TIMEOUT}

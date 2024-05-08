@@ -9,7 +9,9 @@ Resource   ../Resources/lumate2Resource.robot
 #Suite Setup    Run Keywords        Open PMS Url On Browser
 #...                                Fill the credentials and login
 #...                                Enter OTP and Submit it
+
 Suite Teardown    Close All Browsers
+
 *** Test Cases ***
 
 Verify patient signup

@@ -32,7 +32,7 @@ Enter OTP and Submit it
 #    Sleep    2s
 #    ${error_exists}=    Run Keyword And Return Status    Page Should Contain    Incorrect OTP is provided. Try resending OTP.
 #    Run Keyword If    ${error_exists}    Enter OTP And Submit It
-    Sleep    2s
+    Sleep    3s
     ${error_exists}=    Run Keyword And Return Status    Page Should Contain  //*[@class="toast message"]
     Run Keyword If    ${error_exists}    Enter OTP And Submit It
     Wait Until Element Is Visible        ${SELECT_DEPENDENT}    15s
