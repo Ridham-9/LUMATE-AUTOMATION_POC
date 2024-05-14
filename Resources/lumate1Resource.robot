@@ -19,7 +19,7 @@ Open PMS url on browser
 Fill the credentials and login
     Wait Until Element Is Visible    ${USERNAME_PATH_PMS}    15s
     Input Text        ${USERNAME_PATH_PMS}    ${USERNAME_PMS}
-    Input Text        ${PASSWORD_PATH_PMS}    ${PASSWORD_PMS}
+    Input Password    ${PASSWORD_PATH_PMS}    ${PASSWORD_PMS}
     Wait Until Element Is Visible    ${REMEMBER_ME_PMS}    15s
     Click Element     ${REMEMBER_ME_PMS}
     Click Button      ${LOGIN_BTN_PMS}

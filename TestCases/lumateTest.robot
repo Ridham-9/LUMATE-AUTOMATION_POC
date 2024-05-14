@@ -35,8 +35,6 @@ Bill payment
     Click Element    ${HOME_SECTION}
     Payment Of Clinician1
 
-
-
 Verify that the user is able to Log in to the Portal with correct credentials
     [Tags]    TC-PMS-001
     Open PMS Url On Browser
@@ -83,6 +81,7 @@ Verify Edit Patient
     Wait Until Element Is Visible    ${PATIENT_CHART}    ${TIMEOUT}
     Element Should Be Visible    ${PATIENT_CHART}
     lumate1Resource.Wait Until The Update Icon Disappear
+    Sleep    2s
 
 Verify the Basic details screen given under the Demographic section
     [Tags]    TC-PCV-003

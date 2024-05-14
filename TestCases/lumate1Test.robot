@@ -56,6 +56,7 @@ Verify Edit Patient
     Wait Until Element Is Visible    ${PATIENT_CHART}    ${TIMEOUT}
     Element Should Be Visible    ${PATIENT_CHART}
     Wait Until The Update Icon Disappear
+    Sleep    2s
 
 Verify the Basic details screen given under the Demographic section
     [Tags]    TC-PCV-003
@@ -80,11 +81,11 @@ Verify billing tab
 
 Change billing status
     [Tags]    TC-PCV-005
-#    [Setup]    Click Element    ${HOME_SEC_ICON}
-#    Wait Until The Update Icon Disappear
-#    Patient Edit Details Screen
-#    Wait Until Element Is Visible    ${BILLING_SEC}    ${TIMEOUT}
-#    Click Element    ${BILLING_SEC}
-#    Wait Until Element Is Visible    //*[@class="d-flex billing-cards-overview m-b-30 ng-star-inserted"]
+    [Setup]    Click Element    ${HOME_SEC_ICON}
+    Wait Until The Update Icon Disappear
+    Patient Edit Details Screen
+    Wait Until Element Is Visible    ${BILLING_SEC}    ${TIMEOUT}
+    Click Element    ${BILLING_SEC}
+    Wait Until Element Is Visible    //*[@class="d-flex billing-cards-overview m-b-30 ng-star-inserted"]
     Wait Until The Update Icon Disappear
     Changing status of billing to ready to bill

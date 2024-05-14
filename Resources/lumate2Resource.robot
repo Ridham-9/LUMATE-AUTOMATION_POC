@@ -18,7 +18,7 @@ Open LUMCARE url on browser
 
 Fill the credentials and login
     Input Text        ${USERNAME_PATH_P_PORTAL}    ${USERNAME_P_PORTAL}
-    Input Text        ${PASSWORD_PATH_P_PORTAL}    ${PASSWORD_P_PORTAL}
+    Input Password    ${PASSWORD_PATH_P_PORTAL}    ${PASSWORD_P_PORTAL}
     Click Element     ${REMEMBER_ME}
     Wait Until Element Is Visible    ${LOGIN_BTN}
     Click Element     ${LOGIN_BTN}
