@@ -29,12 +29,11 @@ Enter OTP and Submit it
     wait until element is enabled        ${OTP_P_PORTAL}    ${TIMEOUT}
     Press Keys                           ${OTP_P_PORTAL}    CTRL+V
     Click Element                        ${VALIDATE_OTP}
-#    Sleep    2s
-#    ${error_exists}=    Run Keyword And Return Status    Page Should Contain    Incorrect OTP is provided. Try resending OTP.
-#    Run Keyword If    ${error_exists}    Enter OTP And Submit It
-    Sleep    3s
-    ${error_exists}=    Run Keyword And Return Status    Page Should Contain  //*[@class="toast message"]
-    Run Keyword If    ${error_exists}    Enter OTP And Submit It
+    Sleep    7s
+    ${home}=    Run Keyword And Return Status    Page Should Not Contain    Please select any one dependent to proceed further
+    Run Keyword If    ${home}    Enter OTP And Submit It
+
+Select Dependent and Skip profile editing
     Wait Until Element Is Visible        ${SELECT_DEPENDENT}    15s
     Click Element                        ${SELECT_DEPENDENT}
     Wait Until the Update Icon Disappear

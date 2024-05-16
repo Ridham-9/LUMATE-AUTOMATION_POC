@@ -7,6 +7,7 @@ Resource   ../Resources/lumate2Resource.robot
 #Suite Setup    Run Keywords        Open LUMCARE Url On Browser
 #...                                Fill the credentials and login
 #...                                Enter OTP and Submit it
+#...                                Select Dependent and Skip profile editing
 
 *** Test Cases ***
 
@@ -15,6 +16,7 @@ Verify patient signup
     Open LUMCARE Url On Browser
     Fill the credentials and login
     Enter OTP and Submit it
+    Select Dependent and Skip profile editing
     Wait Until Element Is Visible    ${HOMEPAGE_P_PORTAL}    ${TIMEOUT}
 
 Add consent forms
