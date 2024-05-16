@@ -29,7 +29,7 @@ Enter OTP and Submit it
     wait until element is enabled        ${OTP_P_PORTAL}    ${TIMEOUT}
     Press Keys                           ${OTP_P_PORTAL}    CTRL+V
     Click Element                        ${VALIDATE_OTP}
-    Sleep    7s
+    Wait Until Element Is Visible        ${SELECT_DEPENDENT}    15s
     ${home}=    Run Keyword And Return Status    Page Should Not Contain    Please select any one dependent to proceed further
     Run Keyword If    ${home}    Enter OTP And Submit It
 

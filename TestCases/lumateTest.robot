@@ -10,33 +10,11 @@ Resource   ../Resources/lumate2Resource.robot
 #...                                Fill the credentials and login
 #...                                Enter OTP and Submit it
 
-Suite Teardown    Close All Browsers
+#Suite Teardown    Close All Browsers
 
 *** Test Cases ***
 
-#Verify patient signup
-#    [Tags]    test:retry(2)    TC-PATIENT-001
-#    Open LUMCARE Url On Browser
-#    lumate2Resource.Fill the credentials and login
-#    lumate2Resource.Enter OTP and Submit it
-#    Select Dependent and Skip profile editing
-#    Wait Until Element Is Visible    ${HOMEPAGE_P_PORTAL}    ${TIMEOUT}
-#
-#Add consent forms
-#     [Tags]    TC-PATIENT-002
-#     Wait Until Element Is Visible    ${VIEW_CONSENT}    ${TIMEOUT}
-#     lumate2Resource.Wait Until The Update Icon Disappear
-#     Click Element    ${VIEW_CONSENT}
-#     lumate2Resource.Wait Until the Update Icon Disappear
-#     Element Should Be Visible    ${CONSENTS}
-#
-#Bill payment
-#    [Tags]    TC-PATIENT-003
-#    lumate2Resource.Wait Until the Update Icon Disappear
-#    Click Element    ${HOME_SECTION}
-#    Payment Of Clinician1
-
-################################## VARIABLES ##################################
+################################## PMS ##################################
 
 Verify that the user is able to Log in to the Portal with correct credentials
     [Tags]    TC-PMS-001
@@ -116,9 +94,12 @@ Change billing status
     Wait Until Element Is Visible    //*[@class="d-flex billing-cards-overview m-b-30 ng-star-inserted"]
     lumate1Resource.Wait Until The Update Icon Disappear
     Changing status of billing to ready to bill
+    Close Browser
+
+################################## LUMCARE ##################################
 
 Verify patient signup
-    [Tags]    test:retry(2)    TC-PATIENT-001
+    [Tags]  test:retry(2)  TC-PATIENT-001
     Open LUMCARE Url On Browser
     lumate2Resource.Fill the credentials and login
     lumate2Resource.Enter OTP and Submit it
@@ -138,3 +119,4 @@ Bill payment
     lumate2Resource.Wait Until the Update Icon Disappear
     Click Element    ${HOME_SECTION}
     Payment Of Clinician1
+    Close Browser

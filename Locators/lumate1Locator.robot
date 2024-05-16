@@ -3,7 +3,7 @@
 ################################## VARIABLES ##################################
 
 ${Browser}                  chrome
-${TIMEOUT}                  30s
+${TIMEOUT}                  35s
 ${TIMEOUT_40}               40s
 ${PMS_URL}                  https://qa-pms.lumatehealth.com/
 ${USERNAME_PMS}             kalpesh
