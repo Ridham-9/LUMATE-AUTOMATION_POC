@@ -38,7 +38,7 @@ Verify the clinician Home Page
 Verify the Calender & appointments screen
     [Tags]    TC-APP-002
     lumate1Resource.Wait Until The Update Icon Disappear
-    Click Element     ${APPOINTMENT_SEC}
+    Click Element    ${APPOINTMENT_SEC}
     lumate1Resource.Wait Until The Update Icon Disappear
     verify elements of TC-APP-002 visible or not
     lumate1Resource.Wait Until The Update Icon Disappear
