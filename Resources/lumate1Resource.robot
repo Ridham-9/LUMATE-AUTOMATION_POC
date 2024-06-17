@@ -43,7 +43,7 @@ Wait for OTP Email
     ${email_index}=    Wait For Email   sender=${SENDER_USERNAME}  status=UNSEEN   timeout=300
     ${email_body}=      Get Email Body    ${email_index}
     ${otp}=    Get Regexp Matches    ${email_body}    \\b\\d{6}\\b
-    Delete Email    ${email_index}
+#    Delete Email    ${email_index}
     Log               OTP received: ${otp}
     RETURN          ${otp}[3]
 
@@ -55,9 +55,9 @@ verify elements of TC-APP-002 visible or not
     Element Should Be Visible   ${APPOINTMENT_CALENDER}    Today
     Element Should Be Visible    ${CREATE_APPOINTMENT}
     Wait Until The Update Icon Disappear
-    Wait Until Element Is Visible  ${OPEN_RIGHTBAR_FOR_CALANEDER}    ${TIMEOUT_40}
+    Wait Until Element Is Enabled  ${OPEN_RIGHTBAR_FOR_CALANEDER}    ${TIMEOUT_40}
     Wait Until The Update Icon Disappear
-    Sleep    8s
+    Wait Until The Update Icon Disappear
     Click Button    ${OPEN_RIGHTBAR_FOR_CALANEDER}
     Element Should Be Visible    ${Select_Office}    Select Office
     Wait Until Element Is Visible  ${Select_Clinicians}    ${TIMEOUT}
@@ -74,15 +74,15 @@ Create Appointment and check elements
 
 Patient View Details Screen
     Click Element    ${PATIENT_SEC}
-    Wait Until Element Is Visible    ${VIEW_PATIENT1}    ${Timeout}
+    Wait Until Element Is Enabled    ${VIEW_PATIENT1}    ${Timeout}
     Click Element    ${VIEW_PATIENT1}
     Wait Until Element Is Visible    ${PATIENT_DETAIL}    ${Timeout}
     Element Should Be Visible    ${PATIENT_DETAIL}
 
 Patient Edit Details Screen
-    Wait Until Element Is Visible    ${PATIENT_SEC}    ${Timeout}
+    Wait Until Element Is Enabled    ${PATIENT_SEC}    ${Timeout}
     Click Element    ${PATIENT_SEC}
-    Wait Until Element Is Visible    ${EDIT_PATIENT1}    ${Timeout}
+    Wait Until Element Is Enabled    ${EDIT_PATIENT1}    ${Timeout}
     Click Element    ${EDIT_PATIENT1}
 
 Changing status of billing to ready to bill

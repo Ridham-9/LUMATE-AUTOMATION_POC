@@ -20,7 +20,7 @@ Fill the credentials and login
     Input Text        ${USERNAME_PATH_P_PORTAL}    ${USERNAME_P_PORTAL}
     Input Password    ${PASSWORD_PATH_P_PORTAL}    ${PASSWORD_P_PORTAL}
     Click Element     ${REMEMBER_ME}
-    Wait Until Element Is Visible    ${LOGIN_BTN}
+    Wait Until Element Is Enabled    ${LOGIN_BTN}
     Click Element     ${LOGIN_BTN}
 
 Enter OTP and Submit it
@@ -37,7 +37,7 @@ Select Dependent and Skip profile editing
     Wait Until Element Is Visible        ${SELECT_DEPENDENT}    15s
     Click Element                        ${SELECT_DEPENDENT}
     Wait Until the Update Icon Disappear
-    Wait Until Element Is Visible        ${SKIP}    15s
+    Wait Until Element Is Enabled        ${SKIP}    15s
     Click Element    ${SKIP}
     Wait Until The Update Icon Disappear
 
@@ -46,7 +46,7 @@ Wait for OTP Email
     ${email_index}=    Wait For Email   sender=${SENDER_USERNAME}  status=UNSEEN   timeout=300
     ${email_body}=      Get Email Body    ${email_index}
     ${otp}=    Get Regexp Matches    ${email_body}    \\b\\d{6}\\b
-    Delete Email    ${email_index}
+#    Delete Email    ${email_index}
     Log               OTP received: ${otp}
     RETURN          ${otp}[3]
 

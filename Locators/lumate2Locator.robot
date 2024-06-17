@@ -37,6 +37,7 @@ ${HOME_SECTION}                  xpath://*[@class="he-50 d-flex align-items-cent
 ${BILLING_PAGE}                  xpath://*[@class="mat-mdc-tab-body-wrapper"]
 ${HOME_PAGE}                     xpath://*[@class="main-container p-a-15"]
 ${PAY1}                          xpath:/html/body/app-root/ion-app/ion-router-outlet/app-main/app-billing/div/mat-tab-group/div/mat-tab-body[1]/div/app-statements/div[3]/app-billing-card[1]/div/div[5]/button[2]
+${PAY1}                          xpath://*[@id="mat-tab-content-0-0"]/div/app-statements/div[1]/div[2]/div/button
 ${ADD_NEW_CARD}                  xpath://*[@class="mdc-checkbox__native-control"]
 #${CARD_NUMBER_PATH}              xpath:/html/body/div/form/div/div[2]/span[1]/span[2]/div/div[2]/span/input
 #${CARD_NUMBER_PATH}              css:[#root > form > div > div.CardField-input-wrapper > span.CardField-number.CardField-child > span:nth-child(2) > div > div.CardNumberField-input-wrapper > span > input]

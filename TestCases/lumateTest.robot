@@ -42,6 +42,7 @@ Verify the Calender & appointments screen
     lumate1Resource.Wait Until The Update Icon Disappear
     verify elements of TC-APP-002 visible or not
     lumate1Resource.Wait Until The Update Icon Disappear
+    lumate1Resource.Wait Until The Update Icon Disappear
 
 Verify the create an appointment button
     [Tags]    TC-APP-003
@@ -71,6 +72,8 @@ Verify the Basic details screen given under the Demographic section
     lumate1Resource.Wait Until The Update Icon Disappear
     Wait Until Element Is Visible    ${BASIC_DETAILS_VIEW}    ${TIMEOUT}
     Element Should Be Visible    ${BASIC_DETAILS_VIEW}
+    Wait Until Element Is Enabled    ${HOME_SEC}    ${TIMEOUT}
+   lumate1Resource.Wait Until The Update Icon Disappear
 
 Verify billing tab
     [Tags]    TC-PCV-004
@@ -78,7 +81,7 @@ Verify billing tab
     lumate1Resource.Wait Until The Update Icon Disappear
     Patient Edit Details Screen
     lumate1Resource.Wait Until The Update Icon Disappear
-    Wait Until Element Is Visible    ${BILLING_SEC}    ${TIMEOUT}
+    Wait Until Element Is Enabled    ${BILLING_SEC}    ${TIMEOUT}
     Click Element    ${BILLING_SEC}
     Element Should Be Visible    ${BILLING_VIEW}
     lumate1Resource.Wait Until The Update Icon Disappear
