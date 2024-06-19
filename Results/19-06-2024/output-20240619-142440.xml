@@ -1,0 +1,1426 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 7.0 (Python 3.8.10 on linux)" generated="2024-06-19T14:24:40.821871" rpa="false" schemaversion="5">
+<suite id="s1" name="lumateTest" source="/home/ridham/PycharmProjects/LUMATE-AUTOMATION_POC/TestCases/lumateTest.robot">
+<test id="s1-t1" name="Verify that the user is able to Log in to the Portal with correct credentials" line="19">
+<kw name="Open PMS url on browser" owner="lumate1Resource">
+<kw name="Open Browser" owner="SeleniumLibrary">
+<msg time="2024-06-19T14:24:41.009681" level="INFO">Opening browser 'chrome' to base url 'https://qa-pms.lumatehealth.com/'.</msg>
+<arg>url=${PMS_URL}</arg>
+<arg>browser=${Browser}</arg>
+<arg>options=add_experimental_option("detach", True)</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2024-06-19T14:24:41.009189" elapsed="3.935911"/>
+</kw>
+<kw name="Maximize Browser Window" owner="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" start="2024-06-19T14:24:44.945944" elapsed="0.115437"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${LOGIN_PAGE_PMS}</arg>
+<arg>15s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2024-06-19T14:24:45.061789" elapsed="3.758769"/>
+</kw>
+<status status="PASS" start="2024-06-19T14:24:41.008137" elapsed="7.812631"/>
+</kw>
+<kw name="Fill the credentials and login" owner="lumate1Resource">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${USERNAME_PATH_PMS}</arg>
+<arg>15s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2024-06-19T14:24:48.821925" elapsed="0.031703"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2024-06-19T14:24:48.854352" level="INFO">Typing text 'kalpesh' into text field 'xpath://*[@id="mat-input-0"]'.</msg>
+<arg>${USERNAME_PATH_PMS}</arg>
+<arg>${USERNAME_PMS}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2024-06-19T14:24:48.853955" elapsed="0.103633"/>
+</kw>
+<kw name="Input Password" owner="SeleniumLibrary">
+<msg time="2024-06-19T14:24:48.958333" level="INFO">Typing password into text field 'xpath://*[@id="mat-input-1"]'.</msg>
+<msg time="2024-06-19T14:24:48.991989" level="INFO">Temporally setting log level to: NONE</msg>
+<arg>${PASSWORD_PATH_PMS}</arg>
+<arg>${PASSWORD_PMS}</arg>
+<doc>Types the given password into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2024-06-19T14:24:48.958010" elapsed="0.096475"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${REMEMBER_ME_PMS}</arg>
+<arg>15s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2024-06-19T14:24:49.054883" elapsed="0.024788"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2024-06-19T14:24:49.080366" level="INFO">Clicking element 'xpath://*[@class="check remember-check"]'.</msg>
+<arg>${REMEMBER_ME_PMS}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2024-06-19T14:24:49.080016" elapsed="0.085537"/>
+</kw>
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2024-06-19T14:24:49.166383" level="INFO">Clicking button 'xpath://*[@class="mat-focus-indicator auth-form-btn mat-raised-button mat-button-base mat-primary"]'.</msg>
+<arg>${LOGIN_BTN_PMS}</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2024-06-19T14:24:49.165978" elapsed="0.118600"/>
+</kw>
+<status status="PASS" start="2024-06-19T14:24:48.821286" elapsed="0.463526"/>
+</kw>
+<kw name="Close Browser" owner="SeleniumLibrary" type="TEARDOWN">
+<doc>Closes the current browser.</doc>
+<status status="PASS" start="2024-06-19T14:24:49.285440" elapsed="0.065556"/>
+</kw>
+<tag>TC-PMS-001</tag>
+<status status="PASS" start="2024-06-19T14:24:41.007315" elapsed="8.343878"/>
+</test>
+<test id="s1-t2" name="Verify that the user gets redirected to enter OTP page when entered the correct credentials." line="25">
+<kw name="Open PMS url on browser" owner="lumate1Resource">
+<kw name="Open Browser" owner="SeleniumLibrary">
+<msg time="2024-06-19T14:24:49.353198" level="INFO">Opening browser 'chrome' to base url 'https://qa-pms.lumatehealth.com/'.</msg>
+<arg>url=${PMS_URL}</arg>
+<arg>browser=${Browser}</arg>
+<arg>options=add_experimental_option("detach", True)</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2024-06-19T14:24:49.352846" elapsed="19.024246"/>
+</kw>
+<kw name="Maximize Browser Window" owner="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" start="2024-06-19T14:25:08.378332" elapsed="0.089074"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${LOGIN_PAGE_PMS}</arg>
+<arg>15s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2024-06-19T14:25:08.467798" elapsed="3.845017"/>
+</kw>
+<status status="PASS" start="2024-06-19T14:24:49.352430" elapsed="22.960624"/>
+</kw>
+<kw name="Fill the credentials and login" owner="lumate1Resource">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${USERNAME_PATH_PMS}</arg>
+<arg>15s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2024-06-19T14:25:12.314457" elapsed="0.038354"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2024-06-19T14:25:12.353534" level="INFO">Typing text 'kalpesh' into text field 'xpath://*[@id="mat-input-0"]'.</msg>
+<arg>${USERNAME_PATH_PMS}</arg>
+<arg>${USERNAME_PMS}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2024-06-19T14:25:12.353145" elapsed="0.108361"/>
+</kw>
+<kw name="Input Password" owner="SeleniumLibrary">
+<msg time="2024-06-19T14:25:12.462605" level="INFO">Typing password into text field 'xpath://*[@id="mat-input-1"]'.</msg>
+<msg time="2024-06-19T14:25:12.507224" level="INFO">Temporally setting log level to: NONE</msg>
+<arg>${PASSWORD_PATH_PMS}</arg>
+<arg>${PASSWORD_PMS}</arg>
+<doc>Types the given password into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2024-06-19T14:25:12.461992" elapsed="0.104179"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${REMEMBER_ME_PMS}</arg>
+<arg>15s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2024-06-19T14:25:12.566523" elapsed="0.028758"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2024-06-19T14:25:12.595985" level="INFO">Clicking element 'xpath://*[@class="check remember-check"]'.</msg>
+<arg>${REMEMBER_ME_PMS}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2024-06-19T14:25:12.595611" elapsed="0.051496"/>
+</kw>
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2024-06-19T14:25:12.647825" level="INFO">Clicking button 'xpath://*[@class="mat-focus-indicator auth-form-btn mat-raised-button mat-button-base mat-primary"]'.</msg>
+<arg>${LOGIN_BTN_PMS}</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2024-06-19T14:25:12.647454" elapsed="0.073207"/>
+</kw>
+<status status="PASS" start="2024-06-19T14:25:12.313704" elapsed="0.407110"/>
+</kw>
+<kw name="Wait Until Element Contains" owner="SeleniumLibrary">
+<msg time="2024-06-19T14:25:18.014866" level="INFO">Suppressing StaleElementReferenceException from Selenium.</msg>
+<arg>${OTP_PAGE}</arg>
+<arg>Almost There</arg>
+<arg>${TIMEOUT}</arg>
+<doc>Waits until the element ``locator`` contains ``text``.</doc>
+<status status="PASS" start="2024-06-19T14:25:12.721106" elapsed="5.580601"/>
+</kw>
+<tag>TC-PMS-005</tag>
+<status status="PASS" start="2024-06-19T14:24:49.351753" elapsed="28.951345"/>
+</test>
+<test id="s1-t3" name="Verify the clinician Home Page" line="31">
+<kw name="Enter OTP and Submit it" owner="lumate1Resource">
+<kw name="Wait for OTP Email" owner="lumate1Resource">
+<kw name="Open Mailbox" owner="ImapLibrary2">
+<arg>host=${EMAIL_SERVER}</arg>
+<arg>user=${EMAIL_USERNAME}</arg>
+<arg>password=${EMAIL_PASSWORD}</arg>
+<doc>Open IMAP email client session to given ``host`` with given ``user`` and ``password``.</doc>
+<status status="PASS" start="2024-06-19T14:25:18.314199" elapsed="1.920113"/>
+</kw>
+<kw name="Wait For Email" owner="ImapLibrary2">
+<msg time="2024-06-19T14:25:20.983455" level="INFO">${email_index} = 40554</msg>
+<var>${email_index}</var>
+<arg>sender=${SENDER_USERNAME}</arg>
+<arg>status=UNSEEN</arg>
+<arg>timeout=300</arg>
+<doc>Wait for email message to arrived base on any given filter criteria.
+Returns email index of the latest email message received.</doc>
+<status status="PASS" start="2024-06-19T14:25:20.235249" elapsed="0.748449"/>
+</kw>
+<kw name="Get Email Body" owner="ImapLibrary2">
+<msg time="2024-06-19T14:25:21.504274" level="INFO">${email_body} = &lt;html xmlns="http://www.w3.org/1999/xhtml" xmlns:o="urn:schemas-microsoft-com:office:office" xmlns:v="urn:schemas-microsoft-com:vml" lang="en"&gt;&lt;head&gt;
+&lt;meta http-equiv="Content-Type" content="text/htm...</msg>
+<var>${email_body}</var>
+<arg>${email_index}</arg>
+<doc>Returns the decoded email body on multipart email message,
+otherwise returns the body text.</doc>
+<status status="PASS" start="2024-06-19T14:25:20.984504" elapsed="0.520075"/>
+</kw>
+<kw name="Get Regexp Matches" owner="String">
+<msg time="2024-06-19T14:25:21.511547" level="INFO">${otp} = ['353454', '000000', '353454', '692427', '353454', '353454', '000000', '353454', '353454', '353454', '353454', '353454', '353454', '353454', '353454', '353454', '353454']</msg>
+<var>${otp}</var>
+<arg>${email_body}</arg>
+<arg>\\b\\d{6}\\b</arg>
+<doc>Returns a list of all non-overlapping matches in the given string.</doc>
+<status status="PASS" start="2024-06-19T14:25:21.505827" elapsed="0.005958"/>
+</kw>
+<kw name="Delete Email" owner="ImapLibrary2">
+<arg>${email_index}</arg>
+<doc>Delete email on given ``email_index``.</doc>
+<status status="PASS" start="2024-06-19T14:25:21.512918" elapsed="0.810662"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2024-06-19T14:25:22.326372" level="INFO">OTP received: ['353454', '000000', '353454', '692427', '353454', '353454', '000000', '353454', '353454', '353454', '353454', '353454', '353454', '353454', '353454', '353454', '353454']</msg>
+<arg>OTP received: ${otp}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2024-06-19T14:25:22.325059" elapsed="0.001749"/>
+</kw>
+<return>
+<value>${otp}[3]</value>
+<status status="PASS" start="2024-06-19T14:25:22.327335" elapsed="0.000360"/>
+</return>
+<msg time="2024-06-19T14:25:22.329428" level="INFO">${otp} = 692427</msg>
+<var>${otp}</var>
+<status status="PASS" start="2024-06-19T14:25:18.312611" elapsed="4.016977"/>
+</kw>
+<kw name="Copy To Clipboard" owner="CustomKeywords">
+<arg>${otp}</arg>
+<status status="PASS" start="2024-06-19T14:25:22.330667" elapsed="0.027010"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${OTP_CLICK}</arg>
+<arg>15s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2024-06-19T14:25:22.362144" elapsed="0.082131"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2024-06-19T14:25:22.446012" level="INFO">Clicking element 'xpath://*[@class="information-text resend-otp m-auto p-t-10"]'.</msg>
+<arg>${OTP_CLICK}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2024-06-19T14:25:22.444800" elapsed="0.068046"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${OTP_PAGE}</arg>
+<arg>${TIMEOUT}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2024-06-19T14:25:22.513308" elapsed="0.020135"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${OTP_PMS}</arg>
+<arg>${TIMEOUT}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2024-06-19T14:25:22.533809" elapsed="0.036267"/>
+</kw>
+<kw name="Press Keys" owner="SeleniumLibrary">
+<msg time="2024-06-19T14:25:22.571066" level="INFO">Sending key(s) ('CTRL+V',) to xpath://*[@class="otp-input ng-pristine ng-valid ng-star-inserted ng-touched"] element.</msg>
+<msg time="2024-06-19T14:25:22.900313" level="INFO">Pressing special key CONTROL down.</msg>
+<msg time="2024-06-19T14:25:22.900772" level="INFO">Sending key V</msg>
+<msg time="2024-06-19T14:25:22.901087" level="INFO">Releasing special key CONTROL.</msg>
+<arg>${OTP_PMS}</arg>
+<arg>CTRL+V</arg>
+<doc>Simulates the user pressing key(s) to an element or on the active browser.</doc>
+<status status="PASS" start="2024-06-19T14:25:22.570465" elapsed="0.390763"/>
+</kw>
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2024-06-19T14:25:22.962782" level="INFO">Clicking button 'xpath://*[@class="mat-focus-indicator auth-form-btn mat-flat-button mat-button-base mat-primary"]'.</msg>
+<arg>${VALIDATE_OTP_PMS}</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2024-06-19T14:25:22.961734" elapsed="0.096687"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2024-06-19T14:25:25.059721" level="INFO">Slept 2 seconds.</msg>
+<arg>2s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2024-06-19T14:25:23.058862" elapsed="2.001273"/>
+</kw>
+<kw name="Run Keyword And Return Status" owner="BuiltIn">
+<kw name="Page Should Contain" owner="SeleniumLibrary">
+<msg time="2024-06-19T14:25:25.409396" level="INFO">Current page contains text 'Incorrect OTP is provided. Try resending OTP.'.</msg>
+<arg>Incorrect OTP is provided. Try resending OTP.</arg>
+<doc>Verifies that current page contains ``text``.</doc>
+<status status="PASS" start="2024-06-19T14:25:25.062204" elapsed="0.347293"/>
+</kw>
+<msg time="2024-06-19T14:25:25.409667" level="INFO">${error_exists} = True</msg>
+<var>${error_exists}</var>
+<arg>Page Should Contain</arg>
+<arg>Incorrect OTP is provided. Try resending OTP.</arg>
+<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
+<status status="PASS" start="2024-06-19T14:25:25.061103" elapsed="0.348591"/>
+</kw>
+<kw name="Run Keyword If" owner="BuiltIn">
+<kw name="Enter OTP and Submit it" owner="lumate1Resource">
+<kw name="Wait for OTP Email" owner="lumate1Resource">
+<kw name="Open Mailbox" owner="ImapLibrary2">
+<arg>host=${EMAIL_SERVER}</arg>
+<arg>user=${EMAIL_USERNAME}</arg>
+<arg>password=${EMAIL_PASSWORD}</arg>
+<doc>Open IMAP email client session to given ``host`` with given ``user`` and ``password``.</doc>
+<status status="PASS" start="2024-06-19T14:25:25.411005" elapsed="1.436873"/>
+</kw>
+<kw name="Wait For Email" owner="ImapLibrary2">
+<msg time="2024-06-19T14:25:27.436622" level="INFO">${email_index} = 40555</msg>
+<var>${email_index}</var>
+<arg>sender=${SENDER_USERNAME}</arg>
+<arg>status=UNSEEN</arg>
+<arg>timeout=300</arg>
+<doc>Wait for email message to arrived base on any given filter criteria.
+Returns email index of the latest email message received.</doc>
+<status status="PASS" start="2024-06-19T14:25:26.849156" elapsed="0.587671"/>
+</kw>
+<kw name="Get Email Body" owner="ImapLibrary2">
+<msg time="2024-06-19T14:25:27.864452" level="INFO">${email_body} = &lt;html xmlns="http://www.w3.org/1999/xhtml" xmlns:o="urn:schemas-microsoft-com:office:office" xmlns:v="urn:schemas-microsoft-com:vml" lang="en"&gt;&lt;head&gt;
+&lt;meta http-equiv="Content-Type" content="text/htm...</msg>
+<var>${email_body}</var>
+<arg>${email_index}</arg>
+<doc>Returns the decoded email body on multipart email message,
+otherwise returns the body text.</doc>
+<status status="PASS" start="2024-06-19T14:25:27.437872" elapsed="0.426794"/>
+</kw>
+<kw name="Get Regexp Matches" owner="String">
+<msg time="2024-06-19T14:25:27.868984" level="INFO">${otp} = ['353454', '000000', '353454', '715259', '353454', '353454', '000000', '353454', '353454', '353454', '353454', '353454', '353454', '353454', '353454', '353454', '353454']</msg>
+<var>${otp}</var>
+<arg>${email_body}</arg>
+<arg>\\b\\d{6}\\b</arg>
+<doc>Returns a list of all non-overlapping matches in the given string.</doc>
+<status status="PASS" start="2024-06-19T14:25:27.865485" elapsed="0.003659"/>
+</kw>
+<kw name="Delete Email" owner="ImapLibrary2">
+<arg>${email_index}</arg>
+<doc>Delete email on given ``email_index``.</doc>
+<status status="PASS" start="2024-06-19T14:25:27.870012" elapsed="0.654127"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2024-06-19T14:25:28.525749" level="INFO">OTP received: ['353454', '000000', '353454', '715259', '353454', '353454', '000000', '353454', '353454', '353454', '353454', '353454', '353454', '353454', '353454', '353454', '353454']</msg>
+<arg>OTP received: ${otp}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2024-06-19T14:25:28.524991" elapsed="0.000976"/>
+</kw>
+<return>
+<value>${otp}[3]</value>
+<status status="PASS" start="2024-06-19T14:25:28.526314" elapsed="0.000251"/>
+</return>
+<msg time="2024-06-19T14:25:28.527212" level="INFO">${otp} = 715259</msg>
+<var>${otp}</var>
+<status status="PASS" start="2024-06-19T14:25:25.410735" elapsed="3.116595"/>
+</kw>
+<kw name="Copy To Clipboard" owner="CustomKeywords">
+<arg>${otp}</arg>
+<status status="PASS" start="2024-06-19T14:25:28.528127" elapsed="0.017401"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${OTP_CLICK}</arg>
+<arg>15s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2024-06-19T14:25:28.549089" elapsed="0.031064"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2024-06-19T14:25:28.580936" level="INFO">Clicking element 'xpath://*[@class="information-text resend-otp m-auto p-t-10"]'.</msg>
+<arg>${OTP_CLICK}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2024-06-19T14:25:28.580528" elapsed="0.035654"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${OTP_PAGE}</arg>
+<arg>${TIMEOUT}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2024-06-19T14:25:28.616487" elapsed="0.015529"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${OTP_PMS}</arg>
+<arg>${TIMEOUT}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2024-06-19T14:25:28.632337" elapsed="0.016233"/>
+</kw>
+<kw name="Press Keys" owner="SeleniumLibrary">
+<msg time="2024-06-19T14:25:28.649387" level="INFO">Sending key(s) ('CTRL+V',) to xpath://*[@class="otp-input ng-pristine ng-valid ng-star-inserted ng-touched"] element.</msg>
+<msg time="2024-06-19T14:25:28.939947" level="INFO">Pressing special key CONTROL down.</msg>
+<msg time="2024-06-19T14:25:28.940083" level="INFO">Sending key V</msg>
+<msg time="2024-06-19T14:25:28.940179" level="INFO">Releasing special key CONTROL.</msg>
+<arg>${OTP_PMS}</arg>
+<arg>CTRL+V</arg>
+<doc>Simulates the user pressing key(s) to an element or on the active browser.</doc>
+<status status="PASS" start="2024-06-19T14:25:28.648902" elapsed="0.311315"/>
+</kw>
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2024-06-19T14:25:28.960924" level="INFO">Clicking button 'xpath://*[@class="mat-focus-indicator auth-form-btn mat-flat-button mat-button-base mat-primary"]'.</msg>
+<arg>${VALIDATE_OTP_PMS}</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2024-06-19T14:25:28.960563" elapsed="0.061979"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2024-06-19T14:25:31.023474" level="INFO">Slept 2 seconds.</msg>
+<arg>2s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2024-06-19T14:25:29.022825" elapsed="2.001239"/>
+</kw>
+<kw name="Run Keyword And Return Status" owner="BuiltIn">
+<kw name="Page Should Contain" owner="SeleniumLibrary">
+<msg time="2024-06-19T14:25:34.472153" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-207.png"&gt;&lt;img src="selenium-screenshot-207.png" width="800px"&gt;&lt;/a&gt;</msg>
+<msg time="2024-06-19T14:25:34.472345" level="FAIL">Page should have contained text 'Incorrect OTP is provided. Try resending OTP.' but did not.</msg>
+<arg>Incorrect OTP is provided. Try resending OTP.</arg>
+<doc>Verifies that current page contains ``text``.</doc>
+<status status="FAIL" start="2024-06-19T14:25:31.028222" elapsed="3.444732">Page should have contained text 'Incorrect OTP is provided. Try resending OTP.' but did not.</status>
+</kw>
+<msg time="2024-06-19T14:25:34.473125" level="INFO">${error_exists} = False</msg>
+<var>${error_exists}</var>
+<arg>Page Should Contain</arg>
+<arg>Incorrect OTP is provided. Try resending OTP.</arg>
+<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
+<status status="PASS" start="2024-06-19T14:25:31.025688" elapsed="3.447467"/>
+</kw>
+<kw name="Run Keyword If" owner="BuiltIn">
+<arg>${error_exists}</arg>
+<arg>Enter OTP And Submit It</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="PASS" start="2024-06-19T14:25:34.473410" elapsed="0.000250"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${HOMEPAGE_PMS}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2024-06-19T14:25:34.473910" elapsed="0.018670"/>
+</kw>
+<status status="PASS" start="2024-06-19T14:25:25.410333" elapsed="9.082427"/>
+</kw>
+<arg>${error_exists}</arg>
+<arg>Enter OTP And Submit It</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="PASS" start="2024-06-19T14:25:25.409903" elapsed="9.082920"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${HOMEPAGE_PMS}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2024-06-19T14:25:34.493010" elapsed="0.014600"/>
+</kw>
+<status status="PASS" start="2024-06-19T14:25:18.309508" elapsed="16.198279"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${TO-DO_HOME}</arg>
+<arg>${TIMEOUT}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2024-06-19T14:25:34.508150" elapsed="0.017459"/>
+</kw>
+<kw name="Element Should Contain" owner="SeleniumLibrary">
+<msg time="2024-06-19T14:25:34.544836" level="INFO">Element 'xpath://*[@class="to-do-container h-100"]' contains text 'TO DO's'.</msg>
+<arg>${TO-DO_HOME}</arg>
+<arg>TO DO's</arg>
+<doc>Verifies that element ``locator`` contains text ``expected``.</doc>
+<status status="PASS" start="2024-06-19T14:25:34.526015" elapsed="0.018946"/>
+</kw>
+<kw name="Element Should Contain" owner="SeleniumLibrary">
+<msg time="2024-06-19T14:25:34.567538" level="INFO">Element 'xpath://*[@class="appointment-container h-100"]' contains text 'Appointments'.</msg>
+<arg>${APPOINTMENT_HOME}</arg>
+<arg>Appointments</arg>
+<doc>Verifies that element ``locator`` contains text ``expected``.</doc>
+<status status="PASS" start="2024-06-19T14:25:34.545324" elapsed="0.022324"/>
+</kw>
+<tag>TC-APP-001</tag>
+<status status="PASS" start="2024-06-19T14:25:18.305139" elapsed="16.262782"/>
+</test>
+<test id="s1-t4" name="Verify the Calender &amp; appointments screen" line="38">
+<kw name="Wait Until the Update Icon Disappear" owner="lumate1Resource">
+<kw name="Wait Until Element Is Not Visible" owner="SeleniumLibrary">
+<arg>${UpdateIcon}</arg>
+<arg>60s</arg>
+<doc>Waits until the element ``locator`` is not visible.</doc>
+<status status="PASS" start="2024-06-19T14:25:34.569113" elapsed="0.013242"/>
+</kw>
+<status status="PASS" start="2024-06-19T14:25:34.568776" elapsed="0.013714"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2024-06-19T14:25:34.583117" level="INFO">Clicking element 'xpath://*[@id="leftsidebar"]/div/ul/div/li[3]/a'.</msg>
+<arg>${APPOINTMENT_SEC}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2024-06-19T14:25:34.582787" elapsed="0.349530"/>
+</kw>
+<kw name="Wait Until the Update Icon Disappear" owner="lumate1Resource">
+<kw name="Wait Until Element Is Not Visible" owner="SeleniumLibrary">
+<arg>${UpdateIcon}</arg>
+<arg>60s</arg>
+<doc>Waits until the element ``locator`` is not visible.</doc>
+<status status="PASS" start="2024-06-19T14:25:34.933704" elapsed="0.017961"/>
+</kw>
+<status status="PASS" start="2024-06-19T14:25:34.933133" elapsed="0.018700"/>
+</kw>
+<kw name="verify elements of TC-APP-002 visible or not" owner="lumate1Resource">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${APPOINTMENT_CALENDER}</arg>
+<arg>${TIMEOUT_40}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2024-06-19T14:25:34.953235" elapsed="1.717386"/>
+</kw>
+<kw name="Element Should Be Visible" owner="SeleniumLibrary">
+<msg time="2024-06-19T14:25:36.702805" level="INFO">Element 'xpath://*[@class="appointment-calendar h-100"]' is displayed.</msg>
+<arg>${APPOINTMENT_CALENDER}</arg>
+<arg>Today</arg>
+<doc>Verifies that the element identified by ``locator`` is visible.</doc>
+<status status="PASS" start="2024-06-19T14:25:36.671007" elapsed="0.031945"/>
+</kw>
+<kw name="Element Should Be Visible" owner="SeleniumLibrary">
+<msg time="2024-06-19T14:25:36.764810" level="INFO">Element 'xpath://*[@class="d-block d-xxl-none position-absolute m-t-8 he-38 wi-38 b-r-10 p-a-7 btn-primary text-white w-auto"]' is displayed.</msg>
+<arg>${CREATE_APPOINTMENT}</arg>
+<doc>Verifies that the element identified by ``locator`` is visible.</doc>
+<status status="PASS" start="2024-06-19T14:25:36.703281" elapsed="0.061651"/>
+</kw>
+<kw name="Wait Until the Update Icon Disappear" owner="lumate1Resource">
+<kw name="Wait Until Element Is Not Visible" owner="SeleniumLibrary">
+<arg>${UpdateIcon}</arg>
+<arg>60s</arg>
+<doc>Waits until the element ``locator`` is not visible.</doc>
+<status status="PASS" start="2024-06-19T14:25:36.765524" elapsed="0.008460"/>
+</kw>
+<status status="PASS" start="2024-06-19T14:25:36.765205" elapsed="0.009087"/>
+</kw>
+<kw name="Wait Until Element Is Enabled" owner="SeleniumLibrary">
+<arg>${OPEN_RIGHTBAR_FOR_CALANEDER}</arg>
+<arg>${TIMEOUT_40}</arg>
+<doc>Waits until the element ``locator`` is enabled.</doc>
+<status status="PASS" start="2024-06-19T14:25:36.774783" elapsed="0.091794"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2024-06-19T14:25:38.867354" level="INFO">Slept 2 seconds.</msg>
+<arg>2s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2024-06-19T14:25:36.866828" elapsed="2.000883"/>
+</kw>
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2024-06-19T14:25:38.869436" level="INFO">Clicking button 'xpath://*[@class="toggle-sidebar-button he-36 wi-24 bg-secondary text-white position-absolute"]'.</msg>
+<arg>${OPEN_RIGHTBAR_FOR_CALANEDER}</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2024-06-19T14:25:38.868504" elapsed="0.132642"/>
+</kw>
+<kw name="Element Should Be Visible" owner="SeleniumLibrary">
+<msg time="2024-06-19T14:25:39.024625" level="INFO">Element 'xpath://*[@class="card border-bottom-0"]' is displayed.</msg>
+<arg>${Select_Office}</arg>
+<arg>Select Office</arg>
+<doc>Verifies that the element identified by ``locator`` is visible.</doc>
+<status status="PASS" start="2024-06-19T14:25:39.001459" elapsed="0.023287"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${Select_Clinicians}</arg>
+<arg>${TIMEOUT}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2024-06-19T14:25:39.025053" elapsed="0.022413"/>
+</kw>
+<kw name="Element Should Be Visible" owner="SeleniumLibrary">
+<msg time="2024-06-19T14:25:39.066437" level="INFO">Element 'xpath://*[@class="d-flex align-items-center"]' is displayed.</msg>
+<arg>${Select_Clinicians}</arg>
+<arg>Select Clinicians</arg>
+<doc>Verifies that the element identified by ``locator`` is visible.</doc>
+<status status="PASS" start="2024-06-19T14:25:39.047784" elapsed="0.018804"/>
+</kw>
+<status status="PASS" start="2024-06-19T14:25:34.952373" elapsed="4.114404"/>
+</kw>
+<kw name="Wait Until the Update Icon Disappear" owner="lumate1Resource">
+<kw name="Wait Until Element Is Not Visible" owner="SeleniumLibrary">
+<arg>${UpdateIcon}</arg>
+<arg>60s</arg>
+<doc>Waits until the element ``locator`` is not visible.</doc>
+<status status="PASS" start="2024-06-19T14:25:39.067687" elapsed="0.013667"/>
+</kw>
+<status status="PASS" start="2024-06-19T14:25:39.067210" elapsed="0.014318"/>
+</kw>
+<kw name="Wait Until the Update Icon Disappear" owner="lumate1Resource">
+<kw name="Wait Until Element Is Not Visible" owner="SeleniumLibrary">
+<arg>${UpdateIcon}</arg>
+<arg>60s</arg>
+<doc>Waits until the element ``locator`` is not visible.</doc>
+<status status="PASS" start="2024-06-19T14:25:39.082552" elapsed="0.009405"/>
+</kw>
+<status status="PASS" start="2024-06-19T14:25:39.081960" elapsed="0.010169"/>
+</kw>
+<tag>TC-APP-002</tag>
+<status status="PASS" start="2024-06-19T14:25:34.568227" elapsed="4.524165"/>
+</test>
+<test id="s1-t5" name="Verify the create an appointment button" line="47">
+<kw name="Click Element" owner="SeleniumLibrary" type="SETUP">
+<msg time="2024-06-19T14:25:39.093913" level="INFO">Clicking element 'xpath://*[@id="leftsidebar"]/div/ul/div/li[2]/a'.</msg>
+<arg>${HOME_SEC}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2024-06-19T14:25:39.093524" elapsed="0.091724"/>
+</kw>
+<kw name="Create Appointment and check elements" owner="lumate1Resource">
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2024-06-19T14:25:39.187225" level="INFO">Clicking element 'xpath://*[@id="leftsidebar"]/div/ul/div/li[3]/a'.</msg>
+<arg>${APPOINTMENT_SEC}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2024-06-19T14:25:39.186545" elapsed="0.148633"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2024-06-19T14:25:39.335765" level="INFO">Clicking element 'xpath://*[@class="d-block d-xxl-none position-absolute m-t-8 he-38 wi-38 b-r-10 p-a-7 btn-primary text-white w-auto"]'.</msg>
+<arg>${CREATE_APPOINTMENT}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2024-06-19T14:25:39.335452" elapsed="0.169698"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${SCHEDULED_APPOINTMENT}</arg>
+<arg>${Timeout}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2024-06-19T14:25:39.505542" elapsed="0.035120"/>
+</kw>
+<kw name="Element Should Contain" owner="SeleniumLibrary">
+<msg time="2024-06-19T14:25:39.598228" level="INFO">Element 'xpath://*[@class="block-header"]' contains text 'Schedule Appointment'.</msg>
+<arg>${SCHEDULED_APPOINTMENT}</arg>
+<arg>Schedule Appointment</arg>
+<doc>Verifies that element ``locator`` contains text ``expected``.</doc>
+<status status="PASS" start="2024-06-19T14:25:39.541079" elapsed="0.057415"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${APPOINTMENT_TYPE}</arg>
+<arg>${Timeout}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2024-06-19T14:25:39.598859" elapsed="3.261831"/>
+</kw>
+<kw name="Element Should Be Visible" owner="SeleniumLibrary">
+<msg time="2024-06-19T14:25:42.916958" level="INFO">Element 'xpath://*[@class="p-x-18 col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-6 col-xxl-6"]' is displayed.</msg>
+<arg>${APPOINTMENT_TYPE}</arg>
+<doc>Verifies that the element identified by ``locator`` is visible.</doc>
+<status status="PASS" start="2024-06-19T14:25:42.861535" elapsed="0.055862"/>
+</kw>
+<kw name="Element Should Be Visible" owner="SeleniumLibrary">
+<msg time="2024-06-19T14:25:42.965725" level="INFO">Element 'xpath://*[@class="d-flex m-a-20"]' is displayed.</msg>
+<arg>${BACK_BUTTON}</arg>
+<doc>Verifies that the element identified by ``locator`` is visible.</doc>
+<status status="PASS" start="2024-06-19T14:25:42.918426" elapsed="0.047475"/>
+</kw>
+<status status="PASS" start="2024-06-19T14:25:39.185826" elapsed="3.780288"/>
+</kw>
+<tag>TC-APP-003</tag>
+<status status="PASS" start="2024-06-19T14:25:39.092804" elapsed="3.873578"/>
+</test>
+<test id="s1-t6" name="Verify View Patient" line="52">
+<kw name="Click Element" owner="SeleniumLibrary" type="SETUP">
+<msg time="2024-06-19T14:25:42.968586" level="INFO">Clicking element 'xpath://*[@id="leftsidebar"]/div/ul/div/li[2]/a'.</msg>
+<arg>${HOME_SEC}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2024-06-19T14:25:42.968046" elapsed="0.057832"/>
+</kw>
+<kw name="Patient View Details Screen" owner="lumate1Resource">
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2024-06-19T14:25:43.028245" level="INFO">Clicking element 'xpath://*[@id="leftsidebar"]/div/ul/div/li[4]/a'.</msg>
+<arg>${PATIENT_SEC}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2024-06-19T14:25:43.027423" elapsed="0.065725"/>
+</kw>
+<kw name="Wait Until Element Is Enabled" owner="SeleniumLibrary">
+<arg>${VIEW_PATIENT1}</arg>
+<arg>${Timeout}</arg>
+<doc>Waits until the element ``locator`` is enabled.</doc>
+<status status="PASS" start="2024-06-19T14:25:43.093460" elapsed="1.340183"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2024-06-19T14:25:44.435160" level="INFO">Clicking element 'xpath://*[@class="fa-solid fa-circle-info font-18 text-white"]'.</msg>
+<arg>${VIEW_PATIENT1}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2024-06-19T14:25:44.434309" elapsed="0.096115"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${PATIENT_DETAIL}</arg>
+<arg>${Timeout}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2024-06-19T14:25:44.530667" elapsed="0.032722"/>
+</kw>
+<kw name="Element Should Be Visible" owner="SeleniumLibrary">
+<msg time="2024-06-19T14:25:44.580420" level="INFO">Element 'xpath://*[@class="upper-body d-flex align-items-center"]' is displayed.</msg>
+<arg>${PATIENT_DETAIL}</arg>
+<doc>Verifies that the element identified by ``locator`` is visible.</doc>
+<status status="PASS" start="2024-06-19T14:25:44.563704" elapsed="0.016838"/>
+</kw>
+<status status="PASS" start="2024-06-19T14:25:43.026528" elapsed="1.554161"/>
+</kw>
+<kw name="Wait Until the Update Icon Disappear" owner="lumate1Resource">
+<kw name="Wait Until Element Is Not Visible" owner="SeleniumLibrary">
+<arg>${UpdateIcon}</arg>
+<arg>60s</arg>
+<doc>Waits until the element ``locator`` is not visible.</doc>
+<status status="PASS" start="2024-06-19T14:25:44.581533" elapsed="0.014781"/>
+</kw>
+<status status="PASS" start="2024-06-19T14:25:44.581071" elapsed="0.015412"/>
+</kw>
+<tag>TC-PCV-001</tag>
+<status status="PASS" start="2024-06-19T14:25:42.966941" elapsed="1.629813"/>
+</test>
+<test id="s1-t7" name="Verify Edit Patient" line="58">
+<kw name="Click Element" owner="SeleniumLibrary" type="SETUP">
+<msg time="2024-06-19T14:25:44.597921" level="INFO">Clicking element 'xpath://*[@id="leftsidebar"]/div/ul/div/li[2]/a'.</msg>
+<arg>${HOME_SEC}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2024-06-19T14:25:44.597613" elapsed="0.088539"/>
+</kw>
+<kw name="Patient Edit Details Screen" owner="lumate1Resource">
+<kw name="Wait Until Element Is Enabled" owner="SeleniumLibrary">
+<arg>${PATIENT_SEC}</arg>
+<arg>${Timeout}</arg>
+<doc>Waits until the element ``locator`` is enabled.</doc>
+<status status="PASS" start="2024-06-19T14:25:44.688691" elapsed="0.036129"/>
+</kw>
+<kw name="Wait Until the Update Icon Disappear" owner="lumate1Resource">
+<kw name="Wait Until Element Is Not Visible" owner="SeleniumLibrary">
+<arg>${UpdateIcon}</arg>
+<arg>60s</arg>
+<doc>Waits until the element ``locator`` is not visible.</doc>
+<status status="PASS" start="2024-06-19T14:25:44.725649" elapsed="0.007722"/>
+</kw>
+<status status="PASS" start="2024-06-19T14:25:44.725167" elapsed="0.008342"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2024-06-19T14:25:44.734021" level="INFO">Clicking element 'xpath://*[@id="leftsidebar"]/div/ul/div/li[4]/a'.</msg>
+<arg>${PATIENT_SEC}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2024-06-19T14:25:44.733709" elapsed="0.118627"/>
+</kw>
+<kw name="Wait Until Element Is Enabled" owner="SeleniumLibrary">
+<arg>${EDIT_PATIENT1}</arg>
+<arg>${Timeout}</arg>
+<doc>Waits until the element ``locator`` is enabled.</doc>
+<status status="PASS" start="2024-06-19T14:25:44.852659" elapsed="0.506857"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2024-06-19T14:25:45.360586" level="INFO">Clicking element 'xpath://*[@class="fa-solid fa-pen-to-square font-18 text-white"]'.</msg>
+<arg>${EDIT_PATIENT1}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2024-06-19T14:25:45.360100" elapsed="0.186192"/>
+</kw>
+<status status="PASS" start="2024-06-19T14:25:44.686897" elapsed="0.859645"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${PATIENT_CHART}</arg>
+<arg>${TIMEOUT}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2024-06-19T14:25:45.547272" elapsed="0.978790"/>
+</kw>
+<kw name="Element Should Be Visible" owner="SeleniumLibrary">
+<msg time="2024-06-19T14:25:46.570859" level="INFO">Element 'xpath://*[@class="p-a-15"]' is displayed.</msg>
+<arg>${PATIENT_CHART}</arg>
+<doc>Verifies that the element identified by ``locator`` is visible.</doc>
+<status status="PASS" start="2024-06-19T14:25:46.526669" elapsed="0.044294"/>
+</kw>
+<kw name="Wait Until the Update Icon Disappear" owner="lumate1Resource">
+<kw name="Wait Until Element Is Not Visible" owner="SeleniumLibrary">
+<arg>${UpdateIcon}</arg>
+<arg>60s</arg>
+<doc>Waits until the element ``locator`` is not visible.</doc>
+<status status="PASS" start="2024-06-19T14:25:46.571641" elapsed="0.038032"/>
+</kw>
+<status status="PASS" start="2024-06-19T14:25:46.571306" elapsed="0.038652"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2024-06-19T14:25:48.611154" level="INFO">Slept 2 seconds.</msg>
+<arg>2s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2024-06-19T14:25:46.610501" elapsed="2.001038"/>
+</kw>
+<tag>TC-PCV-002</tag>
+<status status="PASS" start="2024-06-19T14:25:44.597146" elapsed="4.015307"/>
+</test>
+<test id="s1-t8" name="Verify the Basic details screen given under the Demographic section" line="67">
+<kw name="Click Element" owner="SeleniumLibrary" type="SETUP">
+<msg time="2024-06-19T14:25:48.618249" level="INFO">Clicking element 'xpath://*[@id="leftsidebar"]/div/ul/div/li[2]/a'.</msg>
+<arg>${HOME_SEC}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2024-06-19T14:25:48.616840" elapsed="0.112434"/>
+</kw>
+<kw name="Wait Until the Update Icon Disappear" owner="lumate1Resource">
+<kw name="Wait Until Element Is Not Visible" owner="SeleniumLibrary">
+<arg>${UpdateIcon}</arg>
+<arg>60s</arg>
+<doc>Waits until the element ``locator`` is not visible.</doc>
+<status status="PASS" start="2024-06-19T14:25:48.730460" elapsed="0.013683"/>
+</kw>
+<status status="PASS" start="2024-06-19T14:25:48.729834" elapsed="0.014447"/>
+</kw>
+<kw name="Patient Edit Details Screen" owner="lumate1Resource">
+<kw name="Wait Until Element Is Enabled" owner="SeleniumLibrary">
+<arg>${PATIENT_SEC}</arg>
+<arg>${Timeout}</arg>
+<doc>Waits until the element ``locator`` is enabled.</doc>
+<status status="PASS" start="2024-06-19T14:25:48.745027" elapsed="0.028307"/>
+</kw>
+<kw name="Wait Until the Update Icon Disappear" owner="lumate1Resource">
+<kw name="Wait Until Element Is Not Visible" owner="SeleniumLibrary">
+<arg>${UpdateIcon}</arg>
+<arg>60s</arg>
+<doc>Waits until the element ``locator`` is not visible.</doc>
+<status status="PASS" start="2024-06-19T14:25:48.774143" elapsed="0.007666"/>
+</kw>
+<status status="PASS" start="2024-06-19T14:25:48.773686" elapsed="0.008287"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2024-06-19T14:25:48.782593" level="INFO">Clicking element 'xpath://*[@id="leftsidebar"]/div/ul/div/li[4]/a'.</msg>
+<arg>${PATIENT_SEC}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2024-06-19T14:25:48.782236" elapsed="0.116969"/>
+</kw>
+<kw name="Wait Until Element Is Enabled" owner="SeleniumLibrary">
+<arg>${EDIT_PATIENT1}</arg>
+<arg>${Timeout}</arg>
+<doc>Waits until the element ``locator`` is enabled.</doc>
+<status status="PASS" start="2024-06-19T14:25:48.899680" elapsed="0.773584"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2024-06-19T14:25:49.675729" level="INFO">Clicking element 'xpath://*[@class="fa-solid fa-pen-to-square font-18 text-white"]'.</msg>
+<arg>${EDIT_PATIENT1}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2024-06-19T14:25:49.674555" elapsed="0.259896"/>
+</kw>
+<status status="PASS" start="2024-06-19T14:25:48.744573" elapsed="1.190015"/>
+</kw>
+<kw name="Wait Until the Update Icon Disappear" owner="lumate1Resource">
+<kw name="Wait Until Element Is Not Visible" owner="SeleniumLibrary">
+<arg>${UpdateIcon}</arg>
+<arg>60s</arg>
+<doc>Waits until the element ``locator`` is not visible.</doc>
+<status status="PASS" start="2024-06-19T14:25:49.935300" elapsed="0.011731"/>
+</kw>
+<status status="PASS" start="2024-06-19T14:25:49.934952" elapsed="0.012248"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${BASIC_DETAILS_VIEW}</arg>
+<arg>${TIMEOUT}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2024-06-19T14:25:49.947521" elapsed="0.029225"/>
+</kw>
+<kw name="Element Should Be Visible" owner="SeleniumLibrary">
+<msg time="2024-06-19T14:25:49.999333" level="INFO">Element 'xpath://*[@class="mat-tab-body-wrapper"]' is displayed.</msg>
+<arg>${BASIC_DETAILS_VIEW}</arg>
+<doc>Verifies that the element identified by ``locator`` is visible.</doc>
+<status status="PASS" start="2024-06-19T14:25:49.977126" elapsed="0.022337"/>
+</kw>
+<kw name="Wait Until Element Is Enabled" owner="SeleniumLibrary">
+<arg>${HOME_SEC}</arg>
+<arg>${TIMEOUT}</arg>
+<doc>Waits until the element ``locator`` is enabled.</doc>
+<status status="PASS" start="2024-06-19T14:25:49.999822" elapsed="0.029412"/>
+</kw>
+<kw name="Wait Until the Update Icon Disappear" owner="lumate1Resource">
+<kw name="Wait Until Element Is Not Visible" owner="SeleniumLibrary">
+<arg>${UpdateIcon}</arg>
+<arg>60s</arg>
+<doc>Waits until the element ``locator`` is not visible.</doc>
+<status status="PASS" start="2024-06-19T14:25:50.030172" elapsed="0.010540"/>
+</kw>
+<status status="PASS" start="2024-06-19T14:25:50.029684" elapsed="0.011206"/>
+</kw>
+<tag>TC-PCV-003</tag>
+<status status="PASS" start="2024-06-19T14:25:48.613834" elapsed="1.427300"/>
+</test>
+<test id="s1-t9" name="Verify billing tab" line="78">
+<kw name="Click Element" owner="SeleniumLibrary" type="SETUP">
+<msg time="2024-06-19T14:25:50.042474" level="INFO">Clicking element 'xpath://*[@id="leftsidebar"]/div/ul/div/li[2]/a'.</msg>
+<arg>${HOME_SEC}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2024-06-19T14:25:50.042176" elapsed="0.077648"/>
+</kw>
+<kw name="Wait Until the Update Icon Disappear" owner="lumate1Resource">
+<kw name="Wait Until Element Is Not Visible" owner="SeleniumLibrary">
+<arg>${UpdateIcon}</arg>
+<arg>60s</arg>
+<doc>Waits until the element ``locator`` is not visible.</doc>
+<status status="PASS" start="2024-06-19T14:25:50.120933" elapsed="0.013714"/>
+</kw>
+<status status="PASS" start="2024-06-19T14:25:50.120291" elapsed="0.014545"/>
+</kw>
+<kw name="Patient Edit Details Screen" owner="lumate1Resource">
+<kw name="Wait Until Element Is Enabled" owner="SeleniumLibrary">
+<arg>${PATIENT_SEC}</arg>
+<arg>${Timeout}</arg>
+<doc>Waits until the element ``locator`` is enabled.</doc>
+<status status="PASS" start="2024-06-19T14:25:50.136146" elapsed="0.041754"/>
+</kw>
+<kw name="Wait Until the Update Icon Disappear" owner="lumate1Resource">
+<kw name="Wait Until Element Is Not Visible" owner="SeleniumLibrary">
+<arg>${UpdateIcon}</arg>
+<arg>60s</arg>
+<doc>Waits until the element ``locator`` is not visible.</doc>
+<status status="PASS" start="2024-06-19T14:25:50.178588" elapsed="0.007465"/>
+</kw>
+<status status="PASS" start="2024-06-19T14:25:50.178247" elapsed="0.007959"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2024-06-19T14:25:50.186638" level="INFO">Clicking element 'xpath://*[@id="leftsidebar"]/div/ul/div/li[4]/a'.</msg>
+<arg>${PATIENT_SEC}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2024-06-19T14:25:50.186388" elapsed="0.679919"/>
+</kw>
+<kw name="Wait Until Element Is Enabled" owner="SeleniumLibrary">
+<arg>${EDIT_PATIENT1}</arg>
+<arg>${Timeout}</arg>
+<doc>Waits until the element ``locator`` is enabled.</doc>
+<status status="PASS" start="2024-06-19T14:25:50.866750" elapsed="1.073592"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2024-06-19T14:25:51.941507" level="INFO">Clicking element 'xpath://*[@class="fa-solid fa-pen-to-square font-18 text-white"]'.</msg>
+<arg>${EDIT_PATIENT1}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2024-06-19T14:25:51.940883" elapsed="0.218246"/>
+</kw>
+<status status="PASS" start="2024-06-19T14:25:50.135525" elapsed="2.023837"/>
+</kw>
+<kw name="Wait Until the Update Icon Disappear" owner="lumate1Resource">
+<kw name="Wait Until Element Is Not Visible" owner="SeleniumLibrary">
+<arg>${UpdateIcon}</arg>
+<arg>60s</arg>
+<doc>Waits until the element ``locator`` is not visible.</doc>
+<status status="PASS" start="2024-06-19T14:25:52.160535" elapsed="0.018835"/>
+</kw>
+<status status="PASS" start="2024-06-19T14:25:52.159926" elapsed="0.019622"/>
+</kw>
+<kw name="Wait Until Element Is Enabled" owner="SeleniumLibrary">
+<arg>${BILLING_SEC}</arg>
+<arg>${TIMEOUT_40}</arg>
+<doc>Waits until the element ``locator`` is enabled.</doc>
+<status status="PASS" start="2024-06-19T14:25:52.179864" elapsed="1.121999"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2024-06-19T14:25:53.303249" level="INFO">Clicking element 'xpath://*[@class="content-block"]/div/div/div/div[3]/li[8]'.</msg>
+<arg>${BILLING_SEC}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2024-06-19T14:25:53.302749" elapsed="0.595992"/>
+</kw>
+<kw name="Element Should Be Visible" owner="SeleniumLibrary">
+<msg time="2024-06-19T14:25:53.959811" level="INFO">Element 'xpath://*[@class="d-flex billing-cards-overview m-b-30 ng-star-inserted"]' is displayed.</msg>
+<arg>${BILLING_VIEW}</arg>
+<doc>Verifies that the element identified by ``locator`` is visible.</doc>
+<status status="PASS" start="2024-06-19T14:25:53.899212" elapsed="0.060750"/>
+</kw>
+<kw name="Wait Until the Update Icon Disappear" owner="lumate1Resource">
+<kw name="Wait Until Element Is Not Visible" owner="SeleniumLibrary">
+<arg>${UpdateIcon}</arg>
+<arg>60s</arg>
+<doc>Waits until the element ``locator`` is not visible.</doc>
+<status status="PASS" start="2024-06-19T14:25:53.961008" elapsed="0.023948"/>
+</kw>
+<status status="PASS" start="2024-06-19T14:25:53.960494" elapsed="0.024813"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2024-06-19T14:25:55.986154" level="INFO">Slept 2 seconds.</msg>
+<arg>2s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2024-06-19T14:25:53.985661" elapsed="2.000658"/>
+</kw>
+<tag>TC-PCV-004</tag>
+<status status="PASS" start="2024-06-19T14:25:50.041539" elapsed="5.945231"/>
+</test>
+<test id="s1-t10" name="Change billing status" line="90">
+<kw name="Click Element" owner="SeleniumLibrary" type="SETUP">
+<msg time="2024-06-19T14:25:55.988341" level="INFO">Clicking element 'xpath://*[@id="leftsidebar"]/div/ul/div/li[2]/a'.</msg>
+<arg>${HOME_SEC_ICON}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2024-06-19T14:25:55.987985" elapsed="0.075928"/>
+</kw>
+<kw name="Wait Until the Update Icon Disappear" owner="lumate1Resource">
+<kw name="Wait Until Element Is Not Visible" owner="SeleniumLibrary">
+<arg>${UpdateIcon}</arg>
+<arg>60s</arg>
+<doc>Waits until the element ``locator`` is not visible.</doc>
+<status status="PASS" start="2024-06-19T14:25:56.065239" elapsed="0.009252"/>
+</kw>
+<status status="PASS" start="2024-06-19T14:25:56.064511" elapsed="0.010112"/>
+</kw>
+<kw name="Patient Edit Details Screen" owner="lumate1Resource">
+<kw name="Wait Until Element Is Enabled" owner="SeleniumLibrary">
+<arg>${PATIENT_SEC}</arg>
+<arg>${Timeout}</arg>
+<doc>Waits until the element ``locator`` is enabled.</doc>
+<status status="PASS" start="2024-06-19T14:25:56.075607" elapsed="0.027039"/>
+</kw>
+<kw name="Wait Until the Update Icon Disappear" owner="lumate1Resource">
+<kw name="Wait Until Element Is Not Visible" owner="SeleniumLibrary">
+<arg>${UpdateIcon}</arg>
+<arg>60s</arg>
+<doc>Waits until the element ``locator`` is not visible.</doc>
+<status status="PASS" start="2024-06-19T14:25:56.103450" elapsed="0.009471"/>
+</kw>
+<status status="PASS" start="2024-06-19T14:25:56.103007" elapsed="0.010060"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2024-06-19T14:25:56.113642" level="INFO">Clicking element 'xpath://*[@id="leftsidebar"]/div/ul/div/li[4]/a'.</msg>
+<arg>${PATIENT_SEC}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2024-06-19T14:25:56.113275" elapsed="0.105520"/>
+</kw>
+<kw name="Wait Until Element Is Enabled" owner="SeleniumLibrary">
+<arg>${EDIT_PATIENT1}</arg>
+<arg>${Timeout}</arg>
+<doc>Waits until the element ``locator`` is enabled.</doc>
+<status status="PASS" start="2024-06-19T14:25:56.219070" elapsed="0.825491"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2024-06-19T14:25:57.046764" level="INFO">Clicking element 'xpath://*[@class="fa-solid fa-pen-to-square font-18 text-white"]'.</msg>
+<arg>${EDIT_PATIENT1}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2024-06-19T14:25:57.045679" elapsed="0.242931"/>
+</kw>
+<status status="PASS" start="2024-06-19T14:25:56.075099" elapsed="1.214053"/>
+</kw>
+<kw name="Wait Until Element Is Enabled" owner="SeleniumLibrary">
+<arg>${BILLING_SEC}</arg>
+<arg>${TIMEOUT}</arg>
+<doc>Waits until the element ``locator`` is enabled.</doc>
+<status status="PASS" start="2024-06-19T14:25:57.290306" elapsed="0.412083"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2024-06-19T14:25:57.702977" level="INFO">Clicking element 'xpath://*[@class="content-block"]/div/div/div/div[3]/li[8]'.</msg>
+<arg>${BILLING_SEC}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2024-06-19T14:25:57.702691" elapsed="0.510816"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>//*[@class="d-flex billing-cards-overview m-b-30 ng-star-inserted"]</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2024-06-19T14:25:58.213961" elapsed="0.024178"/>
+</kw>
+<kw name="Wait Until the Update Icon Disappear" owner="lumate1Resource">
+<kw name="Wait Until Element Is Not Visible" owner="SeleniumLibrary">
+<arg>${UpdateIcon}</arg>
+<arg>60s</arg>
+<doc>Waits until the element ``locator`` is not visible.</doc>
+<status status="PASS" start="2024-06-19T14:25:58.238884" elapsed="0.009608"/>
+</kw>
+<status status="PASS" start="2024-06-19T14:25:58.238545" elapsed="0.010083"/>
+</kw>
+<kw name="Changing status of billing to ready to bill" owner="lumate1Resource">
+<kw name="Run Keyword And Return Status" owner="BuiltIn">
+<kw name="Page Should Contain" owner="SeleniumLibrary">
+<msg time="2024-06-19T14:26:03.952327" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-208.png"&gt;&lt;img src="selenium-screenshot-208.png" width="800px"&gt;&lt;/a&gt;</msg>
+<msg time="2024-06-19T14:26:03.952521" level="FAIL">Page should have contained text 'xpath://*[@class="mat-row cdk-row ng-star-inserted"]' but did not.</msg>
+<arg>${DETAILED_STATUS}</arg>
+<doc>Verifies that current page contains ``text``.</doc>
+<status status="FAIL" start="2024-06-19T14:25:58.249702" elapsed="5.703007">Page should have contained text 'xpath://*[@class="mat-row cdk-row ng-star-inserted"]' but did not.</status>
+</kw>
+<msg time="2024-06-19T14:26:03.952939" level="INFO">${home} = False</msg>
+<var>${home}</var>
+<arg>Page Should Contain</arg>
+<arg>${DETAILED_STATUS}</arg>
+<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
+<status status="PASS" start="2024-06-19T14:25:58.249499" elapsed="5.703484"/>
+</kw>
+<kw name="Get Element Count" owner="SeleniumLibrary">
+<msg time="2024-06-19T14:26:03.965742" level="INFO">${COUNT} = 2</msg>
+<var>${COUNT}</var>
+<arg>${DETAILED_STATUS}</arg>
+<doc>Returns the number of elements matching ``locator``.</doc>
+<status status="PASS" start="2024-06-19T14:26:03.953280" elapsed="0.012525"/>
+</kw>
+<for flavor="IN RANGE">
+<iter>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2024-06-19T14:26:03.966860" level="INFO">Clicking element 'xpath://*[@class="mat-cell cdk-cell cdk-column-Status mat-column-Status ng-star-inserted"]/mat-form-field'.</msg>
+<arg>${BILLING_STATUS}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2024-06-19T14:26:03.966564" elapsed="0.079332"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2024-06-19T14:26:04.046735" level="INFO">Clicking element 'xpath://span[@class='mat-option-text' and contains(text(), 'Ready to Bill')]'.</msg>
+<arg>${READY_TO_BILL}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2024-06-19T14:26:04.046302" elapsed="0.170657"/>
+</kw>
+<kw name="Wait Until Element Is Enabled" owner="SeleniumLibrary">
+<arg>${YES_FOR_STATUS_CHANGE}</arg>
+<arg>${Timeout}</arg>
+<doc>Waits until the element ``locator`` is enabled.</doc>
+<status status="PASS" start="2024-06-19T14:26:04.217332" elapsed="0.036190"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2024-06-19T14:26:04.254972" level="INFO">Clicking element 'xpath://*[@class="wi-183 he-38 b-r-10 bg-primary d-flex align-items-center justify-content-center"]'.</msg>
+<arg>${YES_FOR_STATUS_CHANGE}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2024-06-19T14:26:04.253906" elapsed="0.068881"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2024-06-19T14:26:06.323861" level="INFO">Slept 2 seconds.</msg>
+<arg>2s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2024-06-19T14:26:04.323270" elapsed="2.000727"/>
+</kw>
+<kw name="Wait Until the Update Icon Disappear" owner="lumate1Resource">
+<kw name="Wait Until Element Is Not Visible" owner="SeleniumLibrary">
+<arg>${UpdateIcon}</arg>
+<arg>60s</arg>
+<doc>Waits until the element ``locator`` is not visible.</doc>
+<status status="PASS" start="2024-06-19T14:26:06.324708" elapsed="0.012821"/>
+</kw>
+<status status="PASS" start="2024-06-19T14:26:06.324310" elapsed="0.013414"/>
+</kw>
+<kw name="Execute Javascript" owner="SeleniumLibrary">
+<msg time="2024-06-19T14:26:06.338448" level="INFO">Executing JavaScript:
+location.reload(true)
+Without any arguments.</msg>
+<arg>location.reload(true)</arg>
+<doc>Executes the given JavaScript code with possible arguments.</doc>
+<status status="PASS" start="2024-06-19T14:26:06.338026" elapsed="0.242566"/>
+</kw>
+<kw name="Wait Until Element Is Enabled" owner="SeleniumLibrary">
+<arg>${UNBILLED_STATUS}</arg>
+<arg>${Timeout}</arg>
+<doc>Waits until the element ``locator`` is enabled.</doc>
+<status status="PASS" start="2024-06-19T14:26:06.581154" elapsed="5.481931"/>
+</kw>
+<kw name="Wait Until the Update Icon Disappear" owner="lumate1Resource">
+<kw name="Wait Until Element Is Not Visible" owner="SeleniumLibrary">
+<arg>${UpdateIcon}</arg>
+<arg>60s</arg>
+<doc>Waits until the element ``locator`` is not visible.</doc>
+<status status="PASS" start="2024-06-19T14:26:12.063801" elapsed="0.011359"/>
+</kw>
+<status status="PASS" start="2024-06-19T14:26:12.063412" elapsed="0.011900"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2024-06-19T14:26:17.075962" level="INFO">Slept 5 seconds.</msg>
+<arg>5s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2024-06-19T14:26:12.075514" elapsed="5.000760"/>
+</kw>
+<var name="${i}">0</var>
+<status status="PASS" start="2024-06-19T14:26:03.966343" elapsed="13.110169"/>
+</iter>
+<iter>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2024-06-19T14:26:17.078814" level="INFO">Clicking element 'xpath://*[@class="mat-cell cdk-cell cdk-column-Status mat-column-Status ng-star-inserted"]/mat-form-field'.</msg>
+<arg>${BILLING_STATUS}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2024-06-19T14:26:17.077951" elapsed="0.217185"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2024-06-19T14:26:17.295832" level="INFO">Clicking element 'xpath://span[@class='mat-option-text' and contains(text(), 'Ready to Bill')]'.</msg>
+<arg>${READY_TO_BILL}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2024-06-19T14:26:17.295479" elapsed="0.131261"/>
+</kw>
+<kw name="Wait Until Element Is Enabled" owner="SeleniumLibrary">
+<arg>${YES_FOR_STATUS_CHANGE}</arg>
+<arg>${Timeout}</arg>
+<doc>Waits until the element ``locator`` is enabled.</doc>
+<status status="PASS" start="2024-06-19T14:26:17.427075" elapsed="0.025952"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2024-06-19T14:26:17.453710" level="INFO">Clicking element 'xpath://*[@class="wi-183 he-38 b-r-10 bg-primary d-flex align-items-center justify-content-center"]'.</msg>
+<arg>${YES_FOR_STATUS_CHANGE}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2024-06-19T14:26:17.453350" elapsed="0.071736"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2024-06-19T14:26:19.525693" level="INFO">Slept 2 seconds.</msg>
+<arg>2s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2024-06-19T14:26:17.525319" elapsed="2.000823"/>
+</kw>
+<kw name="Wait Until the Update Icon Disappear" owner="lumate1Resource">
+<kw name="Wait Until Element Is Not Visible" owner="SeleniumLibrary">
+<arg>${UpdateIcon}</arg>
+<arg>60s</arg>
+<doc>Waits until the element ``locator`` is not visible.</doc>
+<status status="PASS" start="2024-06-19T14:26:19.528797" elapsed="0.025424"/>
+</kw>
+<status status="PASS" start="2024-06-19T14:26:19.527082" elapsed="0.027737"/>
+</kw>
+<kw name="Execute Javascript" owner="SeleniumLibrary">
+<msg time="2024-06-19T14:26:19.557107" level="INFO">Executing JavaScript:
+location.reload(true)
+Without any arguments.</msg>
+<arg>location.reload(true)</arg>
+<doc>Executes the given JavaScript code with possible arguments.</doc>
+<status status="PASS" start="2024-06-19T14:26:19.555749" elapsed="0.433010"/>
+</kw>
+<kw name="Wait Until Element Is Enabled" owner="SeleniumLibrary">
+<arg>${UNBILLED_STATUS}</arg>
+<arg>${Timeout}</arg>
+<doc>Waits until the element ``locator`` is enabled.</doc>
+<status status="PASS" start="2024-06-19T14:26:19.989354" elapsed="4.477654"/>
+</kw>
+<kw name="Wait Until the Update Icon Disappear" owner="lumate1Resource">
+<kw name="Wait Until Element Is Not Visible" owner="SeleniumLibrary">
+<arg>${UpdateIcon}</arg>
+<arg>60s</arg>
+<doc>Waits until the element ``locator`` is not visible.</doc>
+<status status="PASS" start="2024-06-19T14:26:24.467821" elapsed="0.007655"/>
+</kw>
+<status status="PASS" start="2024-06-19T14:26:24.467379" elapsed="0.008287"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2024-06-19T14:26:29.476701" level="INFO">Slept 5 seconds.</msg>
+<arg>5s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2024-06-19T14:26:24.475994" elapsed="5.001084"/>
+</kw>
+<var name="${i}">1</var>
+<status status="PASS" start="2024-06-19T14:26:17.077298" elapsed="12.400140"/>
+</iter>
+<var>${i}</var>
+<value>${COUNT}</value>
+<status status="PASS" start="2024-06-19T14:26:03.965975" elapsed="25.511715"/>
+</for>
+<kw name="Element Should Not Be Visible" owner="SeleniumLibrary">
+<msg time="2024-06-19T14:26:29.511120" level="INFO">Element 'xpath://*[@class="mat-row cdk-row ng-star-inserted"]' did not exist.</msg>
+<arg>${DETAILED_STATUS}</arg>
+<doc>Verifies that the element identified by ``locator`` is NOT visible.</doc>
+<status status="PASS" start="2024-06-19T14:26:29.478643" elapsed="0.032906"/>
+</kw>
+<status status="PASS" start="2024-06-19T14:25:58.249131" elapsed="31.263080"/>
+</kw>
+<tag>TC-PCV-005</tag>
+<status status="PASS" start="2024-06-19T14:25:55.987415" elapsed="33.525628"/>
+</test>
+<test id="s1-t11" name="Verify patient signup" line="104">
+<kw name="Open LUMCARE url on browser" owner="lumate2Resource">
+<kw name="Open Browser" owner="SeleniumLibrary">
+<msg time="2024-06-19T14:26:29.517996" level="INFO">Opening browser 'chrome' to base url 'https://qa-lumacare.lumatehealth.com/#/authentication/login'.</msg>
+<arg>url=${P_PORTAL_URL}</arg>
+<arg>browser=${Browser}</arg>
+<arg>options=add_experimental_option("detach", True)</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2024-06-19T14:26:29.517015" elapsed="3.083885"/>
+</kw>
+<kw name="Maximize Browser Window" owner="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" start="2024-06-19T14:26:32.601791" elapsed="0.044684"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${LOGIN_PAGE_P_PORTAL}</arg>
+<arg>15s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2024-06-19T14:26:32.646805" elapsed="1.039392"/>
+</kw>
+<status status="PASS" start="2024-06-19T14:26:29.515967" elapsed="4.170454"/>
+</kw>
+<kw name="Fill the credentials and login" owner="lumate2Resource">
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2024-06-19T14:26:33.688013" level="INFO">Typing text 'robert.grigsby' into text field 'xpath://*[@id="ion-input-0"]'.</msg>
+<arg>${USERNAME_PATH_P_PORTAL}</arg>
+<arg>${USERNAME_P_PORTAL}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2024-06-19T14:26:33.687613" elapsed="0.202121"/>
+</kw>
+<kw name="Input Password" owner="SeleniumLibrary">
+<msg time="2024-06-19T14:26:33.890381" level="INFO">Typing password into text field 'xpath://*[@id="ion-input-1"]'.</msg>
+<msg time="2024-06-19T14:26:33.924724" level="INFO">Temporally setting log level to: NONE</msg>
+<arg>${PASSWORD_PATH_P_PORTAL}</arg>
+<arg>${PASSWORD_P_PORTAL}</arg>
+<doc>Types the given password into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2024-06-19T14:26:33.890083" elapsed="0.413977"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2024-06-19T14:26:34.305095" level="INFO">Clicking element 'xpath://*[@class="form-check-input"]'.</msg>
+<arg>${REMEMBER_ME}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2024-06-19T14:26:34.304518" elapsed="0.062001"/>
+</kw>
+<kw name="Wait Until Element Is Enabled" owner="SeleniumLibrary">
+<arg>${LOGIN_BTN}</arg>
+<doc>Waits until the element ``locator`` is enabled.</doc>
+<status status="PASS" start="2024-06-19T14:26:34.366883" elapsed="0.030155"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2024-06-19T14:26:34.397656" level="INFO">Clicking element 'xpath://*[@class="btn-primary font-20 fw-bold b-r-50 he-68 w-100 overflow-hidden md button button-solid ion-activatable ion-focusable hydrated"]'.</msg>
+<arg>${LOGIN_BTN}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2024-06-19T14:26:34.397344" elapsed="0.054112"/>
+</kw>
+<status status="PASS" start="2024-06-19T14:26:33.687014" elapsed="0.764668"/>
+</kw>
+<kw name="Enter OTP and Submit it" owner="lumate2Resource">
+<kw name="Wait for OTP Email" owner="lumate2Resource">
+<kw name="Open Mailbox" owner="ImapLibrary2">
+<arg>host=${EMAIL_SERVER}</arg>
+<arg>user=${EMAIL_USERNAME}</arg>
+<arg>password=${EMAIL_PASSWORD}</arg>
+<doc>Open IMAP email client session to given ``host`` with given ``user`` and ``password``.</doc>
+<status status="PASS" start="2024-06-19T14:26:34.453331" elapsed="1.772433"/>
+</kw>
+<kw name="Wait For Email" owner="ImapLibrary2">
+<msg time="2024-06-19T14:26:36.955061" level="INFO">${email_index} = 40557</msg>
+<var>${email_index}</var>
+<arg>sender=${SENDER_USERNAME}</arg>
+<arg>status=UNSEEN</arg>
+<arg>timeout=300</arg>
+<doc>Wait for email message to arrived base on any given filter criteria.
+Returns email index of the latest email message received.</doc>
+<status status="PASS" start="2024-06-19T14:26:36.226157" elapsed="0.729159"/>
+</kw>
+<kw name="Get Email Body" owner="ImapLibrary2">
+<msg time="2024-06-19T14:26:37.459138" level="FAIL">get_email_body called on multipart email 'Your Lumate Health Invoice is Ready'. Please first use method walk_multipart_email.</msg>
+<var>${email_body}</var>
+<arg>${email_index}</arg>
+<doc>Returns the decoded email body on multipart email message,
+otherwise returns the body text.</doc>
+<status status="FAIL" start="2024-06-19T14:26:36.956360" elapsed="0.503117">get_email_body called on multipart email 'Your Lumate Health Invoice is Ready'. Please first use method walk_multipart_email.</status>
+</kw>
+<kw name="Get Regexp Matches" owner="String">
+<var>${otp}</var>
+<arg>${email_body}</arg>
+<arg>\\b\\d{6}\\b</arg>
+<doc>Returns a list of all non-overlapping matches in the given string.</doc>
+<status status="NOT RUN" start="2024-06-19T14:26:37.459732" elapsed="0.000040"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<arg>OTP received: ${otp}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="NOT RUN" start="2024-06-19T14:26:37.459920" elapsed="0.000029"/>
+</kw>
+<return>
+<value>${otp}[3]</value>
+<status status="NOT RUN" start="2024-06-19T14:26:37.460014" elapsed="0.000031"/>
+</return>
+<var>${otp}</var>
+<status status="FAIL" start="2024-06-19T14:26:34.452819" elapsed="3.007359">get_email_body called on multipart email 'Your Lumate Health Invoice is Ready'. Please first use method walk_multipart_email.</status>
+</kw>
+<kw name="Copy To Clipboard" owner="CustomKeywords">
+<arg>${otp}</arg>
+<status status="NOT RUN" start="2024-06-19T14:26:37.460327" elapsed="0.000030"/>
+</kw>
+<kw name="Wait Until Element Is Enabled" owner="SeleniumLibrary">
+<arg>${OTP_P_PORTAL}</arg>
+<arg>${TIMEOUT}</arg>
+<doc>Waits until the element ``locator`` is enabled.</doc>
+<status status="NOT RUN" start="2024-06-19T14:26:37.460491" elapsed="0.000028"/>
+</kw>
+<kw name="Press Keys" owner="SeleniumLibrary">
+<arg>${OTP_P_PORTAL}</arg>
+<arg>CTRL+V</arg>
+<doc>Simulates the user pressing key(s) to an element or on the active browser.</doc>
+<status status="NOT RUN" start="2024-06-19T14:26:37.460656" elapsed="0.000027"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<arg>${VALIDATE_OTP}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="NOT RUN" start="2024-06-19T14:26:37.460807" elapsed="0.000027"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${SELECT_DEPENDENT}</arg>
+<arg>15s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="NOT RUN" start="2024-06-19T14:26:37.460958" elapsed="0.000028"/>
+</kw>
+<kw name="Run Keyword And Return Status" owner="BuiltIn">
+<var>${home}</var>
+<arg>Page Should Not Contain</arg>
+<arg>Please select any one dependent to proceed further</arg>
+<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
+<status status="NOT RUN" start="2024-06-19T14:26:37.461133" elapsed="0.000028"/>
+</kw>
+<kw name="Run Keyword If" owner="BuiltIn">
+<arg>${home}</arg>
+<arg>Enter OTP And Submit It</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="NOT RUN" start="2024-06-19T14:26:37.461298" elapsed="0.000027"/>
+</kw>
+<status status="FAIL" start="2024-06-19T14:26:34.452193" elapsed="3.009235">get_email_body called on multipart email 'Your Lumate Health Invoice is Ready'. Please first use method walk_multipart_email.</status>
+</kw>
+<kw name="Select Dependent and Skip profile editing" owner="lumate2Resource">
+<status status="NOT RUN" start="2024-06-19T14:26:37.461713" elapsed="0.000045"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${HOMEPAGE_P_PORTAL}</arg>
+<arg>${TIMEOUT}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="NOT RUN" start="2024-06-19T14:26:37.461956" elapsed="0.000034"/>
+</kw>
+<tag>TC-PATIENT-001</tag>
+<tag>test:retry(2)</tag>
+<status status="FAIL" start="2024-06-19T14:26:29.514482" elapsed="7.947760">get_email_body called on multipart email 'Your Lumate Health Invoice is Ready'. Please first use method walk_multipart_email.</status>
+</test>
+<test id="s1-t12" name="Add consent forms" line="112">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<msg time="2024-06-19T14:27:12.625885" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-209.png"&gt;&lt;img src="selenium-screenshot-209.png" width="800px"&gt;&lt;/a&gt;</msg>
+<msg time="2024-06-19T14:27:12.626262" level="FAIL">Element 'xpath://*[@class="main-container p-a-15"]/div[2]/div/span[2]' not visible after 35 seconds.</msg>
+<arg>${VIEW_CONSENT}</arg>
+<arg>${TIMEOUT}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="FAIL" start="2024-06-19T14:26:37.463021" elapsed="35.163628">Element 'xpath://*[@class="main-container p-a-15"]/div[2]/div/span[2]' not visible after 35 seconds.</status>
+</kw>
+<kw name="Wait Until the Update Icon Disappear" owner="lumate2Resource">
+<status status="NOT RUN" start="2024-06-19T14:27:12.627101" elapsed="0.000059"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<arg>${VIEW_CONSENT}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="NOT RUN" start="2024-06-19T14:27:12.627434" elapsed="0.000043"/>
+</kw>
+<kw name="Wait Until the Update Icon Disappear" owner="lumate2Resource">
+<status status="NOT RUN" start="2024-06-19T14:27:12.627917" elapsed="0.000105"/>
+</kw>
+<kw name="Element Should Be Visible" owner="SeleniumLibrary">
+<arg>${CONSENTS}</arg>
+<doc>Verifies that the element identified by ``locator`` is visible.</doc>
+<status status="NOT RUN" start="2024-06-19T14:27:12.628550" elapsed="0.000053"/>
+</kw>
+<tag>TC-PATIENT-002</tag>
+<status status="FAIL" start="2024-06-19T14:26:37.462576" elapsed="35.166390">Element 'xpath://*[@class="main-container p-a-15"]/div[2]/div/span[2]' not visible after 35 seconds.</status>
+</test>
+<test id="s1-t13" name="Bill payment" line="120">
+<kw name="Wait Until the Update Icon Disappear" owner="lumate2Resource">
+<kw name="Wait Until Element Is Not Visible" owner="SeleniumLibrary">
+<arg>${UpdateIcon}</arg>
+<arg>${TIMEOUT}</arg>
+<doc>Waits until the element ``locator`` is not visible.</doc>
+<status status="PASS" start="2024-06-19T14:27:12.630907" elapsed="0.011972"/>
+</kw>
+<status status="PASS" start="2024-06-19T14:27:12.630256" elapsed="0.012765"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2024-06-19T14:27:12.643572" level="INFO">Clicking element 'xpath://*[@class="he-50 d-flex align-items-center cursor-pointer b-r-20 ng-star-inserted"][1]'.</msg>
+<msg time="2024-06-19T14:27:12.718723" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-210.png"&gt;&lt;img src="selenium-screenshot-210.png" width="800px"&gt;&lt;/a&gt;</msg>
+<msg time="2024-06-19T14:27:12.718990" level="FAIL">Element with locator 'xpath://*[@class="he-50 d-flex align-items-center cursor-pointer b-r-20 ng-star-inserted"][1]' not found.</msg>
+<arg>${HOME_SECTION}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="FAIL" start="2024-06-19T14:27:12.643305" elapsed="0.076261">Element with locator 'xpath://*[@class="he-50 d-flex align-items-center cursor-pointer b-r-20 ng-star-inserted"][1]' not found.</status>
+</kw>
+<kw name="Payment Of Clinician1" owner="lumate2Resource">
+<status status="NOT RUN" start="2024-06-19T14:27:12.720121" elapsed="0.000066"/>
+</kw>
+<kw name="Close Browser" owner="SeleniumLibrary">
+<doc>Closes the current browser.</doc>
+<status status="NOT RUN" start="2024-06-19T14:27:12.720439" elapsed="0.000038"/>
+</kw>
+<tag>TC-PATIENT-003</tag>
+<status status="FAIL" start="2024-06-19T14:27:12.629427" elapsed="0.091268">Element with locator 'xpath://*[@class="he-50 d-flex align-items-center cursor-pointer b-r-20 ng-star-inserted"][1]' not found.</status>
+</test>
+<status status="FAIL" start="2024-06-19T14:24:40.822870" elapsed="151.898459"/>
+</suite>
+<statistics>
+<total>
+<stat pass="10" fail="3" skip="0">All Tests</stat>
+</total>
+<tag>
+<stat pass="1" fail="0" skip="0">TC-APP-001</stat>
+<stat pass="1" fail="0" skip="0">TC-APP-002</stat>
+<stat pass="1" fail="0" skip="0">TC-APP-003</stat>
+<stat pass="0" fail="1" skip="0">TC-PATIENT-001</stat>
+<stat pass="0" fail="1" skip="0">TC-PATIENT-002</stat>
+<stat pass="0" fail="1" skip="0">TC-PATIENT-003</stat>
+<stat pass="1" fail="0" skip="0">TC-PCV-001</stat>
+<stat pass="1" fail="0" skip="0">TC-PCV-002</stat>
+<stat pass="1" fail="0" skip="0">TC-PCV-003</stat>
+<stat pass="1" fail="0" skip="0">TC-PCV-004</stat>
+<stat pass="1" fail="0" skip="0">TC-PCV-005</stat>
+<stat pass="1" fail="0" skip="0">TC-PMS-001</stat>
+<stat pass="1" fail="0" skip="0">TC-PMS-005</stat>
+<stat pass="0" fail="1" skip="0">test:retry(2)</stat>
+</tag>
+<suite>
+<stat pass="10" fail="3" skip="0" id="s1" name="lumateTest">lumateTest</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>

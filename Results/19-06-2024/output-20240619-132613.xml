@@ -1,0 +1,204 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 7.0 (Python 3.8.10 on linux)" generated="2024-06-19T13:26:13.059644" rpa="false" schemaversion="5">
+<suite id="s1" name="lumateTest" source="/home/ridham/PycharmProjects/LUMATE-AUTOMATION_POC/TestCases/lumateTest.robot">
+<kw name="Run Keywords" owner="BuiltIn" type="SETUP">
+<kw name="Open PMS url on browser" owner="lumate1Resource">
+<kw name="Open Browser" owner="SeleniumLibrary">
+<msg time="2024-06-19T13:26:13.221980" level="INFO">Opening browser 'chrome' to base url 'https://qa-pms.lumatehealth.com/'.</msg>
+<arg>url=${PMS_URL}</arg>
+<arg>browser=${Browser}</arg>
+<arg>options=add_experimental_option("detach", True)</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2024-06-19T13:26:13.221636" elapsed="3.455713"/>
+</kw>
+<kw name="Maximize Browser Window" owner="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" start="2024-06-19T13:26:16.678133" elapsed="0.100252"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${LOGIN_PAGE_PMS}</arg>
+<arg>15s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2024-06-19T13:26:16.778788" elapsed="3.816846"/>
+</kw>
+<status status="PASS" start="2024-06-19T13:26:13.221354" elapsed="7.374462"/>
+</kw>
+<kw name="Fill the credentials and login" owner="lumate1Resource">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${USERNAME_PATH_PMS}</arg>
+<arg>15s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2024-06-19T13:26:20.597032" elapsed="0.034321"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2024-06-19T13:26:20.632260" level="INFO">Typing text 'kalpesh' into text field 'xpath://*[@id="mat-input-0"]'.</msg>
+<arg>${USERNAME_PATH_PMS}</arg>
+<arg>${USERNAME_PMS}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2024-06-19T13:26:20.631774" elapsed="0.106505"/>
+</kw>
+<kw name="Input Password" owner="SeleniumLibrary">
+<msg time="2024-06-19T13:26:20.739086" level="INFO">Typing password into text field 'xpath://*[@id="mat-input-1"]'.</msg>
+<msg time="2024-06-19T13:26:20.778640" level="INFO">Temporally setting log level to: NONE</msg>
+<arg>${PASSWORD_PATH_PMS}</arg>
+<arg>${PASSWORD_PMS}</arg>
+<doc>Types the given password into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2024-06-19T13:26:20.738589" elapsed="0.102582"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${REMEMBER_ME_PMS}</arg>
+<arg>15s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2024-06-19T13:26:20.841613" elapsed="0.038168"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2024-06-19T13:26:20.880333" level="INFO">Clicking element 'xpath://*[@class="check remember-check"]'.</msg>
+<arg>${REMEMBER_ME_PMS}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2024-06-19T13:26:20.880019" elapsed="0.050779"/>
+</kw>
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2024-06-19T13:26:20.931410" level="INFO">Clicking button 'xpath://*[@class="mat-focus-indicator auth-form-btn mat-raised-button mat-button-base mat-primary"]'.</msg>
+<arg>${LOGIN_BTN_PMS}</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2024-06-19T13:26:20.931095" elapsed="0.087554"/>
+</kw>
+<status status="PASS" start="2024-06-19T13:26:20.596357" elapsed="0.422454"/>
+</kw>
+<kw name="Enter OTP and Submit it" owner="lumate1Resource">
+<kw name="Wait for OTP Email" owner="lumate1Resource">
+<kw name="Open Mailbox" owner="ImapLibrary2">
+<arg>host=${EMAIL_SERVER}</arg>
+<arg>user=${EMAIL_USERNAME}</arg>
+<arg>password=${EMAIL_PASSWORD}</arg>
+<doc>Open IMAP email client session to given ``host`` with given ``user`` and ``password``.</doc>
+<status status="PASS" start="2024-06-19T13:26:21.020754" elapsed="1.477620"/>
+</kw>
+<kw name="Wait For Email" owner="ImapLibrary2">
+<msg time="2024-06-19T13:26:23.108433" level="INFO">${email_index} = 40513</msg>
+<var>${email_index}</var>
+<arg>sender=${SENDER_USERNAME}</arg>
+<arg>status=UNSEEN</arg>
+<arg>timeout=300</arg>
+<doc>Wait for email message to arrived base on any given filter criteria.
+Returns email index of the latest email message received.</doc>
+<status status="PASS" start="2024-06-19T13:26:22.499185" elapsed="0.609428"/>
+</kw>
+<kw name="Get Email Body" owner="ImapLibrary2">
+<msg time="2024-06-19T13:26:23.683244" level="FAIL">get_email_body called on multipart email 'Your Lumate Health Invoice is Ready'. Please first use method walk_multipart_email.</msg>
+<var>${email_body}</var>
+<arg>${email_index}</arg>
+<doc>Returns the decoded email body on multipart email message,
+otherwise returns the body text.</doc>
+<status status="FAIL" start="2024-06-19T13:26:23.109339" elapsed="0.574995">get_email_body called on multipart email 'Your Lumate Health Invoice is Ready'. Please first use method walk_multipart_email.</status>
+</kw>
+<kw name="Get Regexp Matches" owner="String">
+<var>${otp}</var>
+<arg>${email_body}</arg>
+<arg>\\b\\d{6}\\b</arg>
+<doc>Returns a list of all non-overlapping matches in the given string.</doc>
+<status status="NOT RUN" start="2024-06-19T13:26:23.685201" elapsed="0.000157"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<arg>OTP received: ${otp}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="NOT RUN" start="2024-06-19T13:26:23.686120" elapsed="0.000178"/>
+</kw>
+<return>
+<value>${otp}[3]</value>
+<status status="NOT RUN" start="2024-06-19T13:26:23.686596" elapsed="0.000144"/>
+</return>
+<var>${otp}</var>
+<status status="FAIL" start="2024-06-19T13:26:21.019837" elapsed="2.667553">get_email_body called on multipart email 'Your Lumate Health Invoice is Ready'. Please first use method walk_multipart_email.</status>
+</kw>
+<kw name="Copy To Clipboard" owner="CustomKeywords">
+<arg>${otp}</arg>
+<status status="NOT RUN" start="2024-06-19T13:26:23.688484" elapsed="0.000239"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${OTP_CLICK}</arg>
+<arg>15s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="NOT RUN" start="2024-06-19T13:26:23.689889" elapsed="0.000307"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<arg>${OTP_CLICK}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="NOT RUN" start="2024-06-19T13:26:23.691638" elapsed="0.000282"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${OTP_PAGE}</arg>
+<arg>${TIMEOUT}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="NOT RUN" start="2024-06-19T13:26:23.693109" elapsed="0.000262"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${OTP_PMS}</arg>
+<arg>${TIMEOUT}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="NOT RUN" start="2024-06-19T13:26:23.694645" elapsed="0.000263"/>
+</kw>
+<kw name="Press Keys" owner="SeleniumLibrary">
+<arg>${OTP_PMS}</arg>
+<arg>CTRL+V</arg>
+<doc>Simulates the user pressing key(s) to an element or on the active browser.</doc>
+<status status="NOT RUN" start="2024-06-19T13:26:23.696139" elapsed="0.000250"/>
+</kw>
+<kw name="Click Button" owner="SeleniumLibrary">
+<arg>${VALIDATE_OTP_PMS}</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="NOT RUN" start="2024-06-19T13:26:23.697636" elapsed="0.000266"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<arg>2s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="NOT RUN" start="2024-06-19T13:26:23.699036" elapsed="0.000219"/>
+</kw>
+<kw name="Run Keyword And Return Status" owner="BuiltIn">
+<var>${error_exists}</var>
+<arg>Page Should Contain</arg>
+<arg>Incorrect OTP is provided. Try resending OTP.</arg>
+<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
+<status status="NOT RUN" start="2024-06-19T13:26:23.700418" elapsed="0.000263"/>
+</kw>
+<kw name="Run Keyword If" owner="BuiltIn">
+<arg>${error_exists}</arg>
+<arg>Enter OTP And Submit It</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="NOT RUN" start="2024-06-19T13:26:23.701902" elapsed="0.000332"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${HOMEPAGE_PMS}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="NOT RUN" start="2024-06-19T13:26:23.703099" elapsed="0.000173"/>
+</kw>
+<status status="FAIL" start="2024-06-19T13:26:21.019209" elapsed="2.684626">get_email_body called on multipart email 'Your Lumate Health Invoice is Ready'. Please first use method walk_multipart_email.</status>
+</kw>
+<arg>Open PMS Url On Browser</arg>
+<arg>lumate1Resource.Fill the credentials and login</arg>
+<arg>lumate1Resource.Enter OTP and Submit it</arg>
+<doc>Executes all the given keywords in a sequence.</doc>
+<status status="FAIL" start="2024-06-19T13:26:13.220943" elapsed="10.483326">get_email_body called on multipart email 'Your Lumate Health Invoice is Ready'. Please first use method walk_multipart_email.</status>
+</kw>
+<test id="s1-t1" name="Change billing status" line="90">
+<tag>TC-PCV-005</tag>
+<status status="FAIL" start="2024-06-19T13:26:23.704917" elapsed="0.001990">Parent suite setup failed:
+get_email_body called on multipart email 'Your Lumate Health Invoice is Ready'. Please first use method walk_multipart_email.</status>
+</test>
+<status status="FAIL" start="2024-06-19T13:26:13.060483" elapsed="10.648278">Suite setup failed:
+get_email_body called on multipart email 'Your Lumate Health Invoice is Ready'. Please first use method walk_multipart_email.</status>
+</suite>
+<statistics>
+<total>
+<stat pass="0" fail="1" skip="0">All Tests</stat>
+</total>
+<tag>
+<stat pass="0" fail="1" skip="0">TC-PCV-005</stat>
+</tag>
+<suite>
+<stat pass="0" fail="1" skip="0" id="s1" name="lumateTest">lumateTest</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>

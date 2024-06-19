@@ -12,7 +12,7 @@ Resource   ../Locators/lumate2Locator.robot
 *** Keywords ***
 
 Open LUMCARE url on browser
-    Open Browser    url=${P_PORTAL_URL}    browser=${Browser}
+    Open Browser    url=${P_PORTAL_URL}    browser=${Browser}   options=add_experimental_option("detach", True)
     Maximize Browser Window
     Wait Until Element Is Visible    ${LOGIN_PAGE_P_PORTAL}    15s
 
@@ -45,11 +45,11 @@ Wait for OTP Email
     Open Mailbox    host=${EMAIL_SERVER}   user=${EMAIL_USERNAME}   password=${EMAIL_PASSWORD}
     ${email_index}=    Wait For Email   sender=${SENDER_USERNAME}  status=UNSEEN   timeout=300
     ${email_body}=      Get Email Body    ${email_index}
+    Log    Received Email Body: ${email_body}
     ${otp}=    Get Regexp Matches    ${email_body}    \\b\\d{6}\\b
-#    Delete Email    ${email_index}
+    Delete Email    ${email_index}
     Log               OTP received: ${otp}
     RETURN          ${otp}[3]
-
 
 
 Wait Until the Update Icon Disappear

@@ -12,7 +12,7 @@ Resource   ../Locators/lumate1Locator.robot
 *** Keywords ***
 
 Open PMS url on browser
-    Open Browser    url=${PMS_URL}    browser=${Browser}
+    Open Browser    url=${PMS_URL}    browser=${Browser}    options=add_experimental_option("detach", True)
     Maximize Browser Window
     Wait Until Element Is Visible    ${LOGIN_PAGE_PMS}    15s
 
@@ -43,12 +43,12 @@ Wait for OTP Email
     ${email_index}=    Wait For Email   sender=${SENDER_USERNAME}  status=UNSEEN   timeout=300
     ${email_body}=      Get Email Body    ${email_index}
     ${otp}=    Get Regexp Matches    ${email_body}    \\b\\d{6}\\b
-#    Delete Email    ${email_index}
+    Delete Email    ${email_index}
     Log               OTP received: ${otp}
     RETURN          ${otp}[3]
 
 Wait Until the Update Icon Disappear
-    Wait Until Element Is Not Visible  ${UpdateIcon}    ${TIMEOUT_40}
+    Wait Until Element Is Not Visible  ${UpdateIcon}    60s
 
 verify elements of TC-APP-002 visible or not
     Wait Until Element Is Visible  ${APPOINTMENT_CALENDER}    ${TIMEOUT_40}
@@ -56,8 +56,7 @@ verify elements of TC-APP-002 visible or not
     Element Should Be Visible    ${CREATE_APPOINTMENT}
     Wait Until The Update Icon Disappear
     Wait Until Element Is Enabled  ${OPEN_RIGHTBAR_FOR_CALANEDER}    ${TIMEOUT_40}
-    Wait Until The Update Icon Disappear
-    Wait Until The Update Icon Disappear
+    sleep   2s
     Click Button    ${OPEN_RIGHTBAR_FOR_CALANEDER}
     Element Should Be Visible    ${Select_Office}    Select Office
     Wait Until Element Is Visible  ${Select_Clinicians}    ${TIMEOUT}
@@ -81,17 +80,27 @@ Patient View Details Screen
 
 Patient Edit Details Screen
     Wait Until Element Is Enabled    ${PATIENT_SEC}    ${Timeout}
+    wait until the update icon disappear
     Click Element    ${PATIENT_SEC}
     Wait Until Element Is Enabled    ${EDIT_PATIENT1}    ${Timeout}
     Click Element    ${EDIT_PATIENT1}
 
 Changing status of billing to ready to bill
 #    Click Element    ${UNBILLED_STATUS}
-    ${COUNT}=    Get Element Count    ${DETAILED_STATUS}
+    ${home}=    Run Keyword And Return Status    Page Should Contain    ${DETAILED_STATUS}
+    ${COUNT}=    Get Element Count  ${DETAILED_STATUS}
     FOR     ${i}  IN RANGE      ${COUNT}
         Click Element    ${BILLING_STATUS}
         Click Element    ${READY_TO_BILL}
+        Wait Until Element Is Enabled    ${YES_FOR_STATUS_CHANGE}    ${Timeout}
         Click Element    ${YES_FOR_STATUS_CHANGE}
+        sleep   2s
         Wait Until The Update Icon Disappear
+        Execute JavaScript    location.reload(true)
+        Wait Until Element Is Enabled    ${UNBILLED_STATUS}    ${Timeout}
+        wait until the update icon disappear
+        sleep   5s
     END
+
     Element Should Not Be Visible   ${DETAILED_STATUS}
+

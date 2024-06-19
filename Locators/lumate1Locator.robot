@@ -56,7 +56,11 @@ ${BASIC_DETAILS_VIEW}                xpath://*[@class="mat-tab-body-wrapper"]
 ${BILLING_SEC}                       xpath://*[@class="content-block"]/div/div/div/div[3]/li[8]
 ${BILLING_VIEW}                      xpath://*[@class="d-flex billing-cards-overview m-b-30 ng-star-inserted"]
 ${BILLING_STATUS}                    xpath://*[@class="mat-cell cdk-cell cdk-column-Status mat-column-Status ng-star-inserted"]/mat-form-field
-${READY_TO_BILL}                     xpath://*[@role="option"][2]
+${READY_TO_BILL}                     xpath://span[@class='mat-option-text' and contains(text(), 'Ready to Bill')]
 ${YES_FOR_STATUS_CHANGE}             xpath://*[@class="wi-183 he-38 b-r-10 bg-primary d-flex align-items-center justify-content-center"]
 ${UNBILLED_STATUS}                   xpath://*[@aria-label="Unbilled"]
 ${DETAILED_STATUS}                   xpath://*[@class="mat-row cdk-row ng-star-inserted"]
+#${DETAILED_STATUS}                   xpath://*[@class="mat-table cdk-table mat-elevation-z8 w-100"]/tbody/tr
+
+
+
