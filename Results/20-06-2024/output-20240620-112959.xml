@@ -1,0 +1,363 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 7.0 (Python 3.8.10 on linux)" generated="2024-06-20T11:29:59.030555" rpa="false" schemaversion="5">
+<suite id="s1" name="lumateTest" source="/home/ridham/PycharmProjects/LUMATE-AUTOMATION_POC/TestCases/lumateTest.robot">
+<test id="s1-t1" name="Verify that the user gets redirected to enter OTP page when entered the correct credentials." line="25">
+<kw name="Open PMS url on browser" owner="lumate1Resource">
+<kw name="Open Browser" owner="SeleniumLibrary">
+<msg time="2024-06-20T11:29:59.195781" level="INFO">Opening browser 'chrome' to base url 'https://qa-pms.lumatehealth.com/'.</msg>
+<arg>url=${PMS_URL}</arg>
+<arg>browser=${Browser}</arg>
+<arg>options=add_experimental_option("detach", True)</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2024-06-20T11:29:59.195270" elapsed="6.317693"/>
+</kw>
+<kw name="Maximize Browser Window" owner="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" start="2024-06-20T11:30:05.513654" elapsed="0.094249"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${LOGIN_PAGE_PMS}</arg>
+<arg>15s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2024-06-20T11:30:05.608349" elapsed="3.455910"/>
+</kw>
+<status status="PASS" start="2024-06-20T11:29:59.194192" elapsed="9.870246"/>
+</kw>
+<kw name="Fill the credentials and login" owner="lumate1Resource">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${USERNAME_PATH_PMS}</arg>
+<arg>15s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2024-06-20T11:30:09.065482" elapsed="0.024476"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2024-06-20T11:30:09.090673" level="INFO">Typing text 'kalpesh' into text field 'xpath://*[@id="mat-input-0"]'.</msg>
+<arg>${USERNAME_PATH_PMS}</arg>
+<arg>${USERNAME_PMS}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2024-06-20T11:30:09.090274" elapsed="0.107532"/>
+</kw>
+<kw name="Input Password" owner="SeleniumLibrary">
+<msg time="2024-06-20T11:30:09.198940" level="INFO">Typing password into text field 'xpath://*[@id="mat-input-1"]'.</msg>
+<msg time="2024-06-20T11:30:09.233163" level="INFO">Temporally setting log level to: NONE</msg>
+<arg>${PASSWORD_PATH_PMS}</arg>
+<arg>${PASSWORD_PMS}</arg>
+<doc>Types the given password into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2024-06-20T11:30:09.198222" elapsed="0.093507"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${REMEMBER_ME_PMS}</arg>
+<arg>15s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2024-06-20T11:30:09.292095" elapsed="0.022477"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2024-06-20T11:30:09.315219" level="INFO">Clicking element 'xpath://*[@class="check remember-check"]'.</msg>
+<arg>${REMEMBER_ME_PMS}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2024-06-20T11:30:09.314879" elapsed="0.068499"/>
+</kw>
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2024-06-20T11:30:09.384677" level="INFO">Clicking button 'xpath://*[@class="mat-focus-indicator auth-form-btn mat-raised-button mat-button-base mat-primary"]'.</msg>
+<arg>${LOGIN_BTN_PMS}</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2024-06-20T11:30:09.383769" elapsed="0.071590"/>
+</kw>
+<status status="PASS" start="2024-06-20T11:30:09.064883" elapsed="0.390648"/>
+</kw>
+<kw name="Wait Until Element Contains" owner="SeleniumLibrary">
+<arg>${OTP_PAGE}</arg>
+<arg>Almost There</arg>
+<arg>${TIMEOUT}</arg>
+<doc>Waits until the element ``locator`` contains ``text``.</doc>
+<status status="PASS" start="2024-06-20T11:30:09.455860" elapsed="2.910928"/>
+</kw>
+<tag>TC-PMS-005</tag>
+<status status="PASS" start="2024-06-20T11:29:59.193081" elapsed="13.174264"/>
+</test>
+<test id="s1-t2" name="Verify the clinician Home Page" line="31">
+<kw name="Enter OTP and Submit it" owner="lumate1Resource">
+<kw name="Wait for OTP Email" owner="lumate1Resource">
+<kw name="Open Mailbox" owner="ImapLibrary2">
+<arg>host=${EMAIL_SERVER}</arg>
+<arg>user=${EMAIL_USERNAME}</arg>
+<arg>password=${EMAIL_PASSWORD}</arg>
+<doc>Open IMAP email client session to given ``host`` with given ``user`` and ``password``.</doc>
+<status status="PASS" start="2024-06-20T11:30:12.369725" elapsed="1.584624"/>
+</kw>
+<kw name="Wait For Email" owner="ImapLibrary2">
+<msg time="2024-06-20T11:30:25.440343" level="INFO">${email_index} = 40618</msg>
+<var>${email_index}</var>
+<arg>sender=${SENDER_USERNAME}</arg>
+<arg>status=UNSEEN</arg>
+<arg>timeout=300</arg>
+<doc>Wait for email message to arrived base on any given filter criteria.
+Returns email index of the latest email message received.</doc>
+<status status="PASS" start="2024-06-20T11:30:13.955559" elapsed="11.484877"/>
+</kw>
+<kw name="Get Email Body" owner="ImapLibrary2">
+<msg time="2024-06-20T11:30:26.221103" level="INFO">${email_body} = &lt;html xmlns="http://www.w3.org/1999/xhtml" xmlns:o="urn:schemas-microsoft-com:office:office" xmlns:v="urn:schemas-microsoft-com:vml" lang="en"&gt;&lt;head&gt;
+&lt;meta http-equiv="Content-Type" content="text/htm...</msg>
+<var>${email_body}</var>
+<arg>${email_index}</arg>
+<doc>Returns the decoded email body on multipart email message,
+otherwise returns the body text.</doc>
+<status status="PASS" start="2024-06-20T11:30:25.440877" elapsed="0.780280"/>
+</kw>
+<kw name="Get Regexp Matches" owner="String">
+<msg time="2024-06-20T11:30:26.222201" level="INFO">${otp} = ['353454', '000000', '353454', '171985', '353454', '353454', '000000', '353454', '353454', '353454', '353454', '353454', '353454', '353454', '353454', '353454', '353454']</msg>
+<var>${otp}</var>
+<arg>${email_body}</arg>
+<arg>\\b\\d{6}\\b</arg>
+<doc>Returns a list of all non-overlapping matches in the given string.</doc>
+<status status="PASS" start="2024-06-20T11:30:26.221389" elapsed="0.000846"/>
+</kw>
+<kw name="Delete Email" owner="ImapLibrary2">
+<arg>${email_index}</arg>
+<doc>Delete email on given ``email_index``.</doc>
+<status status="PASS" start="2024-06-20T11:30:26.222394" elapsed="0.913306"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2024-06-20T11:30:27.137468" level="INFO">OTP received: ['353454', '000000', '353454', '171985', '353454', '353454', '000000', '353454', '353454', '353454', '353454', '353454', '353454', '353454', '353454', '353454', '353454']</msg>
+<arg>OTP received: ${otp}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2024-06-20T11:30:27.136647" elapsed="0.001066"/>
+</kw>
+<return>
+<value>${otp}[3]</value>
+<status status="PASS" start="2024-06-20T11:30:27.138042" elapsed="0.000242"/>
+</return>
+<msg time="2024-06-20T11:30:27.139003" level="INFO">${otp} = 171985</msg>
+<var>${otp}</var>
+<status status="PASS" start="2024-06-20T11:30:12.369324" elapsed="14.769811"/>
+</kw>
+<kw name="Copy To Clipboard" owner="CustomKeywords">
+<arg>${otp}</arg>
+<status status="PASS" start="2024-06-20T11:30:27.139753" elapsed="0.074370"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<msg time="2024-06-20T11:30:27.246424" level="WARN">Keyword 'Capture Page Screenshot' could not be run on failure: Message: no such window: target window already closed
+from unknown error: web view not found
+  (Session info: chrome=125.0.6422.141)
+Stacktrace:
+#0 0x563f9391ae3a &lt;unknown&gt;
+#1 0x563f9360445c &lt;unknown&gt;
+#2 0x563f935d9a84 &lt;unknown&gt;
+#3 0x563f9367b95d &lt;unknown&gt;
+#4 0x563f93691c76 &lt;unknown&gt;
+#5 0x563f93673253 &lt;unknown&gt;
+#6 0x563f936431c7 &lt;unknown&gt;
+#7 0x563f93643b3e &lt;unknown&gt;
+#8 0x563f938e127b &lt;unknown&gt;
+#9 0x563f938e5327 &lt;unknown&gt;
+#10 0x563f938cddae &lt;unknown&gt;
+#11 0x563f938e5df2 &lt;unknown&gt;
+#12 0x563f938b274f &lt;unknown&gt;
+#13 0x563f9390a128 &lt;unknown&gt;
+#14 0x563f9390a2fb &lt;unknown&gt;
+#15 0x563f93919f6c &lt;unknown&gt;
+#16 0x7f4703834609 start_thread
+</msg>
+<msg time="2024-06-20T11:30:27.247128" level="FAIL">NoSuchWindowException: Message: no such window: target window already closed
+from unknown error: web view not found
+  (Session info: chrome=125.0.6422.141)
+Stacktrace:
+#0 0x563f9391ae3a &lt;unknown&gt;
+#1 0x563f9360445c &lt;unknown&gt;
+#2 0x563f935d9a84 &lt;unknown&gt;
+#3 0x563f9367b95d &lt;unknown&gt;
+#4 0x563f93691c76 &lt;unknown&gt;
+#5 0x563f93673253 &lt;unknown&gt;
+#6 0x563f936431c7 &lt;unknown&gt;
+#7 0x563f93643b3e &lt;unknown&gt;
+#8 0x563f938e127b &lt;unknown&gt;
+#9 0x563f938e5327 &lt;unknown&gt;
+#10 0x563f938cddae &lt;unknown&gt;
+#11 0x563f938e5df2 &lt;unknown&gt;
+#12 0x563f938b274f &lt;unknown&gt;
+#13 0x563f9390a128 &lt;unknown&gt;
+#14 0x563f9390a2fb &lt;unknown&gt;
+#15 0x563f93919f6c &lt;unknown&gt;
+#16 0x7f4703834609 start_thread
+</msg>
+<arg>${OTP_CLICK}</arg>
+<arg>15s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="FAIL" start="2024-06-20T11:30:27.218114" elapsed="0.047138">NoSuchWindowException: Message: no such window: target window already closed
+from unknown error: web view not found
+  (Session info: chrome=125.0.6422.141)
+Stacktrace:
+#0 0x563f9391ae3a &lt;unknown&gt;
+#1 0x563f9360445c &lt;unknown&gt;
+#2 0x563f935d9a84 &lt;unknown&gt;
+#3 0x563f9367b95d &lt;unknown&gt;
+#4 0x563f93691c76 &lt;unknown&gt;
+#5 0x563f93673253 &lt;unknown&gt;
+#6 0x563f936431c7 &lt;unknown&gt;
+#7 0x563f93643b3e &lt;unknown&gt;
+#8 0x563f938e127b &lt;unknown&gt;
+#9 0x563f938e5327 &lt;unknown&gt;
+#10 0x563f938cddae &lt;unknown&gt;
+#11 0x563f938e5df2 &lt;unknown&gt;
+#12 0x563f938b274f &lt;unknown&gt;
+#13 0x563f9390a128 &lt;unknown&gt;
+#14 0x563f9390a2fb &lt;unknown&gt;
+#15 0x563f93919f6c &lt;unknown&gt;
+#16 0x7f4703834609 start_thread
+</status>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<arg>${OTP_CLICK}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="NOT RUN" start="2024-06-20T11:30:27.265532" elapsed="0.000040"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${OTP_PAGE}</arg>
+<arg>${TIMEOUT}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="NOT RUN" start="2024-06-20T11:30:27.265715" elapsed="0.000031"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${OTP_PMS}</arg>
+<arg>${TIMEOUT}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="NOT RUN" start="2024-06-20T11:30:27.265872" elapsed="0.000028"/>
+</kw>
+<kw name="Press Keys" owner="SeleniumLibrary">
+<arg>${OTP_PMS}</arg>
+<arg>CTRL+V</arg>
+<doc>Simulates the user pressing key(s) to an element or on the active browser.</doc>
+<status status="NOT RUN" start="2024-06-20T11:30:27.266038" elapsed="0.000027"/>
+</kw>
+<kw name="Click Button" owner="SeleniumLibrary">
+<arg>${VALIDATE_OTP_PMS}</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="NOT RUN" start="2024-06-20T11:30:27.266189" elapsed="0.000031"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<arg>2s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="NOT RUN" start="2024-06-20T11:30:27.266346" elapsed="0.000027"/>
+</kw>
+<kw name="Run Keyword And Return Status" owner="BuiltIn">
+<var>${error_exists}</var>
+<arg>Page Should Contain</arg>
+<arg>Incorrect OTP is provided. Try resending OTP.</arg>
+<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
+<status status="NOT RUN" start="2024-06-20T11:30:27.266531" elapsed="0.000028"/>
+</kw>
+<kw name="Run Keyword If" owner="BuiltIn">
+<arg>${error_exists}</arg>
+<arg>Enter OTP And Submit It</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="NOT RUN" start="2024-06-20T11:30:27.266694" elapsed="0.000028"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${HOMEPAGE_PMS}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="NOT RUN" start="2024-06-20T11:30:27.266844" elapsed="0.000029"/>
+</kw>
+<status status="FAIL" start="2024-06-20T11:30:12.368859" elapsed="14.898182">NoSuchWindowException: Message: no such window: target window already closed
+from unknown error: web view not found
+  (Session info: chrome=125.0.6422.141)
+Stacktrace:
+#0 0x563f9391ae3a &lt;unknown&gt;
+#1 0x563f9360445c &lt;unknown&gt;
+#2 0x563f935d9a84 &lt;unknown&gt;
+#3 0x563f9367b95d &lt;unknown&gt;
+#4 0x563f93691c76 &lt;unknown&gt;
+#5 0x563f93673253 &lt;unknown&gt;
+#6 0x563f936431c7 &lt;unknown&gt;
+#7 0x563f93643b3e &lt;unknown&gt;
+#8 0x563f938e127b &lt;unknown&gt;
+#9 0x563f938e5327 &lt;unknown&gt;
+#10 0x563f938cddae &lt;unknown&gt;
+#11 0x563f938e5df2 &lt;unknown&gt;
+#12 0x563f938b274f &lt;unknown&gt;
+#13 0x563f9390a128 &lt;unknown&gt;
+#14 0x563f9390a2fb &lt;unknown&gt;
+#15 0x563f93919f6c &lt;unknown&gt;
+#16 0x7f4703834609 start_thread
+</status>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${TO-DO_HOME}</arg>
+<arg>${TIMEOUT}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="NOT RUN" start="2024-06-20T11:30:27.267287" elapsed="0.000045"/>
+</kw>
+<kw name="Element Should Contain" owner="SeleniumLibrary">
+<arg>${TO-DO_HOME}</arg>
+<arg>TO DO's</arg>
+<doc>Verifies that element ``locator`` contains text ``expected``.</doc>
+<status status="NOT RUN" start="2024-06-20T11:30:27.267576" elapsed="0.000048"/>
+</kw>
+<kw name="Element Should Contain" owner="SeleniumLibrary">
+<arg>${APPOINTMENT_HOME}</arg>
+<arg>Appointments</arg>
+<doc>Verifies that element ``locator`` contains text ``expected``.</doc>
+<status status="NOT RUN" start="2024-06-20T11:30:27.267909" elapsed="0.000062"/>
+</kw>
+<tag>TC-APP-001</tag>
+<status status="FAIL" start="2024-06-20T11:30:12.367901" elapsed="14.900459">NoSuchWindowException: Message: no such window: target window already closed
+from unknown error: web view not found
+  (Session info: chrome=125.0.6422.141)
+Stacktrace:
+#0 0x563f9391ae3a &lt;unknown&gt;
+#1 0x563f9360445c &lt;unknown&gt;
+#2 0x563f935d9a84 &lt;unknown&gt;
+#3 0x563f9367b95d &lt;unknown&gt;
+#4 0x563f93691c76 &lt;unknown&gt;
+#5 0x563f93673253 &lt;unknown&gt;
+#6 0x563f936431c7 &lt;unknown&gt;
+#7 0x563f93643b3e &lt;unknown&gt;
+#8 0x563f938e127b &lt;unknown&gt;
+#9 0x563f938e5327 &lt;unknown&gt;
+#10 0x563f938cddae &lt;unknown&gt;
+#11 0x563f938e5df2 &lt;unknown&gt;
+#12 0x563f938b274f &lt;unknown&gt;
+#13 0x563f9390a128 &lt;unknown&gt;
+#14 0x563f9390a2fb &lt;unknown&gt;
+#15 0x563f93919f6c &lt;unknown&gt;
+#16 0x7f4703834609 start_thread
+</status>
+</test>
+<status status="FAIL" start="2024-06-20T11:29:59.031414" elapsed="28.237926"/>
+</suite>
+<statistics>
+<total>
+<stat pass="1" fail="1" skip="0">All Tests</stat>
+</total>
+<tag>
+<stat pass="0" fail="1" skip="0">TC-APP-001</stat>
+<stat pass="1" fail="0" skip="0">TC-PMS-005</stat>
+</tag>
+<suite>
+<stat pass="1" fail="1" skip="0" id="s1" name="lumateTest">lumateTest</stat>
+</suite>
+</statistics>
+<errors>
+<msg time="2024-06-20T11:30:27.246424" level="WARN">Keyword 'Capture Page Screenshot' could not be run on failure: Message: no such window: target window already closed
+from unknown error: web view not found
+  (Session info: chrome=125.0.6422.141)
+Stacktrace:
+#0 0x563f9391ae3a &lt;unknown&gt;
+#1 0x563f9360445c &lt;unknown&gt;
+#2 0x563f935d9a84 &lt;unknown&gt;
+#3 0x563f9367b95d &lt;unknown&gt;
+#4 0x563f93691c76 &lt;unknown&gt;
+#5 0x563f93673253 &lt;unknown&gt;
+#6 0x563f936431c7 &lt;unknown&gt;
+#7 0x563f93643b3e &lt;unknown&gt;
+#8 0x563f938e127b &lt;unknown&gt;
+#9 0x563f938e5327 &lt;unknown&gt;
+#10 0x563f938cddae &lt;unknown&gt;
+#11 0x563f938e5df2 &lt;unknown&gt;
+#12 0x563f938b274f &lt;unknown&gt;
+#13 0x563f9390a128 &lt;unknown&gt;
+#14 0x563f9390a2fb &lt;unknown&gt;
+#15 0x563f93919f6c &lt;unknown&gt;
+#16 0x7f4703834609 start_thread
+</msg>
+</errors>
+</robot>

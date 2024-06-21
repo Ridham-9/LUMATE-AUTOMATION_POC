@@ -39,6 +39,7 @@ Select Dependent and Skip profile editing
     Wait Until the Update Icon Disappear
     Wait Until Element Is Enabled        ${SKIP}    15s
     Click Element    ${SKIP}
+    sleep   2s
     Wait Until The Update Icon Disappear
 
 Wait for OTP Email
@@ -53,8 +54,8 @@ Wait for OTP Email
 
 
 Wait Until the Update Icon Disappear
-    Wait Until Element Is Not Visible  ${UpdateIcon}    ${TIMEOUT}
-
+    Wait Until Element Is Not Visible  ${UpdateIcon}    80s
+    Element Should Not Be Visible   ${UpdateIcon}
 
 Payment Of Clinician1
     Wait Until Element Is Visible    ${BILLING_SECTION}

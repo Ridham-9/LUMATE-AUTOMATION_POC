@@ -49,13 +49,15 @@ Wait for OTP Email
 
 Wait Until the Update Icon Disappear
     Wait Until Element Is Not Visible  ${UpdateIcon}    60s
+    Element Should Not Be Visible   ${UpdateIcon}
 
-verify elements of TC-APP-002 visible or not
+verify elements of TC-PMS-004 visible or not
     Wait Until Element Is Visible  ${APPOINTMENT_CALENDER}    ${TIMEOUT_40}
     Element Should Be Visible   ${APPOINTMENT_CALENDER}    Today
     Element Should Be Visible    ${CREATE_APPOINTMENT}
     Wait Until The Update Icon Disappear
-    Wait Until Element Is Enabled  ${OPEN_RIGHTBAR_FOR_CALANEDER}    ${TIMEOUT_40}
+    Wait Until Element Is Enabled  ${OPEN_RIGHTBAR_FOR_CALANEDER}    80s
+    Element Should Be Enabled    ${OPEN_RIGHTBAR_FOR_CALANEDER}
     sleep   2s
     Click Button    ${OPEN_RIGHTBAR_FOR_CALANEDER}
     Element Should Be Visible    ${Select_Office}    Select Office
@@ -77,13 +79,16 @@ Patient View Details Screen
     Click Element    ${VIEW_PATIENT1}
     Wait Until Element Is Visible    ${PATIENT_DETAIL}    ${Timeout}
     Element Should Be Visible    ${PATIENT_DETAIL}
+    lumate1Resource.Wait Until The Update Icon Disappear
 
 Patient Edit Details Screen
     Wait Until Element Is Enabled    ${PATIENT_SEC}    ${Timeout}
     wait until the update icon disappear
+    Wait Until Element Is Enabled    ${PATIENT_SEC}    ${Timeout}
     Click Element    ${PATIENT_SEC}
     Wait Until Element Is Enabled    ${EDIT_PATIENT1}    ${Timeout}
     Click Element    ${EDIT_PATIENT1}
+    lumate1Resource.Wait Until The Update Icon Disappear
 
 Changing status of billing to ready to bill
 #    Click Element    ${UNBILLED_STATUS}
@@ -91,6 +96,7 @@ Changing status of billing to ready to bill
     ${COUNT}=    Get Element Count  ${DETAILED_STATUS}
     FOR     ${i}  IN RANGE      ${COUNT}
         Click Element    ${BILLING_STATUS}
+        Wait Until Element Is Enabled    ${READY_TO_BILL}    ${Timeout}
         Click Element    ${READY_TO_BILL}
         Wait Until Element Is Enabled    ${YES_FOR_STATUS_CHANGE}    ${Timeout}
         Click Element    ${YES_FOR_STATUS_CHANGE}

@@ -1,0 +1,924 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 7.0 (Python 3.8.10 on linux)" generated="2024-06-19T15:54:03.819012" rpa="false" schemaversion="5">
+<suite id="s1" name="lumateTest" source="/home/ridham/PycharmProjects/LUMATE-AUTOMATION_POC/TestCases/lumateTest.robot">
+<test id="s1-t1" name="Verify that the user is able to Log in to the Portal with correct credentials" line="19">
+<kw name="Open PMS url on browser" owner="lumate1Resource">
+<kw name="Open Browser" owner="SeleniumLibrary">
+<msg time="2024-06-19T15:54:03.981253" level="INFO">Opening browser 'chrome' to base url 'https://qa-pms.lumatehealth.com/'.</msg>
+<arg>url=${PMS_URL}</arg>
+<arg>browser=${Browser}</arg>
+<arg>options=add_experimental_option("detach", True)</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2024-06-19T15:54:03.980731" elapsed="4.664553"/>
+</kw>
+<kw name="Maximize Browser Window" owner="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" start="2024-06-19T15:54:08.646287" elapsed="0.105661"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${LOGIN_PAGE_PMS}</arg>
+<arg>15s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2024-06-19T15:54:08.752332" elapsed="3.792565"/>
+</kw>
+<status status="PASS" start="2024-06-19T15:54:03.979650" elapsed="8.565498"/>
+</kw>
+<kw name="Fill the credentials and login" owner="lumate1Resource">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${USERNAME_PATH_PMS}</arg>
+<arg>15s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2024-06-19T15:54:12.546382" elapsed="0.041027"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2024-06-19T15:54:12.588272" level="INFO">Typing text 'kalpesh' into text field 'xpath://*[@id="mat-input-0"]'.</msg>
+<arg>${USERNAME_PATH_PMS}</arg>
+<arg>${USERNAME_PMS}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2024-06-19T15:54:12.587777" elapsed="0.109481"/>
+</kw>
+<kw name="Input Password" owner="SeleniumLibrary">
+<msg time="2024-06-19T15:54:12.698021" level="INFO">Typing password into text field 'xpath://*[@id="mat-input-1"]'.</msg>
+<msg time="2024-06-19T15:54:12.734195" level="INFO">Temporally setting log level to: NONE</msg>
+<arg>${PASSWORD_PATH_PMS}</arg>
+<arg>${PASSWORD_PMS}</arg>
+<doc>Types the given password into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2024-06-19T15:54:12.697598" elapsed="0.102539"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${REMEMBER_ME_PMS}</arg>
+<arg>15s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2024-06-19T15:54:12.800528" elapsed="0.024591"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2024-06-19T15:54:12.825886" level="INFO">Clicking element 'xpath://*[@class="check remember-check"]'.</msg>
+<arg>${REMEMBER_ME_PMS}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2024-06-19T15:54:12.825469" elapsed="0.052467"/>
+</kw>
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2024-06-19T15:54:12.878767" level="INFO">Clicking button 'xpath://*[@class="mat-focus-indicator auth-form-btn mat-raised-button mat-button-base mat-primary"]'.</msg>
+<arg>${LOGIN_BTN_PMS}</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2024-06-19T15:54:12.878335" elapsed="0.088362"/>
+</kw>
+<status status="PASS" start="2024-06-19T15:54:12.545756" elapsed="0.421110"/>
+</kw>
+<kw name="Close Browser" owner="SeleniumLibrary" type="TEARDOWN">
+<doc>Closes the current browser.</doc>
+<status status="PASS" start="2024-06-19T15:54:12.967316" elapsed="0.076518"/>
+</kw>
+<tag>TC-PMS-001</tag>
+<status status="PASS" start="2024-06-19T15:54:03.978852" elapsed="9.065198"/>
+</test>
+<test id="s1-t2" name="Verify that the user gets redirected to enter OTP page when entered the correct credentials." line="25">
+<kw name="Open PMS url on browser" owner="lumate1Resource">
+<kw name="Open Browser" owner="SeleniumLibrary">
+<msg time="2024-06-19T15:54:13.046190" level="INFO">Opening browser 'chrome' to base url 'https://qa-pms.lumatehealth.com/'.</msg>
+<arg>url=${PMS_URL}</arg>
+<arg>browser=${Browser}</arg>
+<arg>options=add_experimental_option("detach", True)</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2024-06-19T15:54:13.045508" elapsed="4.649884"/>
+</kw>
+<kw name="Maximize Browser Window" owner="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" start="2024-06-19T15:54:17.696116" elapsed="0.101911"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${LOGIN_PAGE_PMS}</arg>
+<arg>15s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2024-06-19T15:54:17.798722" elapsed="3.822310"/>
+</kw>
+<status status="PASS" start="2024-06-19T15:54:13.045076" elapsed="8.576189"/>
+</kw>
+<kw name="Fill the credentials and login" owner="lumate1Resource">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${USERNAME_PATH_PMS}</arg>
+<arg>15s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2024-06-19T15:54:21.622845" elapsed="0.037265"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2024-06-19T15:54:21.660850" level="INFO">Typing text 'kalpesh' into text field 'xpath://*[@id="mat-input-0"]'.</msg>
+<arg>${USERNAME_PATH_PMS}</arg>
+<arg>${USERNAME_PMS}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2024-06-19T15:54:21.660458" elapsed="0.108225"/>
+</kw>
+<kw name="Input Password" owner="SeleniumLibrary">
+<msg time="2024-06-19T15:54:21.769788" level="INFO">Typing password into text field 'xpath://*[@id="mat-input-1"]'.</msg>
+<msg time="2024-06-19T15:54:21.805042" level="INFO">Temporally setting log level to: NONE</msg>
+<arg>${PASSWORD_PATH_PMS}</arg>
+<arg>${PASSWORD_PMS}</arg>
+<doc>Types the given password into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2024-06-19T15:54:21.769336" elapsed="0.103950"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${REMEMBER_ME_PMS}</arg>
+<arg>15s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2024-06-19T15:54:21.873704" elapsed="0.021920"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2024-06-19T15:54:21.896283" level="INFO">Clicking element 'xpath://*[@class="check remember-check"]'.</msg>
+<arg>${REMEMBER_ME_PMS}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2024-06-19T15:54:21.895941" elapsed="0.053542"/>
+</kw>
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2024-06-19T15:54:21.950716" level="INFO">Clicking button 'xpath://*[@class="mat-focus-indicator auth-form-btn mat-raised-button mat-button-base mat-primary"]'.</msg>
+<arg>${LOGIN_BTN_PMS}</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2024-06-19T15:54:21.949995" elapsed="0.082917"/>
+</kw>
+<status status="PASS" start="2024-06-19T15:54:21.621949" elapsed="0.411120"/>
+</kw>
+<kw name="Wait Until Element Contains" owner="SeleniumLibrary">
+<arg>${OTP_PAGE}</arg>
+<arg>Almost There</arg>
+<arg>${TIMEOUT}</arg>
+<doc>Waits until the element ``locator`` contains ``text``.</doc>
+<status status="PASS" start="2024-06-19T15:54:22.033701" elapsed="4.541336"/>
+</kw>
+<tag>TC-PMS-005</tag>
+<status status="PASS" start="2024-06-19T15:54:13.044469" elapsed="13.530858"/>
+</test>
+<test id="s1-t3" name="Verify the clinician Home Page" line="31">
+<kw name="Enter OTP and Submit it" owner="lumate1Resource">
+<kw name="Wait for OTP Email" owner="lumate1Resource">
+<kw name="Open Mailbox" owner="ImapLibrary2">
+<arg>host=${EMAIL_SERVER}</arg>
+<arg>user=${EMAIL_USERNAME}</arg>
+<arg>password=${EMAIL_PASSWORD}</arg>
+<doc>Open IMAP email client session to given ``host`` with given ``user`` and ``password``.</doc>
+<status status="PASS" start="2024-06-19T15:54:26.577420" elapsed="1.840649"/>
+</kw>
+<kw name="Wait For Email" owner="ImapLibrary2">
+<msg time="2024-06-19T15:54:39.933037" level="INFO">${email_index} = 40599</msg>
+<var>${email_index}</var>
+<arg>sender=${SENDER_USERNAME}</arg>
+<arg>status=UNSEEN</arg>
+<arg>timeout=300</arg>
+<doc>Wait for email message to arrived base on any given filter criteria.
+Returns email index of the latest email message received.</doc>
+<status status="PASS" start="2024-06-19T15:54:28.418788" elapsed="11.514323"/>
+</kw>
+<kw name="Get Email Body" owner="ImapLibrary2">
+<msg time="2024-06-19T15:54:40.448180" level="INFO">${email_body} = &lt;html xmlns="http://www.w3.org/1999/xhtml" xmlns:o="urn:schemas-microsoft-com:office:office" xmlns:v="urn:schemas-microsoft-com:vml" lang="en"&gt;&lt;head&gt;
+&lt;meta http-equiv="Content-Type" content="text/htm...</msg>
+<var>${email_body}</var>
+<arg>${email_index}</arg>
+<doc>Returns the decoded email body on multipart email message,
+otherwise returns the body text.</doc>
+<status status="PASS" start="2024-06-19T15:54:39.933434" elapsed="0.514892"/>
+</kw>
+<kw name="Get Regexp Matches" owner="String">
+<msg time="2024-06-19T15:54:40.451796" level="INFO">${otp} = ['353454', '000000', '353454', '148130', '353454', '353454', '000000', '353454', '353454', '353454', '353454', '353454', '353454', '353454', '353454', '353454', '353454']</msg>
+<var>${otp}</var>
+<arg>${email_body}</arg>
+<arg>\\b\\d{6}\\b</arg>
+<doc>Returns a list of all non-overlapping matches in the given string.</doc>
+<status status="PASS" start="2024-06-19T15:54:40.448928" elapsed="0.003040"/>
+</kw>
+<kw name="Delete Email" owner="ImapLibrary2">
+<arg>${email_index}</arg>
+<doc>Delete email on given ``email_index``.</doc>
+<status status="PASS" start="2024-06-19T15:54:40.452740" elapsed="0.824011"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2024-06-19T15:54:41.279493" level="INFO">OTP received: ['353454', '000000', '353454', '148130', '353454', '353454', '000000', '353454', '353454', '353454', '353454', '353454', '353454', '353454', '353454', '353454', '353454']</msg>
+<arg>OTP received: ${otp}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2024-06-19T15:54:41.278147" elapsed="0.001756"/>
+</kw>
+<return>
+<value>${otp}[3]</value>
+<status status="PASS" start="2024-06-19T15:54:41.280409" elapsed="0.000549"/>
+</return>
+<msg time="2024-06-19T15:54:41.282551" level="INFO">${otp} = 148130</msg>
+<var>${otp}</var>
+<status status="PASS" start="2024-06-19T15:54:26.577010" elapsed="14.705821"/>
+</kw>
+<kw name="Copy To Clipboard" owner="CustomKeywords">
+<arg>${otp}</arg>
+<status status="PASS" start="2024-06-19T15:54:41.283642" elapsed="0.071629"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<msg time="2024-06-19T15:54:41.411569" level="WARN">Keyword 'Capture Page Screenshot' could not be run on failure: Message: no such window: target window already closed
+from unknown error: web view not found
+  (Session info: chrome=125.0.6422.141)
+Stacktrace:
+#0 0x56183c7ede3a &lt;unknown&gt;
+#1 0x56183c4d745c &lt;unknown&gt;
+#2 0x56183c4aca84 &lt;unknown&gt;
+#3 0x56183c54e95d &lt;unknown&gt;
+#4 0x56183c564c76 &lt;unknown&gt;
+#5 0x56183c546253 &lt;unknown&gt;
+#6 0x56183c5161c7 &lt;unknown&gt;
+#7 0x56183c516b3e &lt;unknown&gt;
+#8 0x56183c7b427b &lt;unknown&gt;
+#9 0x56183c7b8327 &lt;unknown&gt;
+#10 0x56183c7a0dae &lt;unknown&gt;
+#11 0x56183c7b8df2 &lt;unknown&gt;
+#12 0x56183c78574f &lt;unknown&gt;
+#13 0x56183c7dd128 &lt;unknown&gt;
+#14 0x56183c7dd2fb &lt;unknown&gt;
+#15 0x56183c7ecf6c &lt;unknown&gt;
+#16 0x7f1ebee47609 start_thread
+</msg>
+<msg time="2024-06-19T15:54:41.412077" level="FAIL">NoSuchWindowException: Message: no such window: target window already closed
+from unknown error: web view not found
+  (Session info: chrome=125.0.6422.141)
+Stacktrace:
+#0 0x56183c7ede3a &lt;unknown&gt;
+#1 0x56183c4d745c &lt;unknown&gt;
+#2 0x56183c4aca84 &lt;unknown&gt;
+#3 0x56183c54e95d &lt;unknown&gt;
+#4 0x56183c564c76 &lt;unknown&gt;
+#5 0x56183c546253 &lt;unknown&gt;
+#6 0x56183c5161c7 &lt;unknown&gt;
+#7 0x56183c516b3e &lt;unknown&gt;
+#8 0x56183c7b427b &lt;unknown&gt;
+#9 0x56183c7b8327 &lt;unknown&gt;
+#10 0x56183c7a0dae &lt;unknown&gt;
+#11 0x56183c7b8df2 &lt;unknown&gt;
+#12 0x56183c78574f &lt;unknown&gt;
+#13 0x56183c7dd128 &lt;unknown&gt;
+#14 0x56183c7dd2fb &lt;unknown&gt;
+#15 0x56183c7ecf6c &lt;unknown&gt;
+#16 0x7f1ebee47609 start_thread
+</msg>
+<arg>${OTP_CLICK}</arg>
+<arg>15s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="FAIL" start="2024-06-19T15:54:41.358750" elapsed="0.078345">NoSuchWindowException: Message: no such window: target window already closed
+from unknown error: web view not found
+  (Session info: chrome=125.0.6422.141)
+Stacktrace:
+#0 0x56183c7ede3a &lt;unknown&gt;
+#1 0x56183c4d745c &lt;unknown&gt;
+#2 0x56183c4aca84 &lt;unknown&gt;
+#3 0x56183c54e95d &lt;unknown&gt;
+#4 0x56183c564c76 &lt;unknown&gt;
+#5 0x56183c546253 &lt;unknown&gt;
+#6 0x56183c5161c7 &lt;unknown&gt;
+#7 0x56183c516b3e &lt;unknown&gt;
+#8 0x56183c7b427b &lt;unknown&gt;
+#9 0x56183c7b8327 &lt;unknown&gt;
+#10 0x56183c7a0dae &lt;unknown&gt;
+#11 0x56183c7b8df2 &lt;unknown&gt;
+#12 0x56183c78574f &lt;unknown&gt;
+#13 0x56183c7dd128 &lt;unknown&gt;
+#14 0x56183c7dd2fb &lt;unknown&gt;
+#15 0x56183c7ecf6c &lt;unknown&gt;
+#16 0x7f1ebee47609 start_thread
+</status>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<arg>${OTP_CLICK}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="NOT RUN" start="2024-06-19T15:54:41.437412" elapsed="0.000049"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${OTP_PAGE}</arg>
+<arg>${TIMEOUT}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="NOT RUN" start="2024-06-19T15:54:41.437623" elapsed="0.000035"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${OTP_PMS}</arg>
+<arg>${TIMEOUT}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="NOT RUN" start="2024-06-19T15:54:41.437808" elapsed="0.000033"/>
+</kw>
+<kw name="Press Keys" owner="SeleniumLibrary">
+<arg>${OTP_PMS}</arg>
+<arg>CTRL+V</arg>
+<doc>Simulates the user pressing key(s) to an element or on the active browser.</doc>
+<status status="NOT RUN" start="2024-06-19T15:54:41.438010" elapsed="0.000057"/>
+</kw>
+<kw name="Click Button" owner="SeleniumLibrary">
+<arg>${VALIDATE_OTP_PMS}</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="NOT RUN" start="2024-06-19T15:54:41.438221" elapsed="0.000034"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<arg>2s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="NOT RUN" start="2024-06-19T15:54:41.438408" elapsed="0.000034"/>
+</kw>
+<kw name="Run Keyword And Return Status" owner="BuiltIn">
+<var>${error_exists}</var>
+<arg>Page Should Contain</arg>
+<arg>Incorrect OTP is provided. Try resending OTP.</arg>
+<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
+<status status="NOT RUN" start="2024-06-19T15:54:41.438625" elapsed="0.000035"/>
+</kw>
+<kw name="Run Keyword If" owner="BuiltIn">
+<arg>${error_exists}</arg>
+<arg>Enter OTP And Submit It</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="NOT RUN" start="2024-06-19T15:54:41.438829" elapsed="0.000034"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${HOMEPAGE_PMS}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="NOT RUN" start="2024-06-19T15:54:41.439011" elapsed="0.000032"/>
+</kw>
+<status status="FAIL" start="2024-06-19T15:54:26.576438" elapsed="14.862794">NoSuchWindowException: Message: no such window: target window already closed
+from unknown error: web view not found
+  (Session info: chrome=125.0.6422.141)
+Stacktrace:
+#0 0x56183c7ede3a &lt;unknown&gt;
+#1 0x56183c4d745c &lt;unknown&gt;
+#2 0x56183c4aca84 &lt;unknown&gt;
+#3 0x56183c54e95d &lt;unknown&gt;
+#4 0x56183c564c76 &lt;unknown&gt;
+#5 0x56183c546253 &lt;unknown&gt;
+#6 0x56183c5161c7 &lt;unknown&gt;
+#7 0x56183c516b3e &lt;unknown&gt;
+#8 0x56183c7b427b &lt;unknown&gt;
+#9 0x56183c7b8327 &lt;unknown&gt;
+#10 0x56183c7a0dae &lt;unknown&gt;
+#11 0x56183c7b8df2 &lt;unknown&gt;
+#12 0x56183c78574f &lt;unknown&gt;
+#13 0x56183c7dd128 &lt;unknown&gt;
+#14 0x56183c7dd2fb &lt;unknown&gt;
+#15 0x56183c7ecf6c &lt;unknown&gt;
+#16 0x7f1ebee47609 start_thread
+</status>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${TO-DO_HOME}</arg>
+<arg>${TIMEOUT}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="NOT RUN" start="2024-06-19T15:54:41.439573" elapsed="0.000046"/>
+</kw>
+<kw name="Element Should Contain" owner="SeleniumLibrary">
+<arg>${TO-DO_HOME}</arg>
+<arg>TO DO's</arg>
+<doc>Verifies that element ``locator`` contains text ``expected``.</doc>
+<status status="NOT RUN" start="2024-06-19T15:54:41.439869" elapsed="0.000043"/>
+</kw>
+<kw name="Element Should Contain" owner="SeleniumLibrary">
+<arg>${APPOINTMENT_HOME}</arg>
+<arg>Appointments</arg>
+<doc>Verifies that element ``locator`` contains text ``expected``.</doc>
+<status status="NOT RUN" start="2024-06-19T15:54:41.440150" elapsed="0.000041"/>
+</kw>
+<tag>TC-APP-001</tag>
+<status status="FAIL" start="2024-06-19T15:54:26.575620" elapsed="14.864882">NoSuchWindowException: Message: no such window: target window already closed
+from unknown error: web view not found
+  (Session info: chrome=125.0.6422.141)
+Stacktrace:
+#0 0x56183c7ede3a &lt;unknown&gt;
+#1 0x56183c4d745c &lt;unknown&gt;
+#2 0x56183c4aca84 &lt;unknown&gt;
+#3 0x56183c54e95d &lt;unknown&gt;
+#4 0x56183c564c76 &lt;unknown&gt;
+#5 0x56183c546253 &lt;unknown&gt;
+#6 0x56183c5161c7 &lt;unknown&gt;
+#7 0x56183c516b3e &lt;unknown&gt;
+#8 0x56183c7b427b &lt;unknown&gt;
+#9 0x56183c7b8327 &lt;unknown&gt;
+#10 0x56183c7a0dae &lt;unknown&gt;
+#11 0x56183c7b8df2 &lt;unknown&gt;
+#12 0x56183c78574f &lt;unknown&gt;
+#13 0x56183c7dd128 &lt;unknown&gt;
+#14 0x56183c7dd2fb &lt;unknown&gt;
+#15 0x56183c7ecf6c &lt;unknown&gt;
+#16 0x7f1ebee47609 start_thread
+</status>
+</test>
+<test id="s1-t4" name="Verify the Calender &amp; appointments screen" line="38">
+<kw name="Wait Until the Update Icon Disappear" owner="lumate1Resource">
+<kw name="Wait Until Element Is Not Visible" owner="SeleniumLibrary">
+<msg time="2024-06-19T15:54:41.457502" level="WARN">Keyword 'Capture Page Screenshot' could not be run on failure: Message: no such window: target window already closed
+from unknown error: web view not found
+  (Session info: chrome=125.0.6422.141)
+Stacktrace:
+#0 0x56183c7ede3a &lt;unknown&gt;
+#1 0x56183c4d745c &lt;unknown&gt;
+#2 0x56183c4aca84 &lt;unknown&gt;
+#3 0x56183c54e95d &lt;unknown&gt;
+#4 0x56183c564c76 &lt;unknown&gt;
+#5 0x56183c546253 &lt;unknown&gt;
+#6 0x56183c5161c7 &lt;unknown&gt;
+#7 0x56183c516b3e &lt;unknown&gt;
+#8 0x56183c7b427b &lt;unknown&gt;
+#9 0x56183c7b8327 &lt;unknown&gt;
+#10 0x56183c7a0dae &lt;unknown&gt;
+#11 0x56183c7b8df2 &lt;unknown&gt;
+#12 0x56183c78574f &lt;unknown&gt;
+#13 0x56183c7dd128 &lt;unknown&gt;
+#14 0x56183c7dd2fb &lt;unknown&gt;
+#15 0x56183c7ecf6c &lt;unknown&gt;
+#16 0x7f1ebee47609 start_thread
+</msg>
+<msg time="2024-06-19T15:54:41.458120" level="FAIL">NoSuchWindowException: Message: no such window: target window already closed
+from unknown error: web view not found
+  (Session info: chrome=125.0.6422.141)
+Stacktrace:
+#0 0x56183c7ede3a &lt;unknown&gt;
+#1 0x56183c4d745c &lt;unknown&gt;
+#2 0x56183c4aca84 &lt;unknown&gt;
+#3 0x56183c54e95d &lt;unknown&gt;
+#4 0x56183c564c76 &lt;unknown&gt;
+#5 0x56183c546253 &lt;unknown&gt;
+#6 0x56183c5161c7 &lt;unknown&gt;
+#7 0x56183c516b3e &lt;unknown&gt;
+#8 0x56183c7b427b &lt;unknown&gt;
+#9 0x56183c7b8327 &lt;unknown&gt;
+#10 0x56183c7a0dae &lt;unknown&gt;
+#11 0x56183c7b8df2 &lt;unknown&gt;
+#12 0x56183c78574f &lt;unknown&gt;
+#13 0x56183c7dd128 &lt;unknown&gt;
+#14 0x56183c7dd2fb &lt;unknown&gt;
+#15 0x56183c7ecf6c &lt;unknown&gt;
+#16 0x7f1ebee47609 start_thread
+</msg>
+<arg>${UpdateIcon}</arg>
+<arg>60s</arg>
+<doc>Waits until the element ``locator`` is not visible.</doc>
+<status status="FAIL" start="2024-06-19T15:54:41.442145" elapsed="0.016332">NoSuchWindowException: Message: no such window: target window already closed
+from unknown error: web view not found
+  (Session info: chrome=125.0.6422.141)
+Stacktrace:
+#0 0x56183c7ede3a &lt;unknown&gt;
+#1 0x56183c4d745c &lt;unknown&gt;
+#2 0x56183c4aca84 &lt;unknown&gt;
+#3 0x56183c54e95d &lt;unknown&gt;
+#4 0x56183c564c76 &lt;unknown&gt;
+#5 0x56183c546253 &lt;unknown&gt;
+#6 0x56183c5161c7 &lt;unknown&gt;
+#7 0x56183c516b3e &lt;unknown&gt;
+#8 0x56183c7b427b &lt;unknown&gt;
+#9 0x56183c7b8327 &lt;unknown&gt;
+#10 0x56183c7a0dae &lt;unknown&gt;
+#11 0x56183c7b8df2 &lt;unknown&gt;
+#12 0x56183c78574f &lt;unknown&gt;
+#13 0x56183c7dd128 &lt;unknown&gt;
+#14 0x56183c7dd2fb &lt;unknown&gt;
+#15 0x56183c7ecf6c &lt;unknown&gt;
+#16 0x7f1ebee47609 start_thread
+</status>
+</kw>
+<status status="FAIL" start="2024-06-19T15:54:41.441731" elapsed="0.017109">NoSuchWindowException: Message: no such window: target window already closed
+from unknown error: web view not found
+  (Session info: chrome=125.0.6422.141)
+Stacktrace:
+#0 0x56183c7ede3a &lt;unknown&gt;
+#1 0x56183c4d745c &lt;unknown&gt;
+#2 0x56183c4aca84 &lt;unknown&gt;
+#3 0x56183c54e95d &lt;unknown&gt;
+#4 0x56183c564c76 &lt;unknown&gt;
+#5 0x56183c546253 &lt;unknown&gt;
+#6 0x56183c5161c7 &lt;unknown&gt;
+#7 0x56183c516b3e &lt;unknown&gt;
+#8 0x56183c7b427b &lt;unknown&gt;
+#9 0x56183c7b8327 &lt;unknown&gt;
+#10 0x56183c7a0dae &lt;unknown&gt;
+#11 0x56183c7b8df2 &lt;unknown&gt;
+#12 0x56183c78574f &lt;unknown&gt;
+#13 0x56183c7dd128 &lt;unknown&gt;
+#14 0x56183c7dd2fb &lt;unknown&gt;
+#15 0x56183c7ecf6c &lt;unknown&gt;
+#16 0x7f1ebee47609 start_thread
+</status>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<arg>${APPOINTMENT_SEC}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="NOT RUN" start="2024-06-19T15:54:41.459434" elapsed="0.000116"/>
+</kw>
+<kw name="Wait Until the Update Icon Disappear" owner="lumate1Resource">
+<status status="NOT RUN" start="2024-06-19T15:54:41.460003" elapsed="0.000074"/>
+</kw>
+<kw name="verify elements of TC-APP-002 visible or not" owner="lumate1Resource">
+<status status="NOT RUN" start="2024-06-19T15:54:41.460546" elapsed="0.000074"/>
+</kw>
+<kw name="Wait Until the Update Icon Disappear" owner="lumate1Resource">
+<status status="NOT RUN" start="2024-06-19T15:54:41.460943" elapsed="0.000047"/>
+</kw>
+<kw name="Wait Until the Update Icon Disappear" owner="lumate1Resource">
+<status status="NOT RUN" start="2024-06-19T15:54:41.461253" elapsed="0.000044"/>
+</kw>
+<tag>TC-APP-002</tag>
+<status status="FAIL" start="2024-06-19T15:54:41.440998" elapsed="0.020558">NoSuchWindowException: Message: no such window: target window already closed
+from unknown error: web view not found
+  (Session info: chrome=125.0.6422.141)
+Stacktrace:
+#0 0x56183c7ede3a &lt;unknown&gt;
+#1 0x56183c4d745c &lt;unknown&gt;
+#2 0x56183c4aca84 &lt;unknown&gt;
+#3 0x56183c54e95d &lt;unknown&gt;
+#4 0x56183c564c76 &lt;unknown&gt;
+#5 0x56183c546253 &lt;unknown&gt;
+#6 0x56183c5161c7 &lt;unknown&gt;
+#7 0x56183c516b3e &lt;unknown&gt;
+#8 0x56183c7b427b &lt;unknown&gt;
+#9 0x56183c7b8327 &lt;unknown&gt;
+#10 0x56183c7a0dae &lt;unknown&gt;
+#11 0x56183c7b8df2 &lt;unknown&gt;
+#12 0x56183c78574f &lt;unknown&gt;
+#13 0x56183c7dd128 &lt;unknown&gt;
+#14 0x56183c7dd2fb &lt;unknown&gt;
+#15 0x56183c7ecf6c &lt;unknown&gt;
+#16 0x7f1ebee47609 start_thread
+</status>
+</test>
+<test id="s1-t5" name="Verify the create an appointment button" line="47">
+<kw name="Click Element" owner="SeleniumLibrary" type="SETUP">
+<msg time="2024-06-19T15:54:41.462896" level="INFO">Clicking element 'xpath://*[@id="leftsidebar"]/div/ul/div/li[2]/a'.</msg>
+<msg time="2024-06-19T15:54:41.478856" level="WARN">Keyword 'Capture Page Screenshot' could not be run on failure: Message: no such window: target window already closed
+from unknown error: web view not found
+  (Session info: chrome=125.0.6422.141)
+Stacktrace:
+#0 0x56183c7ede3a &lt;unknown&gt;
+#1 0x56183c4d745c &lt;unknown&gt;
+#2 0x56183c4aca84 &lt;unknown&gt;
+#3 0x56183c54e95d &lt;unknown&gt;
+#4 0x56183c564c76 &lt;unknown&gt;
+#5 0x56183c546253 &lt;unknown&gt;
+#6 0x56183c5161c7 &lt;unknown&gt;
+#7 0x56183c516b3e &lt;unknown&gt;
+#8 0x56183c7b427b &lt;unknown&gt;
+#9 0x56183c7b8327 &lt;unknown&gt;
+#10 0x56183c7a0dae &lt;unknown&gt;
+#11 0x56183c7b8df2 &lt;unknown&gt;
+#12 0x56183c78574f &lt;unknown&gt;
+#13 0x56183c7dd128 &lt;unknown&gt;
+#14 0x56183c7dd2fb &lt;unknown&gt;
+#15 0x56183c7ecf6c &lt;unknown&gt;
+#16 0x7f1ebee47609 start_thread
+</msg>
+<msg time="2024-06-19T15:54:41.479366" level="FAIL">NoSuchWindowException: Message: no such window: target window already closed
+from unknown error: web view not found
+  (Session info: chrome=125.0.6422.141)
+Stacktrace:
+#0 0x56183c7ede3a &lt;unknown&gt;
+#1 0x56183c4d745c &lt;unknown&gt;
+#2 0x56183c4aca84 &lt;unknown&gt;
+#3 0x56183c54e95d &lt;unknown&gt;
+#4 0x56183c564c76 &lt;unknown&gt;
+#5 0x56183c546253 &lt;unknown&gt;
+#6 0x56183c5161c7 &lt;unknown&gt;
+#7 0x56183c516b3e &lt;unknown&gt;
+#8 0x56183c7b427b &lt;unknown&gt;
+#9 0x56183c7b8327 &lt;unknown&gt;
+#10 0x56183c7a0dae &lt;unknown&gt;
+#11 0x56183c7b8df2 &lt;unknown&gt;
+#12 0x56183c78574f &lt;unknown&gt;
+#13 0x56183c7dd128 &lt;unknown&gt;
+#14 0x56183c7dd2fb &lt;unknown&gt;
+#15 0x56183c7ecf6c &lt;unknown&gt;
+#16 0x7f1ebee47609 start_thread
+</msg>
+<arg>${HOME_SEC}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="FAIL" start="2024-06-19T15:54:41.462589" elapsed="0.025066">NoSuchWindowException: Message: no such window: target window already closed
+from unknown error: web view not found
+  (Session info: chrome=125.0.6422.141)
+Stacktrace:
+#0 0x56183c7ede3a &lt;unknown&gt;
+#1 0x56183c4d745c &lt;unknown&gt;
+#2 0x56183c4aca84 &lt;unknown&gt;
+#3 0x56183c54e95d &lt;unknown&gt;
+#4 0x56183c564c76 &lt;unknown&gt;
+#5 0x56183c546253 &lt;unknown&gt;
+#6 0x56183c5161c7 &lt;unknown&gt;
+#7 0x56183c516b3e &lt;unknown&gt;
+#8 0x56183c7b427b &lt;unknown&gt;
+#9 0x56183c7b8327 &lt;unknown&gt;
+#10 0x56183c7a0dae &lt;unknown&gt;
+#11 0x56183c7b8df2 &lt;unknown&gt;
+#12 0x56183c78574f &lt;unknown&gt;
+#13 0x56183c7dd128 &lt;unknown&gt;
+#14 0x56183c7dd2fb &lt;unknown&gt;
+#15 0x56183c7ecf6c &lt;unknown&gt;
+#16 0x7f1ebee47609 start_thread
+</status>
+</kw>
+<tag>TC-APP-003</tag>
+<status status="FAIL" start="2024-06-19T15:54:41.462003" elapsed="0.026028">Setup failed:
+NoSuchWindowException: Message: no such window: target window already closed
+from unknown error: web view not found
+  (Session info: chrome=125.0.6422.141)
+Stacktrace:
+#0 0x56183c7ede3a &lt;unknown&gt;
+#1 0x56183c4d745c &lt;unknown&gt;
+#2 0x56183c4aca84 &lt;unknown&gt;
+#3 0x56183c54e95d &lt;unknown&gt;
+#4 0x56183c564c76 &lt;unknown&gt;
+#5 0x56183c546253 &lt;unknown&gt;
+#6 0x56183c5161c7 &lt;unknown&gt;
+#7 0x56183c516b3e &lt;unknown&gt;
+#8 0x56183c7b427b &lt;unknown&gt;
+#9 0x56183c7b8327 &lt;unknown&gt;
+#10 0x56183c7a0dae &lt;unknown&gt;
+#11 0x56183c7b8df2 &lt;unknown&gt;
+#12 0x56183c78574f &lt;unknown&gt;
+#13 0x56183c7dd128 &lt;unknown&gt;
+#14 0x56183c7dd2fb &lt;unknown&gt;
+#15 0x56183c7ecf6c &lt;unknown&gt;
+#16 0x7f1ebee47609 start_thread
+</status>
+</test>
+<test id="s1-t6" name="Verify View Patient" line="52">
+<kw name="Click Element" owner="SeleniumLibrary" type="SETUP">
+<msg time="2024-06-19T15:54:41.490236" level="INFO">Clicking element 'xpath://*[@id="leftsidebar"]/div/ul/div/li[2]/a'.</msg>
+<msg time="2024-06-19T15:54:41.508177" level="WARN">Keyword 'Capture Page Screenshot' could not be run on failure: Message: no such window: target window already closed
+from unknown error: web view not found
+  (Session info: chrome=125.0.6422.141)
+Stacktrace:
+#0 0x56183c7ede3a &lt;unknown&gt;
+#1 0x56183c4d745c &lt;unknown&gt;
+#2 0x56183c4aca84 &lt;unknown&gt;
+#3 0x56183c54e95d &lt;unknown&gt;
+#4 0x56183c564c76 &lt;unknown&gt;
+#5 0x56183c546253 &lt;unknown&gt;
+#6 0x56183c5161c7 &lt;unknown&gt;
+#7 0x56183c516b3e &lt;unknown&gt;
+#8 0x56183c7b427b &lt;unknown&gt;
+#9 0x56183c7b8327 &lt;unknown&gt;
+#10 0x56183c7a0dae &lt;unknown&gt;
+#11 0x56183c7b8df2 &lt;unknown&gt;
+#12 0x56183c78574f &lt;unknown&gt;
+#13 0x56183c7dd128 &lt;unknown&gt;
+#14 0x56183c7dd2fb &lt;unknown&gt;
+#15 0x56183c7ecf6c &lt;unknown&gt;
+#16 0x7f1ebee47609 start_thread
+</msg>
+<msg time="2024-06-19T15:54:41.508604" level="FAIL">NoSuchWindowException: Message: no such window: target window already closed
+from unknown error: web view not found
+  (Session info: chrome=125.0.6422.141)
+Stacktrace:
+#0 0x56183c7ede3a &lt;unknown&gt;
+#1 0x56183c4d745c &lt;unknown&gt;
+#2 0x56183c4aca84 &lt;unknown&gt;
+#3 0x56183c54e95d &lt;unknown&gt;
+#4 0x56183c564c76 &lt;unknown&gt;
+#5 0x56183c546253 &lt;unknown&gt;
+#6 0x56183c5161c7 &lt;unknown&gt;
+#7 0x56183c516b3e &lt;unknown&gt;
+#8 0x56183c7b427b &lt;unknown&gt;
+#9 0x56183c7b8327 &lt;unknown&gt;
+#10 0x56183c7a0dae &lt;unknown&gt;
+#11 0x56183c7b8df2 &lt;unknown&gt;
+#12 0x56183c78574f &lt;unknown&gt;
+#13 0x56183c7dd128 &lt;unknown&gt;
+#14 0x56183c7dd2fb &lt;unknown&gt;
+#15 0x56183c7ecf6c &lt;unknown&gt;
+#16 0x7f1ebee47609 start_thread
+</msg>
+<arg>${HOME_SEC}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="FAIL" start="2024-06-19T15:54:41.489538" elapsed="0.019293">NoSuchWindowException: Message: no such window: target window already closed
+from unknown error: web view not found
+  (Session info: chrome=125.0.6422.141)
+Stacktrace:
+#0 0x56183c7ede3a &lt;unknown&gt;
+#1 0x56183c4d745c &lt;unknown&gt;
+#2 0x56183c4aca84 &lt;unknown&gt;
+#3 0x56183c54e95d &lt;unknown&gt;
+#4 0x56183c564c76 &lt;unknown&gt;
+#5 0x56183c546253 &lt;unknown&gt;
+#6 0x56183c5161c7 &lt;unknown&gt;
+#7 0x56183c516b3e &lt;unknown&gt;
+#8 0x56183c7b427b &lt;unknown&gt;
+#9 0x56183c7b8327 &lt;unknown&gt;
+#10 0x56183c7a0dae &lt;unknown&gt;
+#11 0x56183c7b8df2 &lt;unknown&gt;
+#12 0x56183c78574f &lt;unknown&gt;
+#13 0x56183c7dd128 &lt;unknown&gt;
+#14 0x56183c7dd2fb &lt;unknown&gt;
+#15 0x56183c7ecf6c &lt;unknown&gt;
+#16 0x7f1ebee47609 start_thread
+</status>
+</kw>
+<tag>TC-PCV-001</tag>
+<status status="FAIL" start="2024-06-19T15:54:41.488682" elapsed="0.020516">Setup failed:
+NoSuchWindowException: Message: no such window: target window already closed
+from unknown error: web view not found
+  (Session info: chrome=125.0.6422.141)
+Stacktrace:
+#0 0x56183c7ede3a &lt;unknown&gt;
+#1 0x56183c4d745c &lt;unknown&gt;
+#2 0x56183c4aca84 &lt;unknown&gt;
+#3 0x56183c54e95d &lt;unknown&gt;
+#4 0x56183c564c76 &lt;unknown&gt;
+#5 0x56183c546253 &lt;unknown&gt;
+#6 0x56183c5161c7 &lt;unknown&gt;
+#7 0x56183c516b3e &lt;unknown&gt;
+#8 0x56183c7b427b &lt;unknown&gt;
+#9 0x56183c7b8327 &lt;unknown&gt;
+#10 0x56183c7a0dae &lt;unknown&gt;
+#11 0x56183c7b8df2 &lt;unknown&gt;
+#12 0x56183c78574f &lt;unknown&gt;
+#13 0x56183c7dd128 &lt;unknown&gt;
+#14 0x56183c7dd2fb &lt;unknown&gt;
+#15 0x56183c7ecf6c &lt;unknown&gt;
+#16 0x7f1ebee47609 start_thread
+</status>
+</test>
+<test id="s1-t7" name="Verify Edit Patient" line="58">
+<kw name="Click Element" owner="SeleniumLibrary" type="SETUP">
+<msg time="2024-06-19T15:54:41.511030" level="INFO">Clicking element 'xpath://*[@id="leftsidebar"]/div/ul/div/li[2]/a'.</msg>
+<msg time="2024-06-19T15:54:41.526755" level="WARN">Keyword 'Capture Page Screenshot' could not be run on failure: Message: no such window: target window already closed
+from unknown error: web view not found
+  (Session info: chrome=125.0.6422.141)
+Stacktrace:
+#0 0x56183c7ede3a &lt;unknown&gt;
+#1 0x56183c4d745c &lt;unknown&gt;
+#2 0x56183c4aca84 &lt;unknown&gt;
+#3 0x56183c54e95d &lt;unknown&gt;
+#4 0x56183c564c76 &lt;unknown&gt;
+#5 0x56183c546253 &lt;unknown&gt;
+#6 0x56183c5161c7 &lt;unknown&gt;
+#7 0x56183c516b3e &lt;unknown&gt;
+#8 0x56183c7b427b &lt;unknown&gt;
+#9 0x56183c7b8327 &lt;unknown&gt;
+#10 0x56183c7a0dae &lt;unknown&gt;
+#11 0x56183c7b8df2 &lt;unknown&gt;
+#12 0x56183c78574f &lt;unknown&gt;
+#13 0x56183c7dd128 &lt;unknown&gt;
+#14 0x56183c7dd2fb &lt;unknown&gt;
+#15 0x56183c7ecf6c &lt;unknown&gt;
+#16 0x7f1ebee47609 start_thread
+</msg>
+<msg time="2024-06-19T15:54:41.527129" level="FAIL">NoSuchWindowException: Message: no such window: target window already closed
+from unknown error: web view not found
+  (Session info: chrome=125.0.6422.141)
+Stacktrace:
+#0 0x56183c7ede3a &lt;unknown&gt;
+#1 0x56183c4d745c &lt;unknown&gt;
+#2 0x56183c4aca84 &lt;unknown&gt;
+#3 0x56183c54e95d &lt;unknown&gt;
+#4 0x56183c564c76 &lt;unknown&gt;
+#5 0x56183c546253 &lt;unknown&gt;
+#6 0x56183c5161c7 &lt;unknown&gt;
+#7 0x56183c516b3e &lt;unknown&gt;
+#8 0x56183c7b427b &lt;unknown&gt;
+#9 0x56183c7b8327 &lt;unknown&gt;
+#10 0x56183c7a0dae &lt;unknown&gt;
+#11 0x56183c7b8df2 &lt;unknown&gt;
+#12 0x56183c78574f &lt;unknown&gt;
+#13 0x56183c7dd128 &lt;unknown&gt;
+#14 0x56183c7dd2fb &lt;unknown&gt;
+#15 0x56183c7ecf6c &lt;unknown&gt;
+#16 0x7f1ebee47609 start_thread
+</msg>
+<arg>${HOME_SEC}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="FAIL" start="2024-06-19T15:54:41.510594" elapsed="0.016730">NoSuchWindowException: Message: no such window: target window already closed
+from unknown error: web view not found
+  (Session info: chrome=125.0.6422.141)
+Stacktrace:
+#0 0x56183c7ede3a &lt;unknown&gt;
+#1 0x56183c4d745c &lt;unknown&gt;
+#2 0x56183c4aca84 &lt;unknown&gt;
+#3 0x56183c54e95d &lt;unknown&gt;
+#4 0x56183c564c76 &lt;unknown&gt;
+#5 0x56183c546253 &lt;unknown&gt;
+#6 0x56183c5161c7 &lt;unknown&gt;
+#7 0x56183c516b3e &lt;unknown&gt;
+#8 0x56183c7b427b &lt;unknown&gt;
+#9 0x56183c7b8327 &lt;unknown&gt;
+#10 0x56183c7a0dae &lt;unknown&gt;
+#11 0x56183c7b8df2 &lt;unknown&gt;
+#12 0x56183c78574f &lt;unknown&gt;
+#13 0x56183c7dd128 &lt;unknown&gt;
+#14 0x56183c7dd2fb &lt;unknown&gt;
+#15 0x56183c7ecf6c &lt;unknown&gt;
+#16 0x7f1ebee47609 start_thread
+</status>
+</kw>
+<tag>TC-PCV-002</tag>
+<status status="FAIL" start="2024-06-19T15:54:41.509784" elapsed="0.017784">Setup failed:
+NoSuchWindowException: Message: no such window: target window already closed
+from unknown error: web view not found
+  (Session info: chrome=125.0.6422.141)
+Stacktrace:
+#0 0x56183c7ede3a &lt;unknown&gt;
+#1 0x56183c4d745c &lt;unknown&gt;
+#2 0x56183c4aca84 &lt;unknown&gt;
+#3 0x56183c54e95d &lt;unknown&gt;
+#4 0x56183c564c76 &lt;unknown&gt;
+#5 0x56183c546253 &lt;unknown&gt;
+#6 0x56183c5161c7 &lt;unknown&gt;
+#7 0x56183c516b3e &lt;unknown&gt;
+#8 0x56183c7b427b &lt;unknown&gt;
+#9 0x56183c7b8327 &lt;unknown&gt;
+#10 0x56183c7a0dae &lt;unknown&gt;
+#11 0x56183c7b8df2 &lt;unknown&gt;
+#12 0x56183c78574f &lt;unknown&gt;
+#13 0x56183c7dd128 &lt;unknown&gt;
+#14 0x56183c7dd2fb &lt;unknown&gt;
+#15 0x56183c7ecf6c &lt;unknown&gt;
+#16 0x7f1ebee47609 start_thread
+</status>
+</test>
+<test id="s1-t8" name="Verify the Basic details screen given under the Demographic section" line="67">
+<kw name="Click Element" owner="SeleniumLibrary" type="SETUP">
+<msg time="2024-06-19T15:54:41.528597" level="INFO">Clicking element 'xpath://*[@id="leftsidebar"]/div/ul/div/li[2]/a'.</msg>
+<msg time="2024-06-19T15:54:41.541204" level="WARN">Keyword 'Capture Page Screenshot' could not be run on failure: Message: no such window: target window already closed
+from unknown error: web view not found
+  (Session info: chrome=125.0.6422.141)
+Stacktrace:
+#0 0x56183c7ede3a &lt;unknown&gt;
+#1 0x56183c4d745c &lt;unknown&gt;
+#2 0x56183c4aca84 &lt;unknown&gt;
+#3 0x56183c54e95d &lt;unknown&gt;
+#4 0x56183c564c76 &lt;unknown&gt;
+#5 0x56183c546253 &lt;unknown&gt;
+#6 0x56183c5161c7 &lt;unknown&gt;
+#7 0x56183c516b3e &lt;unknown&gt;
+#8 0x56183c7b427b &lt;unknown&gt;
+#9 0x56183c7b8327 &lt;unknown&gt;
+#10 0x56183c7a0dae &lt;unknown&gt;
+#11 0x56183c7b8df2 &lt;unknown&gt;
+#12 0x56183c78574f &lt;unknown&gt;
+#13 0x56183c7dd128 &lt;unknown&gt;
+#14 0x56183c7dd2fb &lt;unknown&gt;
+#15 0x56183c7ecf6c &lt;unknown&gt;
+#16 0x7f1ebee47609 start_thread
+</msg>
+<msg time="2024-06-19T15:54:41.541514" level="FAIL">NoSuchWindowException: Message: no such window: target window already closed
+from unknown error: web view not found
+  (Session info: chrome=125.0.6422.141)
+Stacktrace:
+#0 0x56183c7ede3a &lt;unknown&gt;
+#1 0x56183c4d745c &lt;unknown&gt;
+#2 0x56183c4aca84 &lt;unknown&gt;
+#3 0x56183c54e95d &lt;unknown&gt;
+#4 0x56183c564c76 &lt;unknown&gt;
+#5 0x56183c546253 &lt;unknown&gt;
+#6 0x56183c5161c7 &lt;unknown&gt;
+#7 0x56183c516b3e &lt;unknown&gt;
+#8 0x56183c7b427b &lt;unknown&gt;
+#9 0x56183c7b8327 &lt;unknown&gt;
+#10 0x56183c7a0dae &lt;unknown&gt;
+#11 0x56183c7b8df2 &lt;unknown&gt;
+#12 0x56183c78574f &lt;unknown&gt;
+#13 0x56183c7dd128 &lt;unknown&gt;
+#14 0x56183c7dd2fb &lt;unknown&gt;
+#15 0x56183c7ecf6c &lt;unknown&gt;
+#16 0x7f1ebee47609 start_thread
+</msg>
+<arg>${HOME_SEC}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="FAIL" start="2024-06-19T15:54:41.528325" elapsed="0.013457">NoSuchWindowException: Message: no such window: target window already closed
+from unknown error: web view not found
+  (Session info: chrome=125.0.6422.141)
+Stacktrace:
+#0 0x56183c7ede3a &lt;unknown&gt;
+#1 0x56183c4d745c &lt;unknown&gt;
+#2 0x56183c4aca84 &lt;unknown&gt;
+#3 0x56183c54e95d &lt;unknown&gt;
+#4 0x56183c564c76 &lt;unknown&gt;
+#5 0x56183c546253 &lt;unknown&gt;
+#6 0x56183c5161c7 &lt;unknown&gt;
+#7 0x56183c516b3e &lt;unknown&gt;
+#8 0x56183c7b427b &lt;unknown&gt;
+#9 0x56183c7b8327 &lt;unknown&gt;
+#10 0x56183c7a0dae &lt;unknown&gt;
+#11 0x56183c7b8df2 &lt;unknown&gt;
+#12 0x56183c78574f &lt;unknown&gt;
+#13 0x56183c7dd128 &lt;unknown&gt;
+#14 0x56183c7dd2fb &lt;unknown&gt;
+#15 0x56183c7ecf6c &lt;unknown&gt;
+#16 0x7f1ebee47609 start_thread
+</status>
+</kw>
+<tag>TC-PCV-003</tag>
+<status status="FAIL" start="2024-06-19T15:54:41.527883" elapsed="0.014228">Setup failed:
+NoSuchWindowException: Message: no such window: target window already closed
+from unknown error: web view not found
+  (Session info: chrome=125.0.6422.141)
+Stacktrace:
+#0 0x56183c7ede3a &lt;unknown&gt;
+#1 0x56183c4d745c &lt;unknown&gt;
+#2 0x56183c4aca84 &lt;unknown&gt;
+#3 0x56183c54e95d &lt;unknown&gt;
+#4 0x56183c564c76 &lt;unknown&gt;
+#5 0x56183c546253 &lt;unknown&gt;
+#6 0x56183c5161c7 &lt;unknown&gt;
+#7 0x56183c516b3e &lt;unknown&gt;
+#8 0x56183c7b427b &lt;unknown&gt;
+#9 0x56183c7b8327 &lt;unknown&gt;
+#10 0x56183c7a0dae &lt;unknown&gt;
+#11 0x56183c7b8df2 &lt;unknown&gt;
+#12 0x56183c78574f &lt;unknown&gt;
+#13 0x56183c7dd128 &lt;unknown&gt;
+#14 0x56183c7dd2fb &lt;unknown&gt;
+#15 0x56183c7ecf6c &lt;unknown&gt;
+#16 0x7f1ebee47609 start_thread
+</status>
+</test>
+<test id="s1-t9" name="Verify billing tab" line="78">
+<kw name="Click Element" owner="SeleniumLibrary" type="SETUP">
+<msg time="2024-06-19T15:54:41.543105" level="INFO">Clicking element 'xpath://*[@id="leftsidebar"]/div/ul/div/li[2]/a'.</msg>
+<msg time="2024-06-19T15:54:41.556204" level="WARN">
